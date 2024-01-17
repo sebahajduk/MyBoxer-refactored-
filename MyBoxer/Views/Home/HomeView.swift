@@ -9,8 +9,6 @@ import UIKit
 
 final class HomeView: UIView {
 
-    let playerDetailsButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"))
-
     let healthProgress = MBProgressView(for: .hp)
     let staminaProgress = MBProgressView(for: .stamina)
     let experienceProgress = MBProgressView(for: .experience)

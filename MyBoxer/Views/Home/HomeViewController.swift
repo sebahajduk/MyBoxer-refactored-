@@ -112,6 +112,7 @@ private extension HomeViewController {
 private extension HomeViewController {
     private func setupView() {
         view = homeView
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"),style: .plain, target: self, action: #selector(pushDetailVC))
     }
 
     private func setupButtonTargets() {
@@ -132,9 +133,9 @@ extension HomeViewController {
     }
 
     func pushDetailVC() {
-        let detailVC = PlayerDetailsVC()
+        let detailVC = PlayerDetailsViewController()
 
-        detailVC.set(player: player)
+        detailVC.setupPlayer(player)
 
         detailVC.modalPresentationStyle = .overFullScreen
         detailVC.modalTransitionStyle = .crossDissolve
