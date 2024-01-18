@@ -113,7 +113,11 @@ private extension HomeViewController {
 private extension HomeViewController {
     private func setupView() {
         view = homeView
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"),style: .plain, target: self, action: #selector(pushDetailVC))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "line.3.horizontal"),
+            style: .plain,
+            target: self,
+            action: #selector(pushDetailVC))
     }
 
     private func setupButtonTargets() {
@@ -145,7 +149,7 @@ extension HomeViewController {
     }
 
     func pushTrainingVC() {
-        let trainingVC = TrainingVC(myBoxer: player)
+        let trainingVC = TrainingViewController(myBoxer: player)
 
         navigationController!.pushViewController(trainingVC, animated: true)
     }
@@ -157,13 +161,13 @@ extension HomeViewController {
     }
 
     func pushShopVC() {
-        let shopVC = ShopVC(player: player)
+        let shopVC = ShopViewController(player: player)
 
         navigationController!.pushViewController(shopVC, animated: true)
     }
 
     func pushTeamVC() {
-        let teamVC = TeamVC(player: player)
+        let teamVC = TeamViewController(player: player)
 
         navigationController!.pushViewController(teamVC, animated: true)
     }

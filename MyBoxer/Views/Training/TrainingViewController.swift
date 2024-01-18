@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrainingVC: UIViewController {
+class TrainingViewController: UIViewController {
     
     private let trainingView = TrainingView()
 
@@ -41,7 +41,7 @@ class TrainingVC: UIViewController {
     }
 }
 
-extension TrainingVC: UITableViewDataSource, UITableViewDelegate {
+extension TrainingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trainings.count
     }
