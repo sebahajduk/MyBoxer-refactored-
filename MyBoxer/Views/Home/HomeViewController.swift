@@ -95,14 +95,15 @@ private extension HomeViewController {
     func updateUI() {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            homeView.updateProgressBars(
+            homeView.updateProgressBarsFill(
                 (
                     health: Float(player.hp/player.vitality),
                     stamina: Float(player.stamina/player.fullStamina),
                     experience: Float(player.experience/player.nextLevel)
                 )
             )
-
+            
+            homeView.updateProgressBarsValue((health: player.hp, stamina: player.stamina, experience: player.experience))
             homeView.updateCoinValueTo(player.money)
         }
     }
@@ -150,7 +151,7 @@ extension HomeViewController {
     }
 
     func pushOpponentsVC() {
-        let opponentsVC = OpponentsVC(player: player)
+        let opponentsVC = OpponentsViewController(player: player)
 
         navigationController!.pushViewController(opponentsVC, animated: true)
     }

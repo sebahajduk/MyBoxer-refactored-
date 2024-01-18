@@ -9,8 +9,8 @@ import UIKit
 
 class TrainingVC: UIViewController {
     
-    let tableView = UITableView()
-    
+    private let trainingView = TrainingView()
+
     var boxer: Player!
     
     let trainings: [Training] = [
@@ -23,28 +23,21 @@ class TrainingVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        configureTableView()
     }
     
     convenience init(myBoxer: Player) {
         self.init()
+
         boxer = myBoxer
-        configureTableView()
     }
     
     private func configureTableView() {
-        view.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(TrainingCell.self, forCellReuseIdentifier: TrainingCell.reuseID)
-        tableView.rowHeight = 100
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        view = trainingView
+
+        trainingView.tableView.dataSource = self
+        trainingView.tableView.delegate = self
     }
 }
 

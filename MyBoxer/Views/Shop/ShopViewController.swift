@@ -12,13 +12,10 @@ protocol UpdateCategoryDelegate: AnyObject {
 }
 
 class ShopVC: UIViewController, UpdateCategoryDelegate {
+    private var shopView = ShopView()
     
-    var player: Player!
-    
+    private var player: Player!
     let itemCategories: [String] = ["Gloves", "Boots", "Shorts", "Wraps"]
-    let menu = MBShopMenu(frame: .zero)
-    let tableView = UITableView()
-    
     var type: ItemType = .gloves
     
     let gloves: [Item] = [
@@ -61,40 +58,20 @@ class ShopVC: UIViewController, UpdateCategoryDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        configure()
+        
+        shopView.menu.updateCategoryDelegate = self
+        setupShopView()
     }
-    
+
     func updateCategory(to type: ItemType) {
         self.type = type
-        UIView.transition(with: tableView, duration: 0.35, options: .transitionCrossDissolve, animations: { () -> Void in
-            self.tableView.reloadData()
-        })
+        
+        shopView.updateTableView()
     }
     
-    private func configure() {
-        view.addSubviews([menu, tableView])
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        menu.translatesAutoresizingMaskIntoConstraints = false
-        menu.updateCategoryDelegate = self
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        tableView.register(ShopItemCell.self, forCellReuseIdentifier: ShopItemCell.reuseID)
-        tableView.rowHeight = 100
-        
-        NSLayoutConstraint.activate([
-            menu.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            menu.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            menu.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            menu.heightAnchor.constraint(equalToConstant: 30),
-            
-            tableView.topAnchor.constraint(equalTo: menu.bottomAnchor, constant: 30),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+    func setupShopView() {
+        shopView.tableView.delegate = self
+        shopView.tableView.dataSource = self
     }
 }
 
@@ -164,10 +141,8 @@ extension ShopVC: UITableViewDelegate, UITableViewDataSource {
             return
         }
         
-        UIView.transition(with: tableView, duration: 0.35, options: .transitionCrossDissolve, animations: { () -> Void in
-            self.tableView.reloadData()
-        })
-        
+        shopView.updateTableView()
+
         player.buyItem(item)
     }
 }
