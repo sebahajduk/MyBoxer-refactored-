@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6011F1BB2B5EDC7F004A3FA0 /* FightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */; };
 		601AD101290B0CB100CFF7D0 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601AD100290B0CB100CFF7D0 /* Defaults.swift */; };
 		602065B72B599AE800E01B88 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065B62B599AE800E01B88 /* TrainingView.swift */; };
 		602065BA2B599DAB00E01B88 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065B92B599DAB00E01B88 /* ShopView.swift */; };
 		602065BD2B59A2A100E01B88 /* ItemsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065BC2B59A2A100E01B88 /* ItemsRepository.swift */; };
 		602065C02B59A3AD00E01B88 /* TeamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065BF2B59A3AD00E01B88 /* TeamRepository.swift */; };
 		602065C22B59A49100E01B88 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065C12B59A49100E01B88 /* TeamView.swift */; };
+		602065C52B59A87000E01B88 /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065C42B59A87000E01B88 /* RankView.swift */; };
 		602B046228EC8A0200BDEB3F /* TimeManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */; };
 		603C854E2901690D00368288 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603C854D2901690D00368288 /* PlayerDetailsViewController.swift */; };
 		603C855029016E9400368288 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603C854F29016E9400368288 /* ContainerView.swift */; };
@@ -29,7 +31,7 @@
 		605BD50228DB62FB0026C185 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BD50128DB62FB0026C185 /* HomeViewController.swift */; };
 		6062CCE428FEF0C90089ED9E /* TeamMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062CCE328FEF0C90089ED9E /* TeamMemberCell.swift */; };
 		6062CCEA28FF044C0089ED9E /* BoxerRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062CCE928FF044C0089ED9E /* BoxerRankCell.swift */; };
-		6062CCEC28FF07B70089ED9E /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062CCEB28FF07B70089ED9E /* RankVC.swift */; };
+		6062CCEC28FF07B70089ED9E /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062CCEB28FF07B70089ED9E /* RankViewController.swift */; };
 		60651D342917E10200CC75A4 /* FightingHitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60651D332917E10200CC75A4 /* FightingHitCell.swift */; };
 		60651D362917E5BB00CC75A4 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60651D352917E5BB00CC75A4 /* Attack.swift */; };
 		6087257628F86A43005E4296 /* college.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6087257528F86A43005E4296 /* college.ttf */; };
@@ -44,7 +46,7 @@
 		60ADD49F2B5850F6001C16DD /* PlayerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ADD49E2B5850F6001C16DD /* PlayerDetailsView.swift */; };
 		60ADD4A22B58540E001C16DD /* OpponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ADD4A12B58540E001C16DD /* OpponentsView.swift */; };
 		60B93FBB29351ACC000A50A6 /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B93FBA29351ACC000A50A6 /* RankManager.swift */; };
-		60C21AD92915418100721BD0 /* FightingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C21AD82915418100721BD0 /* FightingVC.swift */; };
+		60C21AD92915418100721BD0 /* FightingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C21AD82915418100721BD0 /* FightingViewController.swift */; };
 		60E134722927E2880032B292 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E134712927E2880032B292 /* Member.swift */; };
 		60E3AACB2908599600D8D025 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3AACA2908599600D8D025 /* Opponent.swift */; };
 		60E3AACD290859A400D8D025 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3AACC290859A400D8D025 /* Player.swift */; };
@@ -61,12 +63,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingView.swift; sourceTree = "<group>"; };
 		601AD100290B0CB100CFF7D0 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		602065B62B599AE800E01B88 /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
 		602065B92B599DAB00E01B88 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		602065BC2B59A2A100E01B88 /* ItemsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsRepository.swift; sourceTree = "<group>"; };
 		602065BF2B59A3AD00E01B88 /* TeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
 		602065C12B59A49100E01B88 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		602065C42B59A87000E01B88 /* RankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 		602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManagerLocal.swift; sourceTree = "<group>"; };
 		603C854D2901690D00368288 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		603C854F29016E9400368288 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -85,7 +89,7 @@
 		605BD50128DB62FB0026C185 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6062CCE328FEF0C90089ED9E /* TeamMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberCell.swift; sourceTree = "<group>"; };
 		6062CCE928FF044C0089ED9E /* BoxerRankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxerRankCell.swift; sourceTree = "<group>"; };
-		6062CCEB28FF07B70089ED9E /* RankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
+		6062CCEB28FF07B70089ED9E /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
 		60651D332917E10200CC75A4 /* FightingHitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingHitCell.swift; sourceTree = "<group>"; };
 		60651D352917E5BB00CC75A4 /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		6087257528F86A43005E4296 /* college.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = college.ttf; sourceTree = "<group>"; };
@@ -100,7 +104,7 @@
 		60ADD49E2B5850F6001C16DD /* PlayerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsView.swift; sourceTree = "<group>"; };
 		60ADD4A12B58540E001C16DD /* OpponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsView.swift; sourceTree = "<group>"; };
 		60B93FBA29351ACC000A50A6 /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
-		60C21AD82915418100721BD0 /* FightingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingVC.swift; sourceTree = "<group>"; };
+		60C21AD82915418100721BD0 /* FightingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingViewController.swift; sourceTree = "<group>"; };
 		60E134712927E2880032B292 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		60E3AACA2908599600D8D025 /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		60E3AACC290859A400D8D025 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -163,11 +167,27 @@
 			path = Team;
 			sourceTree = "<group>";
 		};
+		602065C32B59A84300E01B88 /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				6062CCEB28FF07B70089ED9E /* RankViewController.swift */,
+				602065C42B59A87000E01B88 /* RankView.swift */,
+			);
+			path = Rank;
+			sourceTree = "<group>";
+		};
+		602C365A2B5C1CD2003C7DB2 /* Fighting */ = {
+			isa = PBXGroup;
+			children = (
+				60C21AD82915418100721BD0 /* FightingViewController.swift */,
+				6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */,
+			);
+			path = Fighting;
+			sourceTree = "<group>";
+		};
 		604D924C28DEFCB20054934C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6062CCEB28FF07B70089ED9E /* RankVC.swift */,
-				60C21AD82915418100721BD0 /* FightingVC.swift */,
 				608FCC69291E77DB00DB14C9 /* AlertVC.swift */,
 			);
 			path = ViewControllers;
@@ -318,6 +338,8 @@
 		60ADD4992B584432001C16DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				602C365A2B5C1CD2003C7DB2 /* Fighting */,
+				602065C32B59A84300E01B88 /* Rank */,
 				602065BE2B59A34400E01B88 /* Team */,
 				602065B82B599D8600E01B88 /* Shop */,
 				602065B52B599AC500E01B88 /* Training */,
@@ -459,7 +481,7 @@
 			files = (
 				603C855029016E9400368288 /* ContainerView.swift in Sources */,
 				60F1F0A028E3507C0018AC4B /* TrainingCell.swift in Sources */,
-				60C21AD92915418100721BD0 /* FightingVC.swift in Sources */,
+				60C21AD92915418100721BD0 /* FightingViewController.swift in Sources */,
 				602065BA2B599DAB00E01B88 /* ShopView.swift in Sources */,
 				602065BD2B59A2A100E01B88 /* ItemsRepository.swift in Sources */,
 				60651D362917E5BB00CC75A4 /* Attack.swift in Sources */,
@@ -469,6 +491,7 @@
 				60E59FB328DE2E14007BBE81 /* UIViewExtension.swift in Sources */,
 				60ADD4A22B58540E001C16DD /* OpponentsView.swift in Sources */,
 				602065C22B59A49100E01B88 /* TeamView.swift in Sources */,
+				6011F1BB2B5EDC7F004A3FA0 /* FightingView.swift in Sources */,
 				60F0D23128FC75F700485EDC /* TeamViewController.swift in Sources */,
 				604EC0E028DB686200F0D344 /* Images.swift in Sources */,
 				605BD50228DB62FB0026C185 /* HomeViewController.swift in Sources */,
@@ -484,7 +507,7 @@
 				6062CCEA28FF044C0089ED9E /* BoxerRankCell.swift in Sources */,
 				60A92438292E807B003CE440 /* StatView.swift in Sources */,
 				602065C02B59A3AD00E01B88 /* TeamRepository.swift in Sources */,
-				6062CCEC28FF07B70089ED9E /* RankVC.swift in Sources */,
+				6062CCEC28FF07B70089ED9E /* RankViewController.swift in Sources */,
 				602065B72B599AE800E01B88 /* TrainingView.swift in Sources */,
 				603C854E2901690D00368288 /* PlayerDetailsViewController.swift in Sources */,
 				604D924E28DEFCFC0054934C /* TrainingViewController.swift in Sources */,
@@ -499,6 +522,7 @@
 				6087257F28F88054005E4296 /* MBCategoriesButton.swift in Sources */,
 				6062CCE428FEF0C90089ED9E /* TeamMemberCell.swift in Sources */,
 				609FFAC328F4949700B31C2D /* ShopItemCell.swift in Sources */,
+				602065C52B59A87000E01B88 /* RankView.swift in Sources */,
 				60E3AACB2908599600D8D025 /* Opponent.swift in Sources */,
 				605BD4F028DB5F9D0026C185 /* SceneDelegate.swift in Sources */,
 				60651D342917E10200CC75A4 /* FightingHitCell.swift in Sources */,

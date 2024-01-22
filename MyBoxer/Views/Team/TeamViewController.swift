@@ -11,14 +11,14 @@ protocol UpdateTeamHireAgency: AnyObject {
     func updateTeamHireAgency(to specialization: MemberType)
 }
 
-class TeamViewController: UIViewController, UpdateTeamHireAgency {
+final class TeamViewController: UIViewController {
 
     private var teamView = TeamView()
     private var teamRepository = TeamRepository()
 
     var player: Player!
-    var memberType: MemberType = .manager
-    
+    private var memberType: MemberType = .manager
+
     convenience init(player: Player) {
         self.init()
         
@@ -37,10 +37,12 @@ class TeamViewController: UIViewController, UpdateTeamHireAgency {
         teamView.tableView.delegate = self
         teamView.tableView.dataSource = self
     }
-    
+}
+
+extension TeamViewController: UpdateTeamHireAgency {
     func updateTeamHireAgency(to specialization: MemberType) {
         self.memberType = specialization
-        
+
         teamView.updateTableView()
     }
 }

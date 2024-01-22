@@ -132,7 +132,7 @@ private extension HomeViewController {
 @objc
 extension HomeViewController {
     func pushRankVC() {
-        let rankVC = RankVC()
+        let rankVC = RankViewController()
 
         navigationController!.pushViewController(rankVC, animated: true)
     }
