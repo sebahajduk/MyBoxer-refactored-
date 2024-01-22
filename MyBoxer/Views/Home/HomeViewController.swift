@@ -95,14 +95,15 @@ private extension HomeViewController {
     func updateUI() {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            homeView.updateProgressBars(
+            homeView.updateProgressBarsFill(
                 (
                     health: Float(player.hp/player.vitality),
                     stamina: Float(player.stamina/player.fullStamina),
                     experience: Float(player.experience/player.nextLevel)
                 )
             )
-
+            
+            homeView.updateProgressBarsValue((health: player.hp, stamina: player.stamina, experience: player.experience))
             homeView.updateCoinValueTo(player.money)
         }
     }
@@ -112,6 +113,11 @@ private extension HomeViewController {
 private extension HomeViewController {
     private func setupView() {
         view = homeView
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "line.3.horizontal"),
+            style: .plain,
+            target: self,
+            action: #selector(pushDetailVC))
     }
 
     private func setupButtonTargets() {
@@ -126,15 +132,15 @@ private extension HomeViewController {
 @objc
 extension HomeViewController {
     func pushRankVC() {
-        let rankVC = RankVC()
+        let rankVC = RankViewController()
 
         navigationController!.pushViewController(rankVC, animated: true)
     }
 
     func pushDetailVC() {
-        let detailVC = PlayerDetailsVC()
+        let detailVC = PlayerDetailsViewController()
 
-        detailVC.set(player: player)
+        detailVC.setupPlayer(player)
 
         detailVC.modalPresentationStyle = .overFullScreen
         detailVC.modalTransitionStyle = .crossDissolve
@@ -143,25 +149,25 @@ extension HomeViewController {
     }
 
     func pushTrainingVC() {
-        let trainingVC = TrainingVC(myBoxer: player)
+        let trainingVC = TrainingViewController(myBoxer: player)
 
         navigationController!.pushViewController(trainingVC, animated: true)
     }
 
     func pushOpponentsVC() {
-        let opponentsVC = OpponentsVC(player: player)
+        let opponentsVC = OpponentsViewController(player: player)
 
         navigationController!.pushViewController(opponentsVC, animated: true)
     }
 
     func pushShopVC() {
-        let shopVC = ShopVC(player: player)
+        let shopVC = ShopViewController(player: player)
 
         navigationController!.pushViewController(shopVC, animated: true)
     }
 
     func pushTeamVC() {
-        let teamVC = TeamVC(player: player)
+        let teamVC = TeamViewController(player: player)
 
         navigationController!.pushViewController(teamVC, animated: true)
     }

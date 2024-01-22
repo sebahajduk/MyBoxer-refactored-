@@ -7,10 +7,10 @@
 
 import UIKit
 
-class TrainingVC: UIViewController {
+class TrainingViewController: UIViewController {
     
-    let tableView = UITableView()
-    
+    private let trainingView = TrainingView()
+
     var boxer: Player!
     
     let trainings: [Training] = [
@@ -23,32 +23,25 @@ class TrainingVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        configureTableView()
     }
     
     convenience init(myBoxer: Player) {
         self.init()
+
         boxer = myBoxer
-        configureTableView()
     }
     
     private func configureTableView() {
-        view.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(TrainingCell.self, forCellReuseIdentifier: TrainingCell.reuseID)
-        tableView.rowHeight = 100
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        view = trainingView
+
+        trainingView.tableView.dataSource = self
+        trainingView.tableView.delegate = self
     }
 }
 
-extension TrainingVC: UITableViewDataSource, UITableViewDelegate {
+extension TrainingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trainings.count
     }
@@ -64,7 +57,7 @@ extension TrainingVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if TimeManagerLocal.shared.inProgres {
-            let alert = AlertVC(title: "You're training", message: AlertType.trainingInProgress)
+            let alert = AlertViewController(title: "You're training", message: AlertType.trainingInProgress)
             
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve

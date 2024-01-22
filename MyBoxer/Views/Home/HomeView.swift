@@ -9,8 +9,6 @@ import UIKit
 
 final class HomeView: UIView {
 
-    let playerDetailsButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"))
-
     let healthProgress = MBProgressView(for: .hp)
     let staminaProgress = MBProgressView(for: .stamina)
     let experienceProgress = MBProgressView(for: .experience)
@@ -45,10 +43,16 @@ extension HomeView {
         coinLabel.text = String(value)
     }
 
-    func updateProgressBars(_ value: (health: Float, stamina: Float, experience: Float)) {
-        healthProgress.setProgress(value.health, animated: true)
-        staminaProgress.setProgress(value.stamina, animated: true)
-        experienceProgress.setProgress(value.experience, animated: true)
+    func updateProgressBarsFill(_ fillPercent: (health: Float, stamina: Float, experience: Float)) {
+        healthProgress.setProgress(fillPercent.health, animated: true)
+        staminaProgress.setProgress(fillPercent.stamina, animated: true)
+        experienceProgress.setProgress(fillPercent.experience, animated: true)
+    }
+
+    func updateProgressBarsValue<T: Numeric>(_ value: (health: T, stamina: T, experience: T)) {
+        healthProgress.setValue(value.health)
+        staminaProgress.setValue(value.stamina)
+        experienceProgress.setValue(value.experience)
     }
 }
 
