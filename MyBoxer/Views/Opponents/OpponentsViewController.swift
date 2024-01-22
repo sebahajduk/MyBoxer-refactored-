@@ -101,7 +101,7 @@ extension OpponentsViewController: UITableViewDelegate, UITableViewDataSource {
             fightingVC.set(player: player, opponent: opponents[indexPath.row])
             navigationController?.pushViewController(fightingVC, animated: true)
         } else {
-            let alert = AlertVC(title: "You're exhausted", message: AlertType.youExhausted)
+            let alert = AlertViewController(title: "You're exhausted", message: AlertType.youExhausted)
 
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve

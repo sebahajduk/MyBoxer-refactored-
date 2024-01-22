@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FightingView: UIView {
+final class FightingView: UIView {
 
     private let playerImage = MBImageView(frame: .zero)
     private let playerName = MBLabel(size: 15)

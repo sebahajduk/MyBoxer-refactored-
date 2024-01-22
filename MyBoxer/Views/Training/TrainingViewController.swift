@@ -57,7 +57,7 @@ extension TrainingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if TimeManagerLocal.shared.inProgres {
-            let alert = AlertVC(title: "You're training", message: AlertType.trainingInProgress)
+            let alert = AlertViewController(title: "You're training", message: AlertType.trainingInProgress)
             
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve

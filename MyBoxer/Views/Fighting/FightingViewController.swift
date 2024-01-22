@@ -11,7 +11,7 @@ enum FightResults {
     case victory, defeat
 }
 
-class FightingViewController: UIViewController {
+final class FightingViewController: UIViewController {
 
     private var fightingView = FightingView()
 
@@ -44,13 +44,25 @@ class FightingViewController: UIViewController {
     func set(player: Player, opponent: Opponent) {
         self.player = player
         self.opponent = opponent
+    }
+}
+
+// MARK: - View setup
+private extension FightingViewController {
+    func setupView() {
+        view = fightingView
 
         fightingView.setupNames(player: player.name, opponent: opponent.name)
+
+        fightingView.updateRoundNumber(to: round)
+        fightingView.updateMovesLeft(to: moves)
+
+        fightingView.attackHistoryTableView.delegate = self
+        fightingView.attackHistoryTableView.dataSource = self
     }
 }
 
 private extension FightingViewController {
-
     func startTimer() {
         var timerCounter = 0
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] timer in
@@ -129,30 +141,20 @@ private extension FightingViewController {
     private func showResult(_ result: FightResults) {
         switch result {
         case .victory:
-            let alert = AlertVC(title: "Congratulations", message: AlertType.youWin)
+            let alert = AlertViewController(title: "Congratulations", message: AlertType.youWin)
             
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve
             
             navigationController?.present(alert, animated: true)
         case .defeat:
-            let alert = AlertVC(title: "Oopst", message: AlertType.youLose)
+            let alert = AlertViewController(title: "Oopst", message: AlertType.youLose)
             
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve
             
             navigationController?.present(alert, animated: true)
         }
-    }
-    
-    private func setupView() {
-        view = fightingView
-
-        fightingView.updateRoundNumber(to: round)
-        fightingView.updateMovesLeft(to: moves)
-
-        fightingView.attackHistoryTableView.delegate = self
-        fightingView.attackHistoryTableView.dataSource = self
     }
 }
 

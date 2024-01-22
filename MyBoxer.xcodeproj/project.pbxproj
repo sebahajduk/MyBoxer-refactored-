@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6011F1BB2B5EDC7F004A3FA0 /* FightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */; };
+		6011F1BE2B5EF0EC004A3FA0 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011F1BD2B5EF0EC004A3FA0 /* AlertView.swift */; };
 		601AD101290B0CB100CFF7D0 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601AD100290B0CB100CFF7D0 /* Defaults.swift */; };
 		602065B72B599AE800E01B88 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065B62B599AE800E01B88 /* TrainingView.swift */; };
 		602065BA2B599DAB00E01B88 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065B92B599DAB00E01B88 /* ShopView.swift */; };
@@ -38,7 +39,7 @@
 		6087257828F872A0005E4296 /* MBShopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6087257728F872A0005E4296 /* MBShopMenu.swift */; };
 		6087257F28F88054005E4296 /* MBCategoriesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6087257E28F88054005E4296 /* MBCategoriesButton.swift */; };
 		608867BF28F5C7BC003C8F78 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608867BE28F5C7BC003C8F78 /* Item.swift */; };
-		608FCC6A291E77DB00DB14C9 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FCC69291E77DB00DB14C9 /* AlertVC.swift */; };
+		608FCC6A291E77DB00DB14C9 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FCC69291E77DB00DB14C9 /* AlertViewController.swift */; };
 		609FFAC128F48F1C00B31C2D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609FFAC028F48F1B00B31C2D /* ShopViewController.swift */; };
 		609FFAC328F4949700B31C2D /* ShopItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609FFAC228F4949700B31C2D /* ShopItemCell.swift */; };
 		60A92438292E807B003CE440 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A92437292E807B003CE440 /* StatView.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingView.swift; sourceTree = "<group>"; };
+		6011F1BD2B5EF0EC004A3FA0 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		601AD100290B0CB100CFF7D0 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		602065B62B599AE800E01B88 /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
 		602065B92B599DAB00E01B88 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 		6087257728F872A0005E4296 /* MBShopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBShopMenu.swift; sourceTree = "<group>"; };
 		6087257E28F88054005E4296 /* MBCategoriesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCategoriesButton.swift; sourceTree = "<group>"; };
 		608867BE28F5C7BC003C8F78 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		608FCC69291E77DB00DB14C9 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		608FCC69291E77DB00DB14C9 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		609FFAC028F48F1B00B31C2D /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		609FFAC228F4949700B31C2D /* ShopItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemCell.swift; sourceTree = "<group>"; };
 		60A92437292E807B003CE440 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6011F1BC2B5EEFE5004A3FA0 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				608FCC69291E77DB00DB14C9 /* AlertViewController.swift */,
+				6011F1BD2B5EF0EC004A3FA0 /* AlertView.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		602065B52B599AC500E01B88 /* Training */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,14 +194,6 @@
 				6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */,
 			);
 			path = Fighting;
-			sourceTree = "<group>";
-		};
-		604D924C28DEFCB20054934C /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				608FCC69291E77DB00DB14C9 /* AlertVC.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		604EC0DB28DB676300F0D344 /* CustomViews */ = {
@@ -265,7 +268,6 @@
 			children = (
 				602065BB2B59A28E00E01B88 /* Repositories */,
 				60ADD4992B584432001C16DD /* Views */,
-				604D924C28DEFCB20054934C /* ViewControllers */,
 				60E59FB128DE2DFD007BBE81 /* Extensions */,
 				604EC0E828DB761C00F0D344 /* Managers */,
 				604EC0E328DB72F000F0D344 /* Models */,
@@ -338,6 +340,7 @@
 		60ADD4992B584432001C16DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6011F1BC2B5EEFE5004A3FA0 /* Alert */,
 				602C365A2B5C1CD2003C7DB2 /* Fighting */,
 				602065C32B59A84300E01B88 /* Rank */,
 				602065BE2B59A34400E01B88 /* Team */,
@@ -526,9 +529,10 @@
 				60E3AACB2908599600D8D025 /* Opponent.swift in Sources */,
 				605BD4F028DB5F9D0026C185 /* SceneDelegate.swift in Sources */,
 				60651D342917E10200CC75A4 /* FightingHitCell.swift in Sources */,
-				608FCC6A291E77DB00DB14C9 /* AlertVC.swift in Sources */,
+				608FCC6A291E77DB00DB14C9 /* AlertViewController.swift in Sources */,
 				60EDB89728E8B7AD00EF9747 /* MBLabel.swift in Sources */,
 				602B046228EC8A0200BDEB3F /* TimeManagerLocal.swift in Sources */,
+				6011F1BE2B5EF0EC004A3FA0 /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
