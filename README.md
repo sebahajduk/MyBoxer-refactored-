@@ -28,6 +28,3 @@ This game is made only for learning purposes. I wanted to push my skills in UIKi
 ![Zrzut ekranu 2022-11-29 o 18 11 44](https://user-images.githubusercontent.com/86189139/204611597-05518b84-961b-4bee-9afd-939776dacdbf.png) ![Zrzut ekranu 2022-11-29 o 18 08 49](https://user-images.githubusercontent.com/86189139/204611548-c3c8729c-5897-4a7d-bc09-ba8d6b69f9fb.png)
 
 ![Fighting](https://user-images.githubusercontent.com/86189139/204615513-812d0d5a-6666-4f8a-83cc-95a11035ee79.gif)
-
-
-
