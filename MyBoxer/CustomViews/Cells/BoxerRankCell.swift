@@ -28,17 +28,19 @@ class BoxerRankCell: UICollectionViewCell {
     
     func set(for boxer: Boxer, rank: Int) {
         if boxer is Opponent {
-            let opp = boxer as! Opponent
             boxerImage.image = Images.opponent
-            boxerName.text = opp.name
-            boxerRecord.text = "\(opp.record["Wins"]!)/\(opp.record["Draws"]!)/\(opp.record["Losses"]!)"
         } else if boxer is Player {
-            let player = boxer as! Player
             boxerImage.image = Images.player
-            boxerName.text = player.name
-            boxerRecord.text = "\(player.record["Wins"]!)/\(player.record["Draws"]!)/\(player.record["Losses"]!)"
         }
-        
+
+        boxerName.text = boxer.name
+
+        let wins = boxer.record["Wins"] ?? 0
+        let draws = boxer.record["Draws"] ?? 0
+        let losses = boxer.record["Losses"] ?? 0
+
+        boxerRecord.text = "\(wins)/\(draws)/\(losses)"
+
         boxerRank.text = "\(rank)"
         
         switch rank {

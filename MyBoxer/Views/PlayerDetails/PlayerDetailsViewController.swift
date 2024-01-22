@@ -30,7 +30,11 @@ class PlayerDetailsViewController: UIViewController {
         self.player = player
         playerDetailsView.statView.set(boxer: player)
 
-        playerDetailsView.playerRecord.text = "\(player.record["Wins"]!)/\(player.record["Draws"]!)/\(player.record["Losses"]!)"
+        let playerWins = player.record["Wins"] ?? 0
+        let playerDraws = player.record["Draws"] ?? 0
+        let playerLosses = player.record["Losses"] ?? 0
+
+        playerDetailsView.playerRecord.text = "\(playerWins)/\(playerDraws)/\(playerLosses)"
     }
 
     func setupButtons() {

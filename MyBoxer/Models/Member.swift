@@ -17,7 +17,7 @@ struct Member {
     let price: Int
     let type: MemberType
     
-    var image: UIImage!
+    var image: UIImage
     
     init(name: String, stats: Int, price: Int, type: MemberType) {
         self.name = name

@@ -17,7 +17,7 @@ struct Item {
     let stats: Double
     let cost: Int
     let type: ItemType
-    var image: UIImage! = Images.boxingGlove
+    var image: UIImage = Images.boxingGlove
     
     init(id: Int, name: String, stats: Double, cost: Int, type: ItemType) {
         self.id = id

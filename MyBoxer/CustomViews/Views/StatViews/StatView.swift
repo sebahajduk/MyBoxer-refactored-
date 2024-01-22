@@ -54,7 +54,10 @@ class StatView: UIView {
     }
     
     private func setValuesForPlayer() {
-        let player = boxer as! Player
+        guard
+            let player = boxer as? Player
+        else { return }
+        
         level.set(value: Double(player.currentLevel))
         moneyMultiplier.set(value: player.moneyMultiplier)
         trainingEffect.set(value: player.trainingEffect)

@@ -78,7 +78,10 @@ class Boxer: Codable {
     var record: [String: Int] = ["Wins": 0, "Draws": 0, "Losses": 0]
     
     func punch(opponent: Boxer) -> Double {
-        let punchType = punchTypes.allCases.randomElement()!
+        guard
+            let punchType = punchTypes.allCases.randomElement()
+        else { return 0.0 }
+
         let attPower = punchPower - (opponent.defence * 0.1)
         let hitChance = (punchSpeed - ((opponent.movement + opponent.footwork) * 0.1)) / punchSpeed
         
@@ -127,5 +130,4 @@ class Boxer: Codable {
             stamina = fullStamina
         }
     }
-    
 }
