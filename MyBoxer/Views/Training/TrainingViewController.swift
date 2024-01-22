@@ -47,8 +47,10 @@ extension TrainingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TrainingCell.reuseID) as! TrainingCell
-        
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: TrainingCell.reuseID) as? TrainingCell
+        else { return UITableViewCell() }
+
         cell.set(for: trainings[indexPath.row])
         
         return cell

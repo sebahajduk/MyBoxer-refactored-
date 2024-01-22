@@ -15,7 +15,7 @@ class SingleStatView: UIView {
     
     let stat = MBLabel(size: 16, color: .systemGray2)
     var statValue = MBLabel(size: 16, color: .systemGray2, alignment: .right)
-    var value: Double!
+    var value: Double = 0.0
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -34,7 +34,7 @@ class SingleStatView: UIView {
     
     func set(value: Double) {
         self.value = value
-        statValue.text = "\(self.value!)"
+        statValue.text = "\(value)"
     }
     
     private func configure(statType: Stats) {

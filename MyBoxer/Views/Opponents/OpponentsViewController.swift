@@ -38,20 +38,20 @@ private extension OpponentsViewController {
         switch player.division {
         case .lightweight:
             for boxer in Boxers.lightweightBoxers {
-                if boxer is Opponent {
-                    opponents.append(boxer as! Opponent)
+                if let opponent = boxer as? Opponent {
+                    opponents.append(opponent)
                 }
             }
         case .middleweight:
             for boxer in Boxers.middleweightBoxers {
-                if boxer is Opponent {
-                    opponents.append(boxer as! Opponent)
+                if let opponent = boxer as? Opponent {
+                    opponents.append(opponent)
                 }
             }
         case .heavyweight:
             for boxer in Boxers.heavyweightBoxers {
-                if boxer is Opponent {
-                    opponents.append(boxer as! Opponent)
+                if let opponent = boxer as? Opponent {
+                    opponents.append(opponent)
                 }
             }
         }

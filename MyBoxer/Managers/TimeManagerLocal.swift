@@ -13,7 +13,7 @@ class TimeManagerLocal {
     
     var now = Date.now
     var endedTime: Date!
-    var timeLeft: TimeInterval! = 0.5
+    var timeLeft: TimeInterval = 0.5
     var inProgres: Bool = false {
         didSet {
             print(inProgres)
@@ -40,7 +40,7 @@ class TimeManagerLocal {
         }
     }
     
-    func getTimeLeft() -> TimeInterval! {
+    func getTimeLeft() -> TimeInterval {
         now = Date.now
         timeLeft = endedTime.timeIntervalSinceReferenceDate - now.timeIntervalSinceReferenceDate
         return timeLeft

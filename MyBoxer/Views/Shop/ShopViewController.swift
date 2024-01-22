@@ -55,7 +55,9 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ShopItemCell.reuseID) as! ShopItemCell
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: ShopItemCell.reuseID) as? ShopItemCell
+        else { return UITableViewCell() }
 
         var item: Item
         

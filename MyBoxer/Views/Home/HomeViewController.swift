@@ -64,12 +64,15 @@ private extension HomeViewController {
         if !isTimerActive {
             timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { [self] timer in
                 if TimeManagerLocal.shared.inProgres {
-                    timeLeft = TimeManagerLocal.shared.getTimeLeft()
+                    let timeLeft = TimeManagerLocal.shared.getTimeLeft()
+
                     isTimerActive = true
-                    DispatchQueue.main.async { [self] in
-                        homeView.timeProgress.setProgress(Float((timeLeft ?? 0) / Defaults.shared.actionTime), animated: true)
-                        homeView.timeLeftLabel.text = DateComponentsFormatter().string(from: timeLeft!)!
+                    homeView.timeProgress.setProgress(Float((timeLeft) / Defaults.shared.actionTime), animated: true)
+                    
+                    if let formattedTimeLeft = DateComponentsFormatter().string(from: timeLeft) {
+                        homeView.timeLeftLabel.text = formattedTimeLeft
                     }
+
                 } else {
                     if timerFiredCounter == 1500 {
                         player.homeRegeneration(intervals: 1)
@@ -134,7 +137,7 @@ extension HomeViewController {
     func pushRankVC() {
         let rankVC = RankViewController()
 
-        navigationController!.pushViewController(rankVC, animated: true)
+        navigationController?.pushViewController(rankVC, animated: true)
     }
 
     func pushDetailVC() {
@@ -145,30 +148,30 @@ extension HomeViewController {
         detailVC.modalPresentationStyle = .overFullScreen
         detailVC.modalTransitionStyle = .crossDissolve
 
-        navigationController!.present(detailVC, animated: true)
+        navigationController?.present(detailVC, animated: true)
     }
 
     func pushTrainingVC() {
         let trainingVC = TrainingViewController(myBoxer: player)
 
-        navigationController!.pushViewController(trainingVC, animated: true)
+        navigationController?.pushViewController(trainingVC, animated: true)
     }
 
     func pushOpponentsVC() {
         let opponentsVC = OpponentsViewController(player: player)
 
-        navigationController!.pushViewController(opponentsVC, animated: true)
+        navigationController?.pushViewController(opponentsVC, animated: true)
     }
 
     func pushShopVC() {
         let shopVC = ShopViewController(player: player)
 
-        navigationController!.pushViewController(shopVC, animated: true)
+        navigationController?.pushViewController(shopVC, animated: true)
     }
 
     func pushTeamVC() {
         let teamVC = TeamViewController(player: player)
 
-        navigationController!.pushViewController(teamVC, animated: true)
+        navigationController?.pushViewController(teamVC, animated: true)
     }
 }

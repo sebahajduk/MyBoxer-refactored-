@@ -164,8 +164,10 @@ extension FightingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FightingHitCell.reuseID) as! FightingHitCell
-        
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: FightingHitCell.reuseID) as? FightingHitCell
+        else { return UITableViewCell() }
+
         cell.set(for: attackHistory[indexPath.row])
         
         return cell

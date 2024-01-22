@@ -51,8 +51,10 @@ extension RankViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoxerRankCell.reuseID, for: indexPath) as! BoxerRankCell
-        
+        guard
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoxerRankCell.reuseID, for: indexPath) as? BoxerRankCell
+        else { return UICollectionViewCell() }
+
         switch collectionView.tag {
         case 0:
             let rank = Array(Boxers.lightweightBoxers.reversed())
