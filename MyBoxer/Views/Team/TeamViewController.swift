@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol UpdateTeamHireAgency: AnyObject {
-    func updateTeamHireAgency(to specialization: MemberType)
-}
-
 final class TeamViewController: UIViewController {
 
     private var teamView = TeamView()
@@ -30,19 +26,28 @@ final class TeamViewController: UIViewController {
 
         setupView()
     }
-    
-    private func setupView() {
+}
+
+private extension TeamViewController {
+    func setupView() {
         view = teamView
         teamView.tableView.delegate = self
         teamView.tableView.dataSource = self
+
+        let teamViewMenu = teamView.menu
+
+        teamViewMenu.managerButton.addAction(updateTeamHireAgency(to: .manager), for: .touchUpInside)
+        teamViewMenu.coachButton.addAction(updateTeamHireAgency(to: .coach), for: .touchUpInside)
+        teamViewMenu.cutmanButton.addAction(updateTeamHireAgency(to: .cutman), for: .touchUpInside)
+        teamViewMenu.physioButton.addAction(updateTeamHireAgency(to: .physio), for: .touchUpInside)
     }
-}
 
-extension TeamViewController: UpdateTeamHireAgency {
-    func updateTeamHireAgency(to specialization: MemberType) {
-        self.memberType = specialization
+    func updateTeamHireAgency(to specialization: MemberType) -> UIAction {
+        UIAction { [weak self] _ in
+            self?.memberType = specialization
 
-        teamView.updateTableView()
+            self?.teamView.updateTableView()
+        }
     }
 }
 

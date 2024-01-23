@@ -27,13 +27,13 @@ public class MBShopMenu: UIView {
     
     private func configure() {
         backgroundColor = .systemBackground
-        
-        addSubviews([buttonGloves, buttonBoots, buttonShorts, buttonTapes])
+        let buttons = [buttonGloves, buttonBoots, buttonShorts, buttonTapes]
 
-        buttonGloves.backgroundColor = .systemGray3
-        buttonBoots.backgroundColor = .systemGray3
-        buttonShorts.backgroundColor = .systemGray3
-        buttonTapes.backgroundColor = .systemGray3
+        addSubviews(buttons)
+
+        buttons.forEach {
+            $0.backgroundColor = .systemGray3
+        }
 
         NSLayoutConstraint.activate([
             buttonGloves.topAnchor.constraint(equalTo: topAnchor),

@@ -36,14 +36,10 @@ class TrainingCell: UITableViewCell {
     }
     
     private func configure() {
-        trainingName.translatesAutoresizingMaskIntoConstraints = false
-        trainingEffect.translatesAutoresizingMaskIntoConstraints = false
-        trainingStamina.translatesAutoresizingMaskIntoConstraints = false
-        bolt.translatesAutoresizingMaskIntoConstraints = false
-        
         bolt.tintColor = .systemMint
         
         addSubviews([trainingImage, trainingName, trainingEffect, trainingStamina, bolt])
+        
         NSLayoutConstraint.activate([
             trainingImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             trainingImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -71,5 +67,4 @@ class TrainingCell: UITableViewCell {
             bolt.widthAnchor.constraint(equalToConstant: 15)
         ])
     }
-
 }

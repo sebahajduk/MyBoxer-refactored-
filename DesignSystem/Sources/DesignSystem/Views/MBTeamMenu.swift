@@ -10,10 +10,10 @@ import UIKit
 @available(iOS 16.0, *)
 public class MBTeamMenu: UIView {
 
-    let managerButton = MBCategoriesButton(type: .manager)
-    let coachButton = MBCategoriesButton(type: .coach)
-    let cutmanButton = MBCategoriesButton(type: .cutman)
-    let physioButton = MBCategoriesButton(type: .physio)
+    public let managerButton = MBCategoriesButton(type: .manager)
+    public let coachButton = MBCategoriesButton(type: .coach)
+    public let cutmanButton = MBCategoriesButton(type: .cutman)
+    public let physioButton = MBCategoriesButton(type: .physio)
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,8 +46,5 @@ public class MBTeamMenu: UIView {
             physioButton.topAnchor.constraint(equalTo: topAnchor),
             physioButton.leadingAnchor.constraint(equalTo: cutmanButton.trailingAnchor, constant: 11),
         ])
-        
-        translatesAutoresizingMaskIntoConstraints = false
     }
-    
 }

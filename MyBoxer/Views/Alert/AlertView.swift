@@ -10,7 +10,7 @@ import DesignSystem
 
 class AlertView: UIView {
     
-    private let container = ContainerView()
+    private let container = ContainerView(frame: .zero)
 
     private(set) var alertTitle = MBLabel(size: 20)
     private(set) var alertMessage = MBLabel(size: 15)
@@ -18,6 +18,8 @@ class AlertView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
+
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -34,12 +36,12 @@ private extension AlertView {
         alertTitle.textAlignment = .center
         alertMessage.textAlignment = .center
 
-        button.translatesAutoresizingMaskIntoConstraints = false
-
         button.backgroundColor = .systemGray3
         button.tintColor = .systemBackground
         button.setTitle("OK", for: .normal)
         button.layer.cornerRadius = 5
+
+        setupViewConstraints()
     }
 
     func setupViewConstraints() {

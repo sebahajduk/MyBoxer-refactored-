@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 16.0, *)
 public class ContainerView: UIView {
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: .zero)
         
         configure()
