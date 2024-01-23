@@ -102,7 +102,7 @@
 		60F0D23028FC75F700485EDC /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		60F1F09F28E3507C0018AC4B /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		60F1F0A128E356860018AC4B /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
-		60F357662B60300300C51F94 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = ../DesignSystem; sourceTree = "<group>"; };
+		60F357672B6032E800C51F94 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +229,7 @@
 		605BD4E128DB5F9D0026C185 = {
 			isa = PBXGroup;
 			children = (
-				60F357662B60300300C51F94 /* DesignSystem */,
+				60F357672B6032E800C51F94 /* DesignSystem */,
 				605BD4EC28DB5F9D0026C185 /* MyBoxer */,
 				605BD4EB28DB5F9D0026C185 /* Products */,
 			);
