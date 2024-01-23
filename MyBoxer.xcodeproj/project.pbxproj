@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -52,6 +52,7 @@
 		60F0D23128FC75F700485EDC /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F0D23028FC75F700485EDC /* TeamViewController.swift */; };
 		60F1F0A028E3507C0018AC4B /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F1F09F28E3507C0018AC4B /* TrainingCell.swift */; };
 		60F1F0A228E356860018AC4B /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F1F0A128E356860018AC4B /* Training.swift */; };
+		60F3576A2B60360300C51F94 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 60F357692B60360300C51F94 /* DesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F3576A2B60360300C51F94 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +356,9 @@
 			dependencies = (
 			);
 			name = MyBoxer;
+			packageProductDependencies = (
+				60F357692B60360300C51F94 /* DesignSystem */,
+			);
 			productName = MyBoxer;
 			productReference = 605BD4EA28DB5F9D0026C185 /* MyBoxer.app */;
 			productType = "com.apple.product-type.application";
@@ -382,6 +387,9 @@
 				Base,
 			);
 			mainGroup = 605BD4E128DB5F9D0026C185;
+			packageReferences = (
+				60F357682B60360300C51F94 /* XCLocalSwiftPackageReference "DesignSystem" */,
+			);
 			productRefGroup = 605BD4EB28DB5F9D0026C185 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -660,6 +668,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		60F357682B60360300C51F94 /* XCLocalSwiftPackageReference "DesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = DesignSystem;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		60F357692B60360300C51F94 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 605BD4E228DB5F9D0026C185 /* Project object */;
 }

@@ -15,40 +15,14 @@ public class MBTeamMenu: UIView {
     let cutmanButton = MBCategoriesButton(type: .cutman)
     let physioButton = MBCategoriesButton(type: .physio)
     
-    var updateTeamHireAgencyDelegate: UpdateTeamHireAgency? = nil
-    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
         configure()
-        configureButtons()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc func managerButtonTapped() {
-        updateTeamHireAgencyDelegate?.updateTeamHireAgency(to: .manager)
-    }
-    
-    @objc func coachButtonTapped() {
-        updateTeamHireAgencyDelegate?.updateTeamHireAgency(to: .coach)
-    }
-    
-    @objc func cutmanButtonTapped() {
-        updateTeamHireAgencyDelegate?.updateTeamHireAgency(to: .cutman)
-    }
-    
-    @objc func physioButtonTapped() {
-        updateTeamHireAgencyDelegate?.updateTeamHireAgency(to: .physio)
-    }
-    
-    private func configureButtons() {
-        managerButton.addTarget(self, action: #selector(managerButtonTapped), for: .touchUpInside)
-        coachButton.addTarget(self, action: #selector(coachButtonTapped), for: .touchUpInside)
-        cutmanButton.addTarget(self, action: #selector(cutmanButtonTapped), for: .touchUpInside)
-        physioButton.addTarget(self, action: #selector(physioButtonTapped), for: .touchUpInside)
     }
     
     private func configure() {

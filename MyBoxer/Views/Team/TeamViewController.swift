@@ -28,7 +28,6 @@ final class TeamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        teamView.menu.updateTeamHireAgencyDelegate = self
         setupView()
     }
     

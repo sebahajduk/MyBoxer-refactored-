@@ -10,48 +10,24 @@ import UIKit
 @available(iOS 16.0, *)
 public class MBShopMenu: UIView {
 
-    let buttonGloves = MBCategoriesButton(type: .gloves)
-    let buttonBoots = MBCategoriesButton(type: .boots)
-    let buttonShorts = MBCategoriesButton(type: .shorts)
-    let buttonTapes = MBCategoriesButton(type: .tapes)
-    
-    var updateCategoryDelegate: UpdateCategoryDelegate? = nil
+    public let buttonGloves = MBCategoriesButton(type: .gloves)
+    public let buttonBoots = MBCategoriesButton(type: .boots)
+    public let buttonShorts = MBCategoriesButton(type: .shorts)
+    public let buttonTapes = MBCategoriesButton(type: .tapes)
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+
         configure()
-        configureButtons()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func glovesTapped() {
-        updateCategoryDelegate?.updateCategory(to: .gloves)
-    }
-    
-    @objc func bootsTapped() {
-        updateCategoryDelegate?.updateCategory(to: .boots)
-    }
-    
-    @objc func shortsTapped() {
-        updateCategoryDelegate?.updateCategory(to: .shorts)
-    }
-    
-    @objc func tapesTapped() {
-        updateCategoryDelegate?.updateCategory(to: .tapes)
-    }
-    
-    private func configureButtons() {
-        buttonGloves.addTarget(self, action: #selector(glovesTapped), for: .touchUpInside)
-        buttonBoots.addTarget(self, action: #selector(bootsTapped), for: .touchUpInside)
-        buttonShorts.addTarget(self, action: #selector(shortsTapped), for: .touchUpInside)
-        buttonTapes.addTarget(self, action: #selector(tapesTapped), for: .touchUpInside)
-    }
-    
     private func configure() {
+        backgroundColor = .systemBackground
+        
         addSubviews([buttonGloves, buttonBoots, buttonShorts, buttonTapes])
 
         buttonGloves.backgroundColor = .systemGray3
@@ -74,5 +50,4 @@ public class MBShopMenu: UIView {
         ])
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
 }

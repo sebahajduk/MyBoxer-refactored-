@@ -33,7 +33,7 @@ public class SingleStatView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(value: Double) {
+    public func set(value: Double) {
         self.value = value
         statValue.text = "\(value)"
     }

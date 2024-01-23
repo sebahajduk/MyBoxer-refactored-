@@ -6,10 +6,7 @@
 //
 
 import UIKit
-
-protocol UpdateCategoryDelegate: AnyObject {
-    func updateCategory(to category: ItemType)
-}
+import DesignSystem
 
 class ShopViewController: UIViewController {
     private var shopView = ShopView()
@@ -30,7 +27,6 @@ class ShopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shopView.menu.updateCategoryDelegate = self
         setupShopView()
     }
 
@@ -41,7 +37,7 @@ class ShopViewController: UIViewController {
     }
 }
 
-extension ShopViewController: UpdateCategoryDelegate {
+extension ShopViewController {
     func updateCategory(to type: ItemType) {
         self.type = type
 

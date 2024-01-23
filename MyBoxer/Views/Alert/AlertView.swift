@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import DesignSystem
 
 class AlertView: UIView {
     
-    private let container = ContainerView(frame: .zero)
+    private let container = ContainerView()
 
     private(set) var alertTitle = MBLabel(size: 20)
     private(set) var alertMessage = MBLabel(size: 15)
