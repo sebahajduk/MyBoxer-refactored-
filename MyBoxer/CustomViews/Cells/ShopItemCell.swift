@@ -38,7 +38,9 @@ class ShopItemCell: UITableViewCell {
         itemName.text = item.name
         itemPrice.text = "\(item.cost)"
         itemImage.image = item.image
-        
+        itemImage.layer.magnificationFilter = CALayerContentsFilter.nearest
+        itemImage.layer.shouldRasterize = true
+
         switch item.type {
         case .gloves:
             itemStats.text = "Punch power +\(item.stats)"
