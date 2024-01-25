@@ -7,9 +7,17 @@
 
 import UIKit
 
+protocol HomeViewable {
+    func updateCoinValueTo(_ value: Int)
+    func updateProgressBarsFill(_ fillPercent: (health: Float, stamina: Float, experience: Float))
+    func updateProgressBarsValue<T: Numeric>(_ value: (health: T, stamina: T, experience: T))
+}
+
 final class HomeViewController: UIViewController {
 
     private var homeView = HomeView()
+
+    var presenter: HomePresentable?
 
     private var player = Player()
 
@@ -120,58 +128,53 @@ private extension HomeViewController {
             image: UIImage(systemName: "line.3.horizontal"),
             style: .plain,
             target: self,
-            action: #selector(pushDetailVC))
+            action: #selector(detailButtonTapped))
     }
 
     private func setupButtonTargets() {
-        homeView.trainingButton.addTarget(self, action: #selector(pushTrainingVC), for: .touchUpInside)
-        homeView.fightButton.addTarget(self, action: #selector(pushOpponentsVC), for: .touchUpInside)
-        homeView.shopButton.addTarget(self, action: #selector(pushShopVC), for: .touchUpInside)
-        homeView.teamButton.addTarget(self, action: #selector(pushTeamVC), for: .touchUpInside)
-        homeView.rankButton.addTarget(self, action: #selector(pushRankVC), for: .touchUpInside)
+        homeView.trainingButton.addTarget(self, action: #selector(trainingButtonTapped), for: .touchUpInside)
+        homeView.fightButton.addTarget(self, action: #selector(opponentsButtonTapped), for: .touchUpInside)
+        homeView.shopButton.addTarget(self, action: #selector(shopButtonTapped), for: .touchUpInside)
+        homeView.teamButton.addTarget(self, action: #selector(teamButtonTapped), for: .touchUpInside)
+        homeView.rankButton.addTarget(self, action: #selector(rankButtonTapped), for: .touchUpInside)
     }
 }
 
 @objc
 extension HomeViewController {
-    func pushRankVC() {
-        let rankVC = RankViewController()
+    func rankButtonTapped() {
+        guard let navigationController else { return }
 
-        navigationController?.pushViewController(rankVC, animated: true)
+        presenter?.rankButtonTapped(navigationController)
     }
 
-    func pushDetailVC() {
-        let detailVC = PlayerDetailsViewController()
+    func detailButtonTapped() {
+        guard let navigationController else { return }
 
-        detailVC.setupPlayer(player)
-
-        detailVC.modalPresentationStyle = .overFullScreen
-        detailVC.modalTransitionStyle = .crossDissolve
-
-        navigationController?.present(detailVC, animated: true)
+        presenter?.detailsButtonTapped(navigationController)
     }
 
-    func pushTrainingVC() {
-        let trainingVC = TrainingViewController(myBoxer: player)
+    func trainingButtonTapped() {
+        guard let navigationController else { return }
 
-        navigationController?.pushViewController(trainingVC, animated: true)
+        presenter?.trainingButtonTapped(navigationController)
     }
 
-    func pushOpponentsVC() {
-        let opponentsVC = OpponentsViewController(player: player)
+    func opponentsButtonTapped() {
+        guard let navigationController else { return }
 
-        navigationController?.pushViewController(opponentsVC, animated: true)
+        presenter?.opponentsButtonTapped(navigationController)
     }
 
-    func pushShopVC() {
-        let shopVC = ShopViewController(player: player)
+    func shopButtonTapped() {
+        guard let navigationController else { return }
 
-        navigationController?.pushViewController(shopVC, animated: true)
+        presenter?.shopButtonTapped(navigationController)
     }
 
-    func pushTeamVC() {
-        let teamVC = TeamViewController(player: player)
+    func teamButtonTapped() {
+        guard let navigationController else { return }
 
-        navigationController?.pushViewController(teamVC, animated: true)
+        presenter?.teamButtonTapped(navigationController)
     }
 }
