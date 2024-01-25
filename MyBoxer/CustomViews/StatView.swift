@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DesignSystem
 
 class StatView: UIView {
     
