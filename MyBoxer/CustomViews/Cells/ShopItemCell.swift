@@ -6,8 +6,7 @@
 //
 
 import UIKit
-
-
+import DesignSystem
 
 class ShopItemCell: UITableViewCell {
     

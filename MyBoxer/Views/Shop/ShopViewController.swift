@@ -6,16 +6,12 @@
 //
 
 import UIKit
-
-protocol UpdateCategoryDelegate: AnyObject {
-    func updateCategory(to category: ItemType)
-}
+import DesignSystem
 
 class ShopViewController: UIViewController {
     private var shopView = ShopView()
     
     private var player: Player!
-    let itemCategories: [String] = ["Gloves", "Boots", "Shorts", "Wraps"]
     private let itemsRepository = ItemsRepository()
 
     var type: ItemType = .gloves
@@ -30,22 +26,30 @@ class ShopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shopView.menu.updateCategoryDelegate = self
         setupShopView()
-    }
-
-    func setupShopView() {
-        view = shopView
-        shopView.tableView.delegate = self
-        shopView.tableView.dataSource = self
     }
 }
 
-extension ShopViewController: UpdateCategoryDelegate {
-    func updateCategory(to type: ItemType) {
-        self.type = type
+private extension ShopViewController {
+    private func setupShopView() {
+        view = shopView
+        shopView.tableView.delegate = self
+        shopView.tableView.dataSource = self
 
-        shopView.updateTableView()
+        let shopViewMenu = shopView.menu
+
+        shopViewMenu.buttonGloves.addAction(updateCategory(to: .gloves), for: .touchUpInside)
+        shopViewMenu.buttonBoots.addAction(updateCategory(to: .boots), for: .touchUpInside)
+        shopViewMenu.buttonShorts.addAction(updateCategory(to: .shorts), for: .touchUpInside)
+        shopViewMenu.buttonTapes.addAction(updateCategory(to: .tapes), for: .touchUpInside)
+    }
+
+    func updateCategory(to type: ItemType) -> UIAction {
+        UIAction { [weak self] _ in
+            self?.type = type
+
+            self?.shopView.updateTableView()
+        }
     }
 }
 
@@ -82,7 +86,7 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var item: Item
         

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DesignSystem
 
 class ShopView: UIView {
     
@@ -31,6 +32,7 @@ extension ShopView {
         })
     }
 }
+
 private extension ShopView {
     func setupView() {
         backgroundColor = .systemBackground
