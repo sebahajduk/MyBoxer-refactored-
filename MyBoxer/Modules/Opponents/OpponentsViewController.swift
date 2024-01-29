@@ -8,63 +8,44 @@
 import UIKit
 
 final class OpponentsViewController: UIViewController {
+    var presenter: ViewToPresenterOpponentsModuleProtocol?
     
     private var opponentsView = OpponentsView()
-    var player: Player!
-
-    var opponents: [Opponent] = []
+    private var player: Player!
+    private var opponents: [Opponent] = []
 
     convenience init(player: Player) {
         self.init()
+        
         self.player = player
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupData()
+
+        presenter?.setupOpponents(for: player)
         setupView()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            opponentsView.tableView.reloadData()
-        }
+        super.viewWillAppear(animated)
+
+        opponentsView.tableView.reloadData()
     }
 }
 
 private extension OpponentsViewController {
-    func configureOpponents() {
-        switch player.division {
-        case .lightweight:
-            for boxer in Boxers.lightweightBoxers {
-                if let opponent = boxer as? Opponent {
-                    opponents.append(opponent)
-                }
-            }
-        case .middleweight:
-            for boxer in Boxers.middleweightBoxers {
-                if let opponent = boxer as? Opponent {
-                    opponents.append(opponent)
-                }
-            }
-        case .heavyweight:
-            for boxer in Boxers.heavyweightBoxers {
-                if let opponent = boxer as? Opponent {
-                    opponents.append(opponent)
-                }
-            }
-        }
-    }
-
     func setupView() {
         view = opponentsView
         opponentsView.tableView.delegate = self
         opponentsView.tableView.dataSource = self
     }
+}
 
-    func setupData() {
-        configureOpponents()
+extension OpponentsViewController: PresenterToViewOpponentsModuleProtocol {
+    func setupOpponentsSucceeded(list: [Opponent]) {
+        self.opponents = list
+        opponentsView.tableView.reloadData()
     }
 }
 
@@ -89,24 +70,17 @@ extension OpponentsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let fightingVC = FightingViewController()
-
         let opponentName = opponents[indexPath.row].name
 
         if player.defeatedOpponents.contains(where: {$0 == opponentName}) {
             return
         }
 
-        if player.hp > 50 {
-            fightingVC.set(player: player, opponent: opponents[indexPath.row])
-            navigationController?.pushViewController(fightingVC, animated: true)
-        } else {
-            let alert = AlertViewController(title: "You're exhausted", message: AlertType.youExhausted)
-
-            alert.modalPresentationStyle = .overFullScreen
-            alert.modalTransitionStyle = .crossDissolve
-
-            navigationController?.present(alert, animated: true)
-        }
+        guard let navigationController else { return }
+        presenter?.didSelect(
+            opponent: opponents[indexPath.row],
+            vs: player,
+            navigationController
+        )
     }
 }

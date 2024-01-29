@@ -7,17 +7,10 @@
 
 import UIKit
 
-protocol HomeViewable {
-    func updateCoinValueTo(_ value: Int)
-    func updateProgressBarsFill(_ fillPercent: (health: Float, stamina: Float, experience: Float))
-    func updateProgressBarsValue<T: Numeric>(_ value: (health: T, stamina: T, experience: T))
-}
-
 final class HomeViewController: UIViewController {
-
     private var homeView = HomeView()
 
-    var presenter: HomePresentable?
+    var presenter: ViewToPresenterHomeModuleProtocol?
 
     private var player = Player()
 
@@ -140,6 +133,20 @@ private extension HomeViewController {
     }
 }
 
+extension HomeViewController: PresenterToViewHomeModuleProtocol {
+    func updateCoinValueTo(_ value: Int) {
+
+    }
+
+    func updateProgressBarsFill(_ fillPercent: (health: Float, stamina: Float, experience: Float)) {
+
+    }
+
+    func updateProgressBarsValue<T>(_ value: (health: T, stamina: T, experience: T)) where T : Numeric {
+
+    }
+}
+
 @objc
 extension HomeViewController {
     func rankButtonTapped() {
@@ -163,7 +170,10 @@ extension HomeViewController {
     func opponentsButtonTapped() {
         guard let navigationController else { return }
 
-        presenter?.opponentsButtonTapped(navigationController)
+        presenter?.opponentsButtonTapped(
+            navigationController,
+            player: player
+        )
     }
 
     func shopButtonTapped() {

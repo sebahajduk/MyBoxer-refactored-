@@ -7,16 +7,7 @@
 
 import UIKit
 
-protocol HomeRoutable {
-    func presentDetails(_ navigationController: UINavigationController)
-    func pushRank(_ navigationController: UINavigationController)
-    func pushTraining(_ navigationController: UINavigationController)
-    func pushOpponent(_ navigationController: UINavigationController)
-    func pushShop(_ navigationController: UINavigationController)
-    func pushTeam(_ navigationController: UINavigationController)
-}
-
-final class HomeRouter: HomeRoutable {
+final class HomeRouter: PresenterToRouterHomeModuleProtocol {
     func presentDetails(_ navigationController: UINavigationController) {
         let detailVC = PlayerDetailsViewController()
 
@@ -38,10 +29,14 @@ final class HomeRouter: HomeRoutable {
         navigationController.pushViewController(trainingVC, animated: true)
     }
     
-    func pushOpponent(_ navigationController: UINavigationController) {
-        let opponentsVC = OpponentsViewController()
+    func pushOpponent(
+        _ navigationController: UINavigationController,
+        player: Player
+    ) {
+        let configurator = OpponentsConfigurator()
+        let viewController = configurator.setupViewController(with:player)
 
-        navigationController.pushViewController(opponentsVC, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func pushShop(_ navigationController: UINavigationController) {

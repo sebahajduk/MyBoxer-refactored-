@@ -78,7 +78,6 @@ class Player: Boxer {
             experienceGained(points: opponent.vitality)
             defeatedOpponents.append(opponent.name)
             
-            
             if let oldWinsRecord = record["Wins"] {
                 let newWinsRecord = oldWinsRecord + 1
                 record.updateValue(newWinsRecord, forKey: "Wins")
@@ -151,7 +150,6 @@ class Player: Boxer {
         experience -= nextLevel
         nextLevel += 100 * Double(currentLevel)
         currentLevel += 1
-        name = "My Boxer"
         
         if currentLevel % 3 == 0 {
             vitality += 10
@@ -225,5 +223,4 @@ class Player: Boxer {
         try container.encode(defeatedOpponents, forKey: .defeatedOpponents)
         try container.encode(equipment, forKey: .equipment)
     }
-    
 }

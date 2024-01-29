@@ -7,22 +7,13 @@
 
 import UIKit
 
-protocol HomePresentable {
-    func rankButtonTapped(_ navigationController: UINavigationController)
-    func detailsButtonTapped(_ navigationController: UINavigationController)
-    func trainingButtonTapped(_ navigationController: UINavigationController)
-    func opponentsButtonTapped(_ navigationController: UINavigationController)
-    func shopButtonTapped(_ navigationController: UINavigationController)
-    func teamButtonTapped(_ navigationController: UINavigationController)
-}
-
 final class HomePresenter {
-    var view: HomeViewController?
-    var interactor: HomeInteractor?
-    var router: HomeRoutable?
+    weak var view: PresenterToViewHomeModuleProtocol?
+    var interactor: PresenterToInteractorHomeModuleProtocol?
+    var router: PresenterToRouterHomeModuleProtocol?
 }
 
-extension HomePresenter: HomePresentable {
+extension HomePresenter: ViewToPresenterHomeModuleProtocol {
     func rankButtonTapped(_ navigationController: UINavigationController) {
         router?.pushRank(navigationController)
     }
@@ -35,8 +26,8 @@ extension HomePresenter: HomePresentable {
         router?.pushTraining(navigationController)
     }
 
-    func opponentsButtonTapped(_ navigationController: UINavigationController) {
-        router?.pushOpponent(navigationController)
+    func opponentsButtonTapped(_ navigationController: UINavigationController, player: Player) {
+        router?.pushOpponent(navigationController, player: player)
     }
 
     func shopButtonTapped(_ navigationController: UINavigationController) {
@@ -47,3 +38,5 @@ extension HomePresenter: HomePresentable {
         router?.pushShop(navigationController)
     }
 }
+
+extension HomePresenter: InteractorToPresenterHomeModuleProtocol { }

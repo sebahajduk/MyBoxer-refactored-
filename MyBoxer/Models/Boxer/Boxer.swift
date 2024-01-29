@@ -84,44 +84,43 @@ class Boxer: Codable {
 
         let attPower = punchPower - (opponent.defence * 0.1)
         let hitChance = (punchSpeed - ((opponent.movement + opponent.footwork) * 0.1)) / punchSpeed
-        
+
+        let randomDouble = Double.random(in: 0...1)
+        var damageMultiplier = 1.0
+
         switch punchType {
         case .jab:
             // Fastest punch. It has biggest chance to hit the target, but damage is small.
-            let n = Double.random(in: 0...1)
             if stamina >= 1 { stamina -= 1 } else { return 0.00001 }
             
-            if n <= hitChance {
-                let p = Double.random(in: 0.8...1.0)
-                return attPower * p
+            if randomDouble <= hitChance {
+                damageMultiplier = Double.random(in: 0.8...1.0)
             } else {
                 return 0.0
             }
-            
+
         case .hook:
             // Medium punch. It has smaller chance to hit the target, but damage is bigger than jab.
-            let n = Double.random(in: 0...1)
             if stamina >= 3 { stamina -= 3 } else { return 0.00001 }
             
-            if n <= hitChance - 0.2 {
-                let p = Double.random(in: 0.9...1.2)
-                return attPower * p
+            if randomDouble <= hitChance - 0.2 {
+                damageMultiplier = Double.random(in: 0.9...1.2)
             } else {
                 return 0.0
             }
             
         case .uppercut:
             // Hard punch. It has the biggest damage, but it's hard to hit the target.
-            let n = Double.random(in: 0...1)
             if stamina >= 5 { stamina -= 5 } else { return 0.00001 }
             
-            if n <= hitChance - 0.4 {
-                let p = Double.random(in: 1.2...1.6)
-                return attPower * p
+            if randomDouble <= hitChance - 0.4 {
+                damageMultiplier = Double.random(in: 1.2...1.6)
             } else {
                 return 0.0
             }
         }
+
+        return attPower * damageMultiplier
     }
     
     func regeneration(multiplier: Double = 1.0) {

@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class HomeInteractor {
-    var presenter: HomePresenter?
+final class HomeInteractor: PresenterToInteractorHomeModuleProtocol {
+    weak var presenter: InteractorToPresenterHomeModuleProtocol?
 }
 
 extension HomeInteractor {

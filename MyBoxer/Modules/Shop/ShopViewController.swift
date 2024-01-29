@@ -8,14 +8,13 @@
 import UIKit
 import DesignSystem
 
-class ShopViewController: UIViewController {
+final class ShopViewController: UIViewController {
     private var shopView = ShopView()
     
     private var player: Player!
     private let itemsRepository = ItemsRepository()
 
     var type: ItemType = .gloves
-
 
     convenience init(player: Player) {
         self.init()
@@ -31,7 +30,7 @@ class ShopViewController: UIViewController {
 }
 
 private extension ShopViewController {
-    private func setupShopView() {
+    func setupShopView() {
         view = shopView
         shopView.tableView.delegate = self
         shopView.tableView.dataSource = self
