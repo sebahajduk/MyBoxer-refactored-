@@ -23,10 +23,14 @@ final class HomeRouter: PresenterToRouterHomeModuleProtocol {
         navigationController.pushViewController(rankVC, animated: true)
     }
 
-    func pushTraining(_ navigationController: UINavigationController) {
-        let trainingVC = TrainingViewController()
+    func pushTraining(
+        _ navigationController: UINavigationController,
+        player: Player
+    ) {
+        let configurator = TrainingConfigurator()
+        let viewController = configurator.setupViewController(with: player)
 
-        navigationController.pushViewController(trainingVC, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func pushOpponent(

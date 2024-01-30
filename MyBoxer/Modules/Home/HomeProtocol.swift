@@ -10,8 +10,14 @@ import UIKit
 protocol ViewToPresenterHomeModuleProtocol {
     func rankButtonTapped(_ navigationController: UINavigationController)
     func detailsButtonTapped(_ navigationController: UINavigationController)
-    func trainingButtonTapped(_ navigationController: UINavigationController)
-    func opponentsButtonTapped(_ navigationController: UINavigationController, player: Player)
+    func trainingButtonTapped(
+        _ navigationController: UINavigationController,
+        player: Player
+    )
+    func opponentsButtonTapped(
+        _ navigationController: UINavigationController,
+        player: Player
+    )
     func shopButtonTapped(_ navigationController: UINavigationController)
     func teamButtonTapped(_ navigationController: UINavigationController)
 }
@@ -27,7 +33,10 @@ protocol PresenterToInteractorHomeModuleProtocol { }
 protocol PresenterToRouterHomeModuleProtocol {
     func presentDetails(_ navigationController: UINavigationController)
     func pushRank(_ navigationController: UINavigationController)
-    func pushTraining(_ navigationController: UINavigationController)
+    func pushTraining(
+        _ navigationController: UINavigationController,
+        player: Player
+    )
     func pushOpponent(
         _ navigationController: UINavigationController,
         player: Player
@@ -36,4 +45,6 @@ protocol PresenterToRouterHomeModuleProtocol {
     func pushTeam(_ navigationController: UINavigationController)
 }
 
-protocol InteractorToPresenterHomeModuleProtocol: AnyObject { }
+protocol InteractorToPresenterHomeModuleProtocol: AnyObject { 
+    // TODO: Updating view after backend changes
+}

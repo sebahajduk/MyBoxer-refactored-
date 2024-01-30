@@ -141,14 +141,14 @@ private extension FightingViewController {
     private func showResult(_ result: FightResults) {
         switch result {
         case .victory:
-            let alert = AlertViewController(title: "Congratulations", message: AlertType.youWin)
-            
+            let alert = AlertViewController(alertType: .youWin)
+
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve
             
             navigationController?.present(alert, animated: true)
         case .defeat:
-            let alert = AlertViewController(title: "Oopst", message: AlertType.youLose)
+            let alert = AlertViewController(alertType: .youLose)
             
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve

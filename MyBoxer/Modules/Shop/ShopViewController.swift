@@ -103,15 +103,15 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if player.money < item.cost {
-            let alert = AlertViewController(title: "You do not have enough money", message: AlertType.notEnoughMoney)
-            
+            let alert = AlertViewController(alertType: .notEnoughMoney)
+
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve
             
             navigationController?.present(alert, animated: true)
             return
         } else if player.equipment.contains(where: { $0 == item.id }) {
-            let alert = AlertViewController(title: "You already have this item", message: AlertType.notEnoughMoney)
+            let alert = AlertViewController(alertType: .notEnoughMoney)
             
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve

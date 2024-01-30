@@ -26,7 +26,7 @@ extension OpponentsPresenter: ViewToPresenterOpponentsModuleProtocol {
         if player.hp > 50 {
             router?.startFightBetween(player: player, opponent: opponent, navigationController)
         } else {
-            let alert = AlertViewController(title: "You're exhausted", message: AlertType.youExhausted)
+            let alert = AlertViewController(alertType: .youExhausted)
 
             alert.modalPresentationStyle = .overFullScreen
             alert.modalTransitionStyle = .crossDissolve

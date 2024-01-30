@@ -164,7 +164,10 @@ extension HomeViewController {
     func trainingButtonTapped() {
         guard let navigationController else { return }
 
-        presenter?.trainingButtonTapped(navigationController)
+        presenter?.trainingButtonTapped(
+            navigationController,
+            player: player
+        )
     }
 
     func opponentsButtonTapped() {

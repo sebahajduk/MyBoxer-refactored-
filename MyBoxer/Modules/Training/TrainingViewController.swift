@@ -9,28 +9,24 @@ import UIKit
 
 class TrainingViewController: UIViewController {
     
+    var presenter: ViewToPresenterTrainingProtocol?
+
     private let trainingView = TrainingView()
 
-    var boxer: Player!
-    
-    let trainings: [Training] = [
-        Training(type: .shadowBoxing),
-        Training(type: .weightLifting),
-        Training(type: .jumpingRope),
-        Training(type: .ballThrow),
-        Training(type: .intervals)
-    ]
+    private var player: Player!
+    private var trainings = [Training]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        presenter?.setupData()
         configureTableView()
     }
     
-    convenience init(myBoxer: Player) {
+    convenience init(player: Player) {
         self.init()
 
-        boxer = myBoxer
+        self.player = player
     }
     
     private func configureTableView() {
@@ -41,12 +37,39 @@ class TrainingViewController: UIViewController {
     }
 }
 
+extension TrainingViewController: PresenterToViewTrainingProtocol {
+    func dismissViewController() {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func setupTableViewFor(trainings: [Training]) {
+        self.trainings = trainings
+
+        trainingView.tableView.reloadData()
+    }
+
+    func showAlert(type: AlertType) {
+        let alert = AlertViewController(alertType: type)
+
+        alert.modalPresentationStyle = .overFullScreen
+        alert.modalTransitionStyle = .crossDissolve
+
+        navigationController?.present(alert, animated: true)
+    }
+}
+
 extension TrainingViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         return trainings.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: TrainingCell.reuseID) as? TrainingCell
         else { return UITableViewCell() }
@@ -56,19 +79,11 @@ extension TrainingViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if TimeManagerLocal.shared.inProgres {
-            let alert = AlertViewController(title: "You're training", message: AlertType.trainingInProgress)
-            
-            alert.modalPresentationStyle = .overFullScreen
-            alert.modalTransitionStyle = .crossDissolve
-            
-            navigationController?.present(alert, animated: true)
-        } else {
-            TimeManagerLocal.shared.train(for: 10)
-            boxer.training(trainings[indexPath.row].type)
-        }
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        presenter?.didSelectTraining(trainings[indexPath.row], player: player)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }

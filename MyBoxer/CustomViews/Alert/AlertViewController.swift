@@ -7,14 +7,6 @@
 
 import UIKit
 
-enum AlertType {
-    static let youWin: String  = "Congratulations, you won the fight"
-    static let youLose: String = "You lose, maybe try train more"
-    static let youExhausted: String = "Give your boxer time to rest."
-    static let notEnoughMoney: String = "Win some fight to get more cash."
-    static let trainingInProgress: String = "You need to finish your training first."
-}
-
 class AlertViewController: UIViewController {
     
     private let alertView = AlertView()
@@ -25,11 +17,11 @@ class AlertViewController: UIViewController {
         setupView()
     }
     
-    convenience init(title: String, message: String) {
+    convenience init(alertType: AlertType) {
         self.init()
         
-        alertView.alertTitle.text = title
-        alertView.alertMessage.text = message
+        alertView.alertTitle.text = alertType.title
+        alertView.alertMessage.text = alertType.localizedDescription
     }
     
     private func setupView() {

@@ -22,8 +22,11 @@ extension HomePresenter: ViewToPresenterHomeModuleProtocol {
         router?.presentDetails(navigationController)
     }
 
-    func trainingButtonTapped(_ navigationController: UINavigationController) {
-        router?.pushTraining(navigationController)
+    func trainingButtonTapped(
+        _ navigationController: UINavigationController,
+        player: Player
+    ) {
+        router?.pushTraining(navigationController, player: player)
     }
 
     func opponentsButtonTapped(_ navigationController: UINavigationController, player: Player) {
