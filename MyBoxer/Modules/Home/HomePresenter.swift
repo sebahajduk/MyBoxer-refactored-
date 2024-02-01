@@ -33,12 +33,12 @@ extension HomePresenter: ViewToPresenterHomeModuleProtocol {
         router?.pushOpponent(navigationController, player: player)
     }
 
-    func shopButtonTapped(_ navigationController: UINavigationController) {
-        router?.pushShop(navigationController)
+    func shopButtonTapped(_ navigationController: UINavigationController, player: Player) {
+        router?.pushShop(navigationController, player: player)
     }
 
     func teamButtonTapped(_ navigationController: UINavigationController) {
-        router?.pushShop(navigationController)
+        router?.pushTeam(navigationController)
     }
 }
 

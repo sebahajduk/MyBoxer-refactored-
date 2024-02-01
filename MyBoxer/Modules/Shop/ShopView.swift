@@ -24,15 +24,6 @@ class ShopView: UIView {
     }
 }
 
-extension ShopView {
-    func updateTableView() {
-        UIView.transition(with: tableView, duration: 0.35, options: .transitionCrossDissolve, animations: { [weak self] in
-            guard let self else { return }
-            self.tableView.reloadData()
-        })
-    }
-}
-
 private extension ShopView {
     func setupView() {
         backgroundColor = .systemBackground

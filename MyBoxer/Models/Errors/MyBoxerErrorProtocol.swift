@@ -8,7 +8,7 @@
 import Foundation
 
 enum AlertType: Error {
-    case youWin, youLose, youExhausted, notEnoughMoney, trainingInProgress
+    case youWin, youLose, youExhausted, notEnoughMoney, trainingInProgress, alreadyBought
 }
 
 extension AlertType: LocalizedError {
@@ -24,6 +24,8 @@ extension AlertType: LocalizedError {
             "You don't have enough money!"
         case .trainingInProgress:
             "You are already training!"
+        case .alreadyBought:
+            "You already have this item!"
         }
     }
     
@@ -39,6 +41,8 @@ extension AlertType: LocalizedError {
             "Win some fight to get more cash."
         case .trainingInProgress:
             "You need to finish your training first."
+        case .alreadyBought:
+            "Try to buy different one."
         }
     }
 }

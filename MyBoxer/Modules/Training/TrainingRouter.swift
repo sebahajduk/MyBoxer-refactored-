@@ -14,3 +14,7 @@ final class TrainingRouter {
         self.navigationController = navigationController
     }
 }
+
+extension TrainingRouter: PresenterToRouterTrainingProtocol {
+    
+}

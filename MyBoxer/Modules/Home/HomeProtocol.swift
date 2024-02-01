@@ -18,7 +18,10 @@ protocol ViewToPresenterHomeModuleProtocol {
         _ navigationController: UINavigationController,
         player: Player
     )
-    func shopButtonTapped(_ navigationController: UINavigationController)
+    func shopButtonTapped(
+        _ navigationController: UINavigationController,
+        player: Player
+    )
     func teamButtonTapped(_ navigationController: UINavigationController)
 }
 
@@ -41,7 +44,10 @@ protocol PresenterToRouterHomeModuleProtocol {
         _ navigationController: UINavigationController,
         player: Player
     )
-    func pushShop(_ navigationController: UINavigationController)
+    func pushShop(
+        _ navigationController: UINavigationController,
+        player: Player
+    )
     func pushTeam(_ navigationController: UINavigationController)
 }
 

@@ -9,12 +9,18 @@ import UIKit
 import DesignSystem
 
 final class ShopViewController: UIViewController {
-    private var shopView = ShopView()
-    
-    private var player: Player!
-    private let itemsRepository = ItemsRepository()
+    typealias shopMenuButtonType = ItemType
+    var presenter: ViewToPresenterShopProtocol?
 
-    var type: ItemType = .gloves
+    private var shopView = ShopView()
+
+    private var player: Player!
+    private var type: ItemType = .gloves
+    private var shopOffer = [Item]() {
+        didSet {
+            reloadTableView()
+        }
+    }
 
     convenience init(player: Player) {
         self.init()
@@ -26,6 +32,7 @@ final class ShopViewController: UIViewController {
         super.viewDidLoad()
         
         setupShopView()
+        presenter?.viewLoaded()
     }
 }
 
@@ -37,24 +44,50 @@ private extension ShopViewController {
 
         let shopViewMenu = shopView.menu
 
-        shopViewMenu.buttonGloves.addAction(updateCategory(to: .gloves), for: .touchUpInside)
-        shopViewMenu.buttonBoots.addAction(updateCategory(to: .boots), for: .touchUpInside)
-        shopViewMenu.buttonShorts.addAction(updateCategory(to: .shorts), for: .touchUpInside)
-        shopViewMenu.buttonTapes.addAction(updateCategory(to: .tapes), for: .touchUpInside)
+        shopViewMenu.buttonGloves.addAction(menuButtonTapped(.gloves), for: .touchUpInside)
+        shopViewMenu.buttonBoots.addAction(menuButtonTapped(.boots), for: .touchUpInside)
+        shopViewMenu.buttonShorts.addAction(menuButtonTapped(.shorts), for: .touchUpInside)
+        shopViewMenu.buttonTapes.addAction(menuButtonTapped(.tapes), for: .touchUpInside)
+    }
+    
+    func menuButtonTapped(_ type: shopMenuButtonType) -> UIAction {
+        UIAction { [weak self] _ in
+            guard let self else { return }
+
+            self.type = type
+            self.presenter?.categoryButtonTapped(category: type)
+        }
     }
 
-    func updateCategory(to type: ItemType) -> UIAction {
-        UIAction { [weak self] _ in
-            self?.type = type
+    func reloadTableView() {
+        shopView.tableView.reloadData()
+    }
+}
 
-            self?.shopView.updateTableView()
-        }
+extension ShopViewController: PresenterToViewShopProtocol {
+    func dismiss() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func showAlert(_ type: AlertType) {
+        let alert = AlertViewController(alertType: type)
+
+        alert.modalPresentationStyle = .overFullScreen
+        alert.modalTransitionStyle = .crossDissolve
+
+        navigationController?.present(alert, animated: true)
+    }
+    
+    func updateShopOffer(
+        with items: [Item]
+    ) {
+        self.shopOffer = items
     }
 }
 
 extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return shopOffer.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,22 +95,9 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShopItemCell.reuseID) as? ShopItemCell
         else { return UITableViewCell() }
 
-        var item: Item
-        
-        switch type {
-        case .gloves:
-            item = itemsRepository.gloves[indexPath.row]
-            cell.set(item: item)
-        case .boots:
-            item = itemsRepository.boots[indexPath.row]
-            cell.set(item: item)
-        case .shorts:
-            item = itemsRepository.shorts[indexPath.row]
-            cell.set(item: item)
-        case .tapes:
-            item = itemsRepository.tapes[indexPath.row]
-            cell.set(item: item)
-        }
+        let item = shopOffer[indexPath.row]
+
+        cell.set(item: item)
         
         if player.equipment.contains(where: { $0 == item.id }) {
             cell.backgroundColor = .systemGreen.withAlphaComponent(0.2)
@@ -87,41 +107,12 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var item: Item
-        
-        switch type {
-        case .gloves:
-            item = itemsRepository.gloves[indexPath.row]
-        case .boots:
-            item = itemsRepository.boots[indexPath.row]
-        case .shorts:
-            item = itemsRepository.shorts[indexPath.row]
-        case .tapes:
-            item = itemsRepository.tapes[indexPath.row]
-        }
-        
+        let item = shopOffer[indexPath.row]
+
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        if player.money < item.cost {
-            let alert = AlertViewController(alertType: .notEnoughMoney)
 
-            alert.modalPresentationStyle = .overFullScreen
-            alert.modalTransitionStyle = .crossDissolve
-            
-            navigationController?.present(alert, animated: true)
-            return
-        } else if player.equipment.contains(where: { $0 == item.id }) {
-            let alert = AlertViewController(alertType: .notEnoughMoney)
-            
-            alert.modalPresentationStyle = .overFullScreen
-            alert.modalTransitionStyle = .crossDissolve
-            
-            navigationController?.present(alert, animated: true)
-            return
-        }
-        
-        shopView.updateTableView()
+        presenter?.didSelect(item: item, player: player)
 
-        player.buyItem(item)
+        reloadTableView()
     }
 }

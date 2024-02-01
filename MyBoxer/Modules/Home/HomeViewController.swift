@@ -182,7 +182,7 @@ extension HomeViewController {
     func shopButtonTapped() {
         guard let navigationController else { return }
 
-        presenter?.shopButtonTapped(navigationController)
+        presenter?.shopButtonTapped(navigationController, player: player)
     }
 
     func teamButtonTapped() {
