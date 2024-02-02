@@ -20,19 +20,19 @@ extension OpponentsInteractor: OpponentsInteractorInput {
 
         switch player.division {
         case .lightweight:
-            Boxers.lightweightBoxers.forEach { opponent in
+            BoxersRepository.lightweightBoxers.forEach { opponent in
                 if let opponent = opponent as? Opponent {
                     opponents.append(opponent)
                 }
             }
         case .middleweight:
-            Boxers.middleweightBoxers.forEach { opponent in
+            BoxersRepository.middleweightBoxers.forEach { opponent in
                 if let opponent = opponent as? Opponent {
                     opponents.append(opponent)
                 }
             }
         case .heavyweight:
-            Boxers.heavyweightBoxers.forEach { opponent in
+            BoxersRepository.heavyweightBoxers.forEach { opponent in
                 if let opponent = opponent as? Opponent {
                     opponents.append(opponent)
                 }

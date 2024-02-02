@@ -18,9 +18,10 @@ final class HomeRouter: PresenterToRouterHomeModuleProtocol {
     }
 
     func pushRank(_ navigationController: UINavigationController) {
-        let rankVC = RankViewController()
+        let configurator = RankConfigurator()
+        let viewController = configurator.setupViewController()
 
-        navigationController.pushViewController(rankVC, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
     func pushTraining(

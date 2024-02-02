@@ -28,7 +28,7 @@ final class TeamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         presenter?.viewLoaded()
         setupView()
     }
@@ -90,13 +90,15 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: TeamMemberCell.reuseID) as? TeamMemberCell
         else { return UITableViewCell() }
         
-        cell.set(for: membersList[indexPath.row])
-        
+        let member = membersList[indexPath.row]
+
+        cell.set(for: member)
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var member = membersList[indexPath.row]
+        let member = membersList[indexPath.row]
 
         tableView.deselectRow(at: indexPath, animated: true)
         player.hire(member: member)

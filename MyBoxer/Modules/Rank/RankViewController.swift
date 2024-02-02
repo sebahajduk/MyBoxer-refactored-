@@ -11,17 +11,36 @@ enum WeightDivisions {
     case lighweight, middleweight, heavyweight
 }
 
-class RankViewController: UIViewController {
-    
+final class RankViewController: UIViewController {
+    var presenter: ViewToPresenterRankProtocol?
     private let rankView = RankView()
+
+    private var lightweightBoxers = [Boxer]() {
+        didSet {
+            reloadCollections()
+        }
+    }
     
+    private var middleweightBoxers = [Boxer]() {
+        didSet {
+            reloadCollections()
+        }
+    }
+
+    private var heavyweightBoxers = [Boxer]() {
+        didSet {
+            reloadCollections()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        presenter?.viewLoaded()
+        setupView()
     }
     
-    private func configure() {
+    private func setupView() {
         view = rankView
 
         [
@@ -33,6 +52,25 @@ class RankViewController: UIViewController {
             collectionView.delegate = self
         }
     }
+
+    private func reloadCollections() {
+        rankView.lightweightCollectionView.reloadData()
+        rankView.middleweightCollectionView.reloadData()
+        rankView.heavyweightCollectionView.reloadData()
+    }
+}
+extension RankViewController: PresenterToViewRankProtocol {
+    func updateViewForReceivedData(
+        _ data: (
+            lightweight: [Boxer],
+            middleweight: [Boxer],
+            heavyweight: [Boxer]
+        )
+    ) {
+        lightweightBoxers = data.lightweight
+        middleweightBoxers = data.middleweight
+        heavyweightBoxers = data.heavyweight
+    }
 }
 
 extension RankViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -40,11 +78,11 @@ extension RankViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         switch collectionView.tag {
         case 0:
-            return Boxers.lightweightBoxers.count
+            return lightweightBoxers.count
         case 1:
-            return Boxers.middleweightBoxers.count
+            return middleweightBoxers.count
         case 2:
-            return Boxers.heavyweightBoxers.count
+            return heavyweightBoxers.count
         default:
             return 0
         }
@@ -55,21 +93,21 @@ extension RankViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoxerRankCell.reuseID, for: indexPath) as? BoxerRankCell
         else { return UICollectionViewCell() }
 
+        var boxers = [Boxer]()
+        
         switch collectionView.tag {
         case 0:
-            let rank = Array(Boxers.lightweightBoxers.reversed())
-            cell.set(for: rank[indexPath.row], rank: indexPath.row)
+            boxers = lightweightBoxers.reversedArray()
         case 1:
-            let rank = Array(Boxers.middleweightBoxers.reversed())
-            cell.set(for: rank[indexPath.row], rank: indexPath.row)
+            boxers = middleweightBoxers.reversedArray()
         case 2:
-            let rank = Array(Boxers.heavyweightBoxers.reversed())
-            cell.set(for: rank[indexPath.row], rank: indexPath.row)
+            boxers = heavyweightBoxers.reversedArray()
         default:
             cell.set(for: Boxer(), rank: indexPath.row)
         }
         
-        
+        cell.set(for: boxers[indexPath.row], rank: indexPath.row)
+
         return cell
     }
     

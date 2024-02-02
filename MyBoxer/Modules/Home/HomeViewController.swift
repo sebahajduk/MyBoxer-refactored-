@@ -52,11 +52,11 @@ private extension HomeViewController {
 
         switch player.division {
         case .lightweight:
-            Boxers.lightweightBoxers.insert(player, at: player.rank)
+            BoxersRepository.lightweightBoxers.insert(player, at: player.rank)
         case .middleweight:
-            Boxers.middleweightBoxers.insert(player, at: player.rank)
+            BoxersRepository.middleweightBoxers.insert(player, at: player.rank)
         case .heavyweight:
-            Boxers.heavyweightBoxers.insert(player, at: player.rank)
+            BoxersRepository.heavyweightBoxers.insert(player, at: player.rank)
         }
     }
 
