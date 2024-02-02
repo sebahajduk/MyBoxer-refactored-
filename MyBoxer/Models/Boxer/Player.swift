@@ -28,6 +28,7 @@ class Player: Boxer {
     var rank: Int = 0
     
     var equipment: [Int] = []
+    var team: [String] = []
     var defeatedOpponents: [String] = []
     
     func training(_ type: TrainingType) {
@@ -122,6 +123,8 @@ class Player: Boxer {
             homeRegeneration = 1.0
             homeRegeneration += Double(member.stats) / 100
         }
+
+        team.append(member.name)
     }
     
     func buyItem(_ item: Item) {

@@ -54,9 +54,13 @@ final class HomeRouter: PresenterToRouterHomeModuleProtocol {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func pushTeam(_ navigationController: UINavigationController) {
-        let teamVC = TeamViewController()
+    func pushTeam(
+        _ navigationController: UINavigationController,
+        player: Player
+    ) {
+        let configurator = TeamConfigurator()
+        let viewController = configurator.setupViewController(player: player)
 
-        navigationController.pushViewController(teamVC, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

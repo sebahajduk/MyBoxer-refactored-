@@ -8,12 +8,17 @@
 import UIKit
 
 final class TeamViewController: UIViewController {
+    var presenter: ViewToPresenterTeamProtocol?
 
     private var teamView = TeamView()
-    private var teamRepository = TeamRepository()
 
     var player: Player!
     private var memberType: MemberType = .manager
+    private var membersList = [Member]() {
+        didSet {
+            reloadMembersList()
+        }
+    }
 
     convenience init(player: Player) {
         self.init()
@@ -23,7 +28,8 @@ final class TeamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        presenter?.viewLoaded()
         setupView()
     }
 }
@@ -42,52 +48,56 @@ private extension TeamViewController {
         teamViewMenu.physioButton.addAction(updateTeamHireAgency(to: .physio), for: .touchUpInside)
     }
 
+    func reloadMembersList() {
+        teamView.tableView.reloadData()
+    }
+
     func updateTeamHireAgency(to specialization: MemberType) -> UIAction {
         UIAction { [weak self] _ in
             self?.memberType = specialization
 
-            self?.teamView.updateTableView()
+            self?.presenter?.categoryButtonTapped(category: specialization)
         }
+    }
+}
+
+extension TeamViewController: PresenterToViewTeamProtocol {
+    func updateMembersOffer(to members: [Member]) {
+        membersList = members
+    }
+    
+    func showAlert(_ type: AlertType) {
+        let alert = AlertViewController(alertType: type)
+
+        alert.modalPresentationStyle = .overFullScreen
+        alert.modalTransitionStyle = .crossDissolve
+
+        navigationController?.present(alert, animated: true)
+    }
+    
+    func dismiss() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
 extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return membersList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: TeamMemberCell.reuseID) as? TeamMemberCell
         else { return UITableViewCell() }
-
-        switch memberType {
-        case .manager:
-            cell.set(for: teamRepository.managers[indexPath.row])
-        case .coach:
-            cell.set(for: teamRepository.coaches[indexPath.row])
-        case .cutman:
-            cell.set(for: teamRepository.cutmans[indexPath.row])
-        case .physio:
-            cell.set(for: teamRepository.physios[indexPath.row])
-        }
+        
+        cell.set(for: membersList[indexPath.row])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var member: Member
-        
-        switch memberType {
-        case .manager:
-            member = teamRepository.managers[indexPath.row]
-        case .coach:
-            member = teamRepository.coaches[indexPath.row]
-        case .cutman:
-            member = teamRepository.cutmans[indexPath.row]
-        case .physio:
-            member = teamRepository.physios[indexPath.row]
-        }
+        var member = membersList[indexPath.row]
+
         tableView.deselectRow(at: indexPath, animated: true)
         player.hire(member: member)
     }
