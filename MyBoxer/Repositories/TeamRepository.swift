@@ -8,7 +8,7 @@
 import Foundation
 
 final class TeamRepository {
-    let managers: [Member] = [
+    static let managers: [Member] = [
         Member(name: "Horace Hines", stats: 2, price: 300, type: .manager),
         Member(name: "Shawn Bennett", stats: 5, price: 800, type: .manager),
         Member(name: "Halbert Rowse", stats: 7, price: 1200, type: .manager),
@@ -16,7 +16,7 @@ final class TeamRepository {
         Member(name: "Herman Nichols", stats: 15, price: 3500, type: .manager)
     ]
 
-    let coaches: [Member] = [
+    static let coaches: [Member] = [
         Member(name: "Dane Lawrence", stats: 2, price: 300, type: .coach),
         Member(name: "Ryan Pierpoint", stats: 5, price: 800, type: .coach),
         Member(name: "Ray Warner", stats: 7, price: 1200, type: .coach),
@@ -24,7 +24,7 @@ final class TeamRepository {
         Member(name: "Cecil Wolfe", stats: 15, price: 3500, type: .coach)
     ]
 
-    let cutmans: [Member] = [
+    static let cutmans: [Member] = [
         Member(name: "Davy Mendoza", stats: 2, price: 300, type: .cutman),
         Member(name: "Hanley Chasey", stats: 5, price: 800, type: .cutman),
         Member(name: "Frederick Lucas", stats: 7, price: 1200, type: .cutman),
@@ -32,7 +32,7 @@ final class TeamRepository {
         Member(name: "Marsh Carr", stats: 15, price: 3500, type: .cutman)
     ]
 
-    let physios: [Member] = [
+    static let physios: [Member] = [
         Member(name: "Jerry Bates", stats: 2, price: 300, type: .physio),
         Member(name: "Justin Hodgson", stats: 5, price: 800, type: .physio),
         Member(name: "Sylvester Harris", stats: 7, price: 1200, type: .physio),

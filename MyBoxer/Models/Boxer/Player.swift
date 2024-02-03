@@ -28,6 +28,7 @@ class Player: Boxer {
     var rank: Int = 0
     
     var equipment: [Int] = []
+    var team: [String] = []
     var defeatedOpponents: [String] = []
     
     func training(_ type: TrainingType) {
@@ -78,7 +79,6 @@ class Player: Boxer {
             experienceGained(points: opponent.vitality)
             defeatedOpponents.append(opponent.name)
             
-            
             if let oldWinsRecord = record["Wins"] {
                 let newWinsRecord = oldWinsRecord + 1
                 record.updateValue(newWinsRecord, forKey: "Wins")
@@ -123,6 +123,8 @@ class Player: Boxer {
             homeRegeneration = 1.0
             homeRegeneration += Double(member.stats) / 100
         }
+
+        team.append(member.name)
     }
     
     func buyItem(_ item: Item) {
@@ -151,7 +153,6 @@ class Player: Boxer {
         experience -= nextLevel
         nextLevel += 100 * Double(currentLevel)
         currentLevel += 1
-        name = "My Boxer"
         
         if currentLevel % 3 == 0 {
             vitality += 10
@@ -225,5 +226,4 @@ class Player: Boxer {
         try container.encode(defeatedOpponents, forKey: .defeatedOpponents)
         try container.encode(equipment, forKey: .equipment)
     }
-    
 }

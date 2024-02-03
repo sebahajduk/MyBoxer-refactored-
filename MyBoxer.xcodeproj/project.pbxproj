@@ -13,6 +13,18 @@
 		600A7C432B62C0B200D3F1DD /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600A7C422B62C0B200D3F1DD /* HomeInteractor.swift */; };
 		6011F1BB2B5EDC7F004A3FA0 /* FightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */; };
 		6011F1BE2B5EF0EC004A3FA0 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011F1BD2B5EF0EC004A3FA0 /* AlertView.swift */; };
+		60195ED02B69588A00964EBE /* TrainingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195ECF2B69588A00964EBE /* TrainingInteractor.swift */; };
+		60195ED22B69589300964EBE /* TrainingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195ED12B69589300964EBE /* TrainingPresenter.swift */; };
+		60195ED42B69589F00964EBE /* TrainingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195ED32B69589F00964EBE /* TrainingRouter.swift */; };
+		60195ED62B6958A600964EBE /* TrainingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195ED52B6958A600964EBE /* TrainingConfigurator.swift */; };
+		60195ED82B6958D800964EBE /* TrainingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195ED72B6958D800964EBE /* TrainingProtocol.swift */; };
+		60195EDA2B695D6C00964EBE /* TrainingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195ED92B695D6C00964EBE /* TrainingsRepository.swift */; };
+		60195EDD2B69613E00964EBE /* MyBoxerErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195EDC2B69613E00964EBE /* MyBoxerErrorProtocol.swift */; };
+		60195EE22B69858100964EBE /* ShopInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195EE12B69858100964EBE /* ShopInteractor.swift */; };
+		60195EE42B69858500964EBE /* ShopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195EE32B69858500964EBE /* ShopPresenter.swift */; };
+		60195EE62B69859100964EBE /* ShopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195EE52B69859100964EBE /* ShopRouter.swift */; };
+		60195EE82B69859700964EBE /* ShopConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195EE72B69859700964EBE /* ShopConfigurator.swift */; };
+		60195EEA2B69862A00964EBE /* ShopProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60195EE92B69862A00964EBE /* ShopProtocol.swift */; };
 		601AD101290B0CB100CFF7D0 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601AD100290B0CB100CFF7D0 /* Defaults.swift */; };
 		602065B72B599AE800E01B88 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065B62B599AE800E01B88 /* TrainingView.swift */; };
 		602065BA2B599DAB00E01B88 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065B92B599DAB00E01B88 /* ShopView.swift */; };
@@ -21,6 +33,24 @@
 		602065C22B59A49100E01B88 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065C12B59A49100E01B88 /* TeamView.swift */; };
 		602065C52B59A87000E01B88 /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065C42B59A87000E01B88 /* RankView.swift */; };
 		602B046228EC8A0200BDEB3F /* TimeManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */; };
+		60321E7B2B6C0C720011F62B /* TeamInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E7A2B6C0C720011F62B /* TeamInteractor.swift */; };
+		60321E7D2B6C0C780011F62B /* TeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E7C2B6C0C780011F62B /* TeamRouter.swift */; };
+		60321E7F2B6C0C7E0011F62B /* TeamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E7E2B6C0C7E0011F62B /* TeamPresenter.swift */; };
+		60321E812B6C1ACB0011F62B /* TeamConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E802B6C1ACB0011F62B /* TeamConfigurator.swift */; };
+		60321E832B6C1ADA0011F62B /* TeamProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E822B6C1ADA0011F62B /* TeamProtocols.swift */; };
+		60321E852B6D2D810011F62B /* RankPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E842B6D2D810011F62B /* RankPresenter.swift */; };
+		60321E872B6D2D8A0011F62B /* RankInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E862B6D2D8A0011F62B /* RankInteractor.swift */; };
+		60321E892B6D2D910011F62B /* RankRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E882B6D2D910011F62B /* RankRouter.swift */; };
+		60321E8B2B6D2D980011F62B /* RankConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E8A2B6D2D980011F62B /* RankConfigurator.swift */; };
+		60321E8D2B6D2DA00011F62B /* RankProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E8C2B6D2DA00011F62B /* RankProtocols.swift */; };
+		60321E8F2B6D38410011F62B /* Array+reversedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E8E2B6D38410011F62B /* Array+reversedArray.swift */; };
+		60321E912B6D3A370011F62B /* BoxersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E902B6D3A370011F62B /* BoxersRepository.swift */; };
+		60321E932B6D3FD80011F62B /* FightingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E922B6D3FD80011F62B /* FightingInteractor.swift */; };
+		60321E952B6D3FE20011F62B /* FightingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E942B6D3FE20011F62B /* FightingPresenter.swift */; };
+		60321E972B6D3FED0011F62B /* FightingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E962B6D3FED0011F62B /* FightingRouter.swift */; };
+		60321E992B6D3FFB0011F62B /* FightingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E982B6D3FFB0011F62B /* FightingConfigurator.swift */; };
+		60321E9B2B6D40020011F62B /* FightingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E9A2B6D40020011F62B /* FightingProtocols.swift */; };
+		60321E9D2B6D5C0D0011F62B /* FightHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E9C2B6D5C0D0011F62B /* FightHandler.swift */; };
 		603C854E2901690D00368288 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603C854D2901690D00368288 /* PlayerDetailsViewController.swift */; };
 		604D924E28DEFCFC0054934C /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D924D28DEFCFC0054934C /* TrainingViewController.swift */; };
 		604EC0E028DB686200F0D344 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EC0DF28DB686200F0D344 /* Images.swift */; };
@@ -47,6 +77,12 @@
 		60ADD4A22B58540E001C16DD /* OpponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ADD4A12B58540E001C16DD /* OpponentsView.swift */; };
 		60B93FBB29351ACC000A50A6 /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B93FBA29351ACC000A50A6 /* RankManager.swift */; };
 		60C21AD92915418100721BD0 /* FightingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C21AD82915418100721BD0 /* FightingViewController.swift */; };
+		60CAC9892B6541800006713E /* OpponentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC9882B6541800006713E /* OpponentsRouter.swift */; };
+		60CAC98B2B65418C0006713E /* OpponentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC98A2B65418C0006713E /* OpponentsInteractor.swift */; };
+		60CAC98D2B6541A00006713E /* OpponentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC98C2B6541A00006713E /* OpponentsPresenter.swift */; };
+		60CAC98F2B6541BA0006713E /* OpponentsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC98E2B6541BA0006713E /* OpponentsConfigurator.swift */; };
+		60CAC9912B654B690006713E /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC9902B654B690006713E /* HomeProtocol.swift */; };
+		60CAC9932B654FC60006713E /* OpponentsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC9922B654FC60006713E /* OpponentsProtocol.swift */; };
 		60E134722927E2880032B292 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E134712927E2880032B292 /* Member.swift */; };
 		60E3AACB2908599600D8D025 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3AACA2908599600D8D025 /* Opponent.swift */; };
 		60E3AACD290859A400D8D025 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3AACC290859A400D8D025 /* Player.swift */; };
@@ -66,6 +102,18 @@
 		600A7C422B62C0B200D3F1DD /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingView.swift; sourceTree = "<group>"; };
 		6011F1BD2B5EF0EC004A3FA0 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		60195ECF2B69588A00964EBE /* TrainingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingInteractor.swift; sourceTree = "<group>"; };
+		60195ED12B69589300964EBE /* TrainingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingPresenter.swift; sourceTree = "<group>"; };
+		60195ED32B69589F00964EBE /* TrainingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingRouter.swift; sourceTree = "<group>"; };
+		60195ED52B6958A600964EBE /* TrainingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingConfigurator.swift; sourceTree = "<group>"; };
+		60195ED72B6958D800964EBE /* TrainingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProtocol.swift; sourceTree = "<group>"; };
+		60195ED92B695D6C00964EBE /* TrainingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsRepository.swift; sourceTree = "<group>"; };
+		60195EDC2B69613E00964EBE /* MyBoxerErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBoxerErrorProtocol.swift; sourceTree = "<group>"; };
+		60195EE12B69858100964EBE /* ShopInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInteractor.swift; sourceTree = "<group>"; };
+		60195EE32B69858500964EBE /* ShopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPresenter.swift; sourceTree = "<group>"; };
+		60195EE52B69859100964EBE /* ShopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRouter.swift; sourceTree = "<group>"; };
+		60195EE72B69859700964EBE /* ShopConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopConfigurator.swift; sourceTree = "<group>"; };
+		60195EE92B69862A00964EBE /* ShopProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProtocol.swift; sourceTree = "<group>"; };
 		601AD100290B0CB100CFF7D0 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		602065B62B599AE800E01B88 /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
 		602065B92B599DAB00E01B88 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
@@ -74,6 +122,24 @@
 		602065C12B59A49100E01B88 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		602065C42B59A87000E01B88 /* RankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 		602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManagerLocal.swift; sourceTree = "<group>"; };
+		60321E7A2B6C0C720011F62B /* TeamInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInteractor.swift; sourceTree = "<group>"; };
+		60321E7C2B6C0C780011F62B /* TeamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRouter.swift; sourceTree = "<group>"; };
+		60321E7E2B6C0C7E0011F62B /* TeamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPresenter.swift; sourceTree = "<group>"; };
+		60321E802B6C1ACB0011F62B /* TeamConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamConfigurator.swift; sourceTree = "<group>"; };
+		60321E822B6C1ADA0011F62B /* TeamProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamProtocols.swift; sourceTree = "<group>"; };
+		60321E842B6D2D810011F62B /* RankPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankPresenter.swift; sourceTree = "<group>"; };
+		60321E862B6D2D8A0011F62B /* RankInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankInteractor.swift; sourceTree = "<group>"; };
+		60321E882B6D2D910011F62B /* RankRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankRouter.swift; sourceTree = "<group>"; };
+		60321E8A2B6D2D980011F62B /* RankConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankConfigurator.swift; sourceTree = "<group>"; };
+		60321E8C2B6D2DA00011F62B /* RankProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankProtocols.swift; sourceTree = "<group>"; };
+		60321E8E2B6D38410011F62B /* Array+reversedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+reversedArray.swift"; sourceTree = "<group>"; };
+		60321E902B6D3A370011F62B /* BoxersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxersRepository.swift; sourceTree = "<group>"; };
+		60321E922B6D3FD80011F62B /* FightingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingInteractor.swift; sourceTree = "<group>"; };
+		60321E942B6D3FE20011F62B /* FightingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingPresenter.swift; sourceTree = "<group>"; };
+		60321E962B6D3FED0011F62B /* FightingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingRouter.swift; sourceTree = "<group>"; };
+		60321E982B6D3FFB0011F62B /* FightingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingConfigurator.swift; sourceTree = "<group>"; };
+		60321E9A2B6D40020011F62B /* FightingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingProtocols.swift; sourceTree = "<group>"; };
+		60321E9C2B6D5C0D0011F62B /* FightHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightHandler.swift; sourceTree = "<group>"; };
 		603C854D2901690D00368288 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		604D924D28DEFCFC0054934C /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		604EC0DF28DB686200F0D344 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -102,6 +168,12 @@
 		60ADD4A12B58540E001C16DD /* OpponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsView.swift; sourceTree = "<group>"; };
 		60B93FBA29351ACC000A50A6 /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
 		60C21AD82915418100721BD0 /* FightingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingViewController.swift; sourceTree = "<group>"; };
+		60CAC9882B6541800006713E /* OpponentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsRouter.swift; sourceTree = "<group>"; };
+		60CAC98A2B65418C0006713E /* OpponentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsInteractor.swift; sourceTree = "<group>"; };
+		60CAC98C2B6541A00006713E /* OpponentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsPresenter.swift; sourceTree = "<group>"; };
+		60CAC98E2B6541BA0006713E /* OpponentsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsConfigurator.swift; sourceTree = "<group>"; };
+		60CAC9902B654B690006713E /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
+		60CAC9922B654FC60006713E /* OpponentsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsProtocol.swift; sourceTree = "<group>"; };
 		60E134712927E2880032B292 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		60E3AACA2908599600D8D025 /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		60E3AACC290859A400D8D025 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -135,11 +207,24 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		60195EDB2B69612200964EBE /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				60195EDC2B69613E00964EBE /* MyBoxerErrorProtocol.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		602065B52B599AC500E01B88 /* Training */ = {
 			isa = PBXGroup;
 			children = (
 				604D924D28DEFCFC0054934C /* TrainingViewController.swift */,
 				602065B62B599AE800E01B88 /* TrainingView.swift */,
+				60195ECF2B69588A00964EBE /* TrainingInteractor.swift */,
+				60195ED12B69589300964EBE /* TrainingPresenter.swift */,
+				60195ED32B69589F00964EBE /* TrainingRouter.swift */,
+				60195ED52B6958A600964EBE /* TrainingConfigurator.swift */,
+				60195ED72B6958D800964EBE /* TrainingProtocol.swift */,
 			);
 			path = Training;
 			sourceTree = "<group>";
@@ -149,6 +234,11 @@
 			children = (
 				609FFAC028F48F1B00B31C2D /* ShopViewController.swift */,
 				602065B92B599DAB00E01B88 /* ShopView.swift */,
+				60195EE12B69858100964EBE /* ShopInteractor.swift */,
+				60195EE32B69858500964EBE /* ShopPresenter.swift */,
+				60195EE52B69859100964EBE /* ShopRouter.swift */,
+				60195EE72B69859700964EBE /* ShopConfigurator.swift */,
+				60195EE92B69862A00964EBE /* ShopProtocol.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -158,6 +248,8 @@
 			children = (
 				602065BC2B59A2A100E01B88 /* ItemsRepository.swift */,
 				602065BF2B59A3AD00E01B88 /* TeamRepository.swift */,
+				60195ED92B695D6C00964EBE /* TrainingsRepository.swift */,
+				60321E902B6D3A370011F62B /* BoxersRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -167,6 +259,11 @@
 			children = (
 				60F0D23028FC75F700485EDC /* TeamViewController.swift */,
 				602065C12B59A49100E01B88 /* TeamView.swift */,
+				60321E7A2B6C0C720011F62B /* TeamInteractor.swift */,
+				60321E7C2B6C0C780011F62B /* TeamRouter.swift */,
+				60321E7E2B6C0C7E0011F62B /* TeamPresenter.swift */,
+				60321E802B6C1ACB0011F62B /* TeamConfigurator.swift */,
+				60321E822B6C1ADA0011F62B /* TeamProtocols.swift */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -176,6 +273,11 @@
 			children = (
 				6062CCEB28FF07B70089ED9E /* RankViewController.swift */,
 				602065C42B59A87000E01B88 /* RankView.swift */,
+				60321E842B6D2D810011F62B /* RankPresenter.swift */,
+				60321E862B6D2D8A0011F62B /* RankInteractor.swift */,
+				60321E882B6D2D910011F62B /* RankRouter.swift */,
+				60321E8A2B6D2D980011F62B /* RankConfigurator.swift */,
+				60321E8C2B6D2DA00011F62B /* RankProtocols.swift */,
 			);
 			path = Rank;
 			sourceTree = "<group>";
@@ -185,6 +287,11 @@
 			children = (
 				60C21AD82915418100721BD0 /* FightingViewController.swift */,
 				6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */,
+				60321E922B6D3FD80011F62B /* FightingInteractor.swift */,
+				60321E942B6D3FE20011F62B /* FightingPresenter.swift */,
+				60321E962B6D3FED0011F62B /* FightingRouter.swift */,
+				60321E982B6D3FFB0011F62B /* FightingConfigurator.swift */,
+				60321E9A2B6D40020011F62B /* FightingProtocols.swift */,
 			);
 			path = Fighting;
 			sourceTree = "<group>";
@@ -192,6 +299,7 @@
 		604EC0DB28DB676300F0D344 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				6011F1BC2B5EEFE5004A3FA0 /* Alert */,
 				60A92437292E807B003CE440 /* StatView.swift */,
 				60EDB89A28E8C72200EF9747 /* Cells */,
 			);
@@ -210,6 +318,7 @@
 		604EC0E328DB72F000F0D344 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				60195EDB2B69612200964EBE /* Errors */,
 				60E134702927E2290032B292 /* Boxer */,
 				60F1F0A128E356860018AC4B /* Training.swift */,
 				608867BE28F5C7BC003C8F78 /* Item.swift */,
@@ -224,6 +333,7 @@
 			children = (
 				602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */,
 				60B93FBA29351ACC000A50A6 /* RankManager.swift */,
+				60321E9C2B6D5C0D0011F62B /* FightHandler.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -257,7 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				602065BB2B59A28E00E01B88 /* Repositories */,
-				60ADD4992B584432001C16DD /* Views */,
+				60ADD4992B584432001C16DD /* Modules */,
 				60E59FB128DE2DFD007BBE81 /* Extensions */,
 				604EC0E828DB761C00F0D344 /* Managers */,
 				604EC0E328DB72F000F0D344 /* Models */,
@@ -274,10 +384,9 @@
 			path = MyBoxer;
 			sourceTree = "<group>";
 		};
-		60ADD4992B584432001C16DD /* Views */ = {
+		60ADD4992B584432001C16DD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				6011F1BC2B5EEFE5004A3FA0 /* Alert */,
 				602C365A2B5C1CD2003C7DB2 /* Fighting */,
 				602065C32B59A84300E01B88 /* Rank */,
 				602065BE2B59A34400E01B88 /* Team */,
@@ -287,7 +396,7 @@
 				60ADD49D2B584FC8001C16DD /* PlayerDetails */,
 				60ADD49A2B584442001C16DD /* Home */,
 			);
-			path = Views;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		60ADD49A2B584442001C16DD /* Home */ = {
@@ -299,6 +408,7 @@
 				600A7C3E2B62C09900D3F1DD /* HomeRouter.swift */,
 				600A7C402B62C0A500D3F1DD /* HomeConfigurator.swift */,
 				600A7C422B62C0B200D3F1DD /* HomeInteractor.swift */,
+				60CAC9902B654B690006713E /* HomeProtocol.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -317,6 +427,11 @@
 			children = (
 				60EFAF6528E635080011E2E8 /* OpponentsViewController.swift */,
 				60ADD4A12B58540E001C16DD /* OpponentsView.swift */,
+				60CAC9882B6541800006713E /* OpponentsRouter.swift */,
+				60CAC98A2B65418C0006713E /* OpponentsInteractor.swift */,
+				60CAC98C2B6541A00006713E /* OpponentsPresenter.swift */,
+				60CAC98E2B6541BA0006713E /* OpponentsConfigurator.swift */,
+				60CAC9922B654FC60006713E /* OpponentsProtocol.swift */,
 			);
 			path = Opponents;
 			sourceTree = "<group>";
@@ -335,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				60E59FB228DE2E14007BBE81 /* UIViewExtension.swift */,
+				60321E8E2B6D38410011F62B /* Array+reversedArray.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -434,47 +550,82 @@
 				602065BA2B599DAB00E01B88 /* ShopView.swift in Sources */,
 				602065BD2B59A2A100E01B88 /* ItemsRepository.swift in Sources */,
 				60651D362917E5BB00CC75A4 /* Attack.swift in Sources */,
+				60CAC98B2B65418C0006713E /* OpponentsInteractor.swift in Sources */,
 				60EFAF6628E635080011E2E8 /* OpponentsViewController.swift in Sources */,
 				60ADD49F2B5850F6001C16DD /* PlayerDetailsView.swift in Sources */,
 				60E59FB328DE2E14007BBE81 /* UIViewExtension.swift in Sources */,
+				60195ED42B69589F00964EBE /* TrainingRouter.swift in Sources */,
+				60195EE82B69859700964EBE /* ShopConfigurator.swift in Sources */,
+				60CAC98F2B6541BA0006713E /* OpponentsConfigurator.swift in Sources */,
 				60ADD4A22B58540E001C16DD /* OpponentsView.swift in Sources */,
+				60321E8D2B6D2DA00011F62B /* RankProtocols.swift in Sources */,
+				60195EEA2B69862A00964EBE /* ShopProtocol.swift in Sources */,
+				60321E9D2B6D5C0D0011F62B /* FightHandler.swift in Sources */,
 				602065C22B59A49100E01B88 /* TeamView.swift in Sources */,
+				60321E812B6C1ACB0011F62B /* TeamConfigurator.swift in Sources */,
+				60195ED02B69588A00964EBE /* TrainingInteractor.swift in Sources */,
+				60CAC9892B6541800006713E /* OpponentsRouter.swift in Sources */,
 				6011F1BB2B5EDC7F004A3FA0 /* FightingView.swift in Sources */,
 				60F0D23128FC75F700485EDC /* TeamViewController.swift in Sources */,
 				604EC0E028DB686200F0D344 /* Images.swift in Sources */,
+				60CAC98D2B6541A00006713E /* OpponentsPresenter.swift in Sources */,
 				605BD50228DB62FB0026C185 /* HomeViewController.swift in Sources */,
+				60321E872B6D2D8A0011F62B /* RankInteractor.swift in Sources */,
+				60321E892B6D2D910011F62B /* RankRouter.swift in Sources */,
 				608867BF28F5C7BC003C8F78 /* Item.swift in Sources */,
+				60321E972B6D3FED0011F62B /* FightingRouter.swift in Sources */,
+				60321E8F2B6D38410011F62B /* Array+reversedArray.swift in Sources */,
 				60B93FBB29351ACC000A50A6 /* RankManager.swift in Sources */,
 				60ADD49C2B584480001C16DD /* HomeView.swift in Sources */,
 				605BD4EE28DB5F9D0026C185 /* AppDelegate.swift in Sources */,
+				60321E8B2B6D2D980011F62B /* RankConfigurator.swift in Sources */,
+				60321E952B6D3FE20011F62B /* FightingPresenter.swift in Sources */,
+				60321E9B2B6D40020011F62B /* FightingProtocols.swift in Sources */,
+				60321E7B2B6C0C720011F62B /* TeamInteractor.swift in Sources */,
+				60195EE22B69858100964EBE /* ShopInteractor.swift in Sources */,
 				601AD101290B0CB100CFF7D0 /* Defaults.swift in Sources */,
 				60F1F0A228E356860018AC4B /* Training.swift in Sources */,
 				604EC0E228DB6A9200F0D344 /* Constants.swift in Sources */,
 				600A7C3F2B62C09900D3F1DD /* HomeRouter.swift in Sources */,
+				60321E992B6D3FFB0011F62B /* FightingConfigurator.swift in Sources */,
+				60321E832B6C1ADA0011F62B /* TeamProtocols.swift in Sources */,
+				60195ED62B6958A600964EBE /* TrainingConfigurator.swift in Sources */,
+				60321E7D2B6C0C780011F62B /* TeamRouter.swift in Sources */,
 				609FFAC128F48F1C00B31C2D /* ShopViewController.swift in Sources */,
 				6062CCEA28FF044C0089ED9E /* BoxerRankCell.swift in Sources */,
+				60321E852B6D2D810011F62B /* RankPresenter.swift in Sources */,
 				600A7C412B62C0A500D3F1DD /* HomeConfigurator.swift in Sources */,
+				60195ED82B6958D800964EBE /* TrainingProtocol.swift in Sources */,
+				60195EDD2B69613E00964EBE /* MyBoxerErrorProtocol.swift in Sources */,
+				60195EDA2B695D6C00964EBE /* TrainingsRepository.swift in Sources */,
 				60A92438292E807B003CE440 /* StatView.swift in Sources */,
 				602065C02B59A3AD00E01B88 /* TeamRepository.swift in Sources */,
 				6062CCEC28FF07B70089ED9E /* RankViewController.swift in Sources */,
 				602065B72B599AE800E01B88 /* TrainingView.swift in Sources */,
 				603C854E2901690D00368288 /* PlayerDetailsViewController.swift in Sources */,
 				604D924E28DEFCFC0054934C /* TrainingViewController.swift in Sources */,
+				60321E7F2B6C0C7E0011F62B /* TeamPresenter.swift in Sources */,
 				60E134722927E2880032B292 /* Member.swift in Sources */,
 				60EFAF6828E635C20011E2E8 /* OpponentCell.swift in Sources */,
 				604EC0E528DB72FF00F0D344 /* Boxer.swift in Sources */,
+				60321E932B6D3FD80011F62B /* FightingInteractor.swift in Sources */,
 				60E3AACD290859A400D8D025 /* Player.swift in Sources */,
 				6062CCE428FEF0C90089ED9E /* TeamMemberCell.swift in Sources */,
+				60321E912B6D3A370011F62B /* BoxersRepository.swift in Sources */,
 				609FFAC328F4949700B31C2D /* ShopItemCell.swift in Sources */,
 				602065C52B59A87000E01B88 /* RankView.swift in Sources */,
 				60E3AACB2908599600D8D025 /* Opponent.swift in Sources */,
+				60195ED22B69589300964EBE /* TrainingPresenter.swift in Sources */,
 				605BD4F028DB5F9D0026C185 /* SceneDelegate.swift in Sources */,
 				600A7C3D2B62C09000D3F1DD /* HomePresenter.swift in Sources */,
 				60651D342917E10200CC75A4 /* FightingHitCell.swift in Sources */,
+				60195EE42B69858500964EBE /* ShopPresenter.swift in Sources */,
+				60CAC9932B654FC60006713E /* OpponentsProtocol.swift in Sources */,
 				608FCC6A291E77DB00DB14C9 /* AlertViewController.swift in Sources */,
-				60EDB89728E8B7AD00EF9747 /* MBLabel.swift in Sources */,
 				600A7C432B62C0B200D3F1DD /* HomeInteractor.swift in Sources */,
 				602B046228EC8A0200BDEB3F /* TimeManagerLocal.swift in Sources */,
+				60CAC9912B654B690006713E /* HomeProtocol.swift in Sources */,
+				60195EE62B69859100964EBE /* ShopRouter.swift in Sources */,
 				6011F1BE2B5EF0EC004A3FA0 /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
