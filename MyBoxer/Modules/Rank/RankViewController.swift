@@ -20,7 +20,7 @@ final class RankViewController: UIViewController {
             reloadCollections()
         }
     }
-    
+
     private var middleweightBoxers = [Boxer]() {
         didSet {
             reloadCollections()
@@ -75,7 +75,6 @@ extension RankViewController: PresenterToViewRankProtocol {
 
 extension RankViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         switch collectionView.tag {
         case 0:
             return lightweightBoxers.count

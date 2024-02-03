@@ -45,6 +45,12 @@
 		60321E8D2B6D2DA00011F62B /* RankProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E8C2B6D2DA00011F62B /* RankProtocols.swift */; };
 		60321E8F2B6D38410011F62B /* Array+reversedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E8E2B6D38410011F62B /* Array+reversedArray.swift */; };
 		60321E912B6D3A370011F62B /* BoxersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E902B6D3A370011F62B /* BoxersRepository.swift */; };
+		60321E932B6D3FD80011F62B /* FightingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E922B6D3FD80011F62B /* FightingInteractor.swift */; };
+		60321E952B6D3FE20011F62B /* FightingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E942B6D3FE20011F62B /* FightingPresenter.swift */; };
+		60321E972B6D3FED0011F62B /* FightingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E962B6D3FED0011F62B /* FightingRouter.swift */; };
+		60321E992B6D3FFB0011F62B /* FightingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E982B6D3FFB0011F62B /* FightingConfigurator.swift */; };
+		60321E9B2B6D40020011F62B /* FightingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E9A2B6D40020011F62B /* FightingProtocols.swift */; };
+		60321E9D2B6D5C0D0011F62B /* FightHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E9C2B6D5C0D0011F62B /* FightHandler.swift */; };
 		603C854E2901690D00368288 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603C854D2901690D00368288 /* PlayerDetailsViewController.swift */; };
 		604D924E28DEFCFC0054934C /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D924D28DEFCFC0054934C /* TrainingViewController.swift */; };
 		604EC0E028DB686200F0D344 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EC0DF28DB686200F0D344 /* Images.swift */; };
@@ -128,6 +134,12 @@
 		60321E8C2B6D2DA00011F62B /* RankProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankProtocols.swift; sourceTree = "<group>"; };
 		60321E8E2B6D38410011F62B /* Array+reversedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+reversedArray.swift"; sourceTree = "<group>"; };
 		60321E902B6D3A370011F62B /* BoxersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxersRepository.swift; sourceTree = "<group>"; };
+		60321E922B6D3FD80011F62B /* FightingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingInteractor.swift; sourceTree = "<group>"; };
+		60321E942B6D3FE20011F62B /* FightingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingPresenter.swift; sourceTree = "<group>"; };
+		60321E962B6D3FED0011F62B /* FightingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingRouter.swift; sourceTree = "<group>"; };
+		60321E982B6D3FFB0011F62B /* FightingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingConfigurator.swift; sourceTree = "<group>"; };
+		60321E9A2B6D40020011F62B /* FightingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingProtocols.swift; sourceTree = "<group>"; };
+		60321E9C2B6D5C0D0011F62B /* FightHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightHandler.swift; sourceTree = "<group>"; };
 		603C854D2901690D00368288 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		604D924D28DEFCFC0054934C /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		604EC0DF28DB686200F0D344 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -275,6 +287,11 @@
 			children = (
 				60C21AD82915418100721BD0 /* FightingViewController.swift */,
 				6011F1BA2B5EDC7F004A3FA0 /* FightingView.swift */,
+				60321E922B6D3FD80011F62B /* FightingInteractor.swift */,
+				60321E942B6D3FE20011F62B /* FightingPresenter.swift */,
+				60321E962B6D3FED0011F62B /* FightingRouter.swift */,
+				60321E982B6D3FFB0011F62B /* FightingConfigurator.swift */,
+				60321E9A2B6D40020011F62B /* FightingProtocols.swift */,
 			);
 			path = Fighting;
 			sourceTree = "<group>";
@@ -316,6 +333,7 @@
 			children = (
 				602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */,
 				60B93FBA29351ACC000A50A6 /* RankManager.swift */,
+				60321E9C2B6D5C0D0011F62B /* FightHandler.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -542,6 +560,7 @@
 				60ADD4A22B58540E001C16DD /* OpponentsView.swift in Sources */,
 				60321E8D2B6D2DA00011F62B /* RankProtocols.swift in Sources */,
 				60195EEA2B69862A00964EBE /* ShopProtocol.swift in Sources */,
+				60321E9D2B6D5C0D0011F62B /* FightHandler.swift in Sources */,
 				602065C22B59A49100E01B88 /* TeamView.swift in Sources */,
 				60321E812B6C1ACB0011F62B /* TeamConfigurator.swift in Sources */,
 				60195ED02B69588A00964EBE /* TrainingInteractor.swift in Sources */,
@@ -554,17 +573,21 @@
 				60321E872B6D2D8A0011F62B /* RankInteractor.swift in Sources */,
 				60321E892B6D2D910011F62B /* RankRouter.swift in Sources */,
 				608867BF28F5C7BC003C8F78 /* Item.swift in Sources */,
+				60321E972B6D3FED0011F62B /* FightingRouter.swift in Sources */,
 				60321E8F2B6D38410011F62B /* Array+reversedArray.swift in Sources */,
 				60B93FBB29351ACC000A50A6 /* RankManager.swift in Sources */,
 				60ADD49C2B584480001C16DD /* HomeView.swift in Sources */,
 				605BD4EE28DB5F9D0026C185 /* AppDelegate.swift in Sources */,
 				60321E8B2B6D2D980011F62B /* RankConfigurator.swift in Sources */,
+				60321E952B6D3FE20011F62B /* FightingPresenter.swift in Sources */,
+				60321E9B2B6D40020011F62B /* FightingProtocols.swift in Sources */,
 				60321E7B2B6C0C720011F62B /* TeamInteractor.swift in Sources */,
 				60195EE22B69858100964EBE /* ShopInteractor.swift in Sources */,
 				601AD101290B0CB100CFF7D0 /* Defaults.swift in Sources */,
 				60F1F0A228E356860018AC4B /* Training.swift in Sources */,
 				604EC0E228DB6A9200F0D344 /* Constants.swift in Sources */,
 				600A7C3F2B62C09900D3F1DD /* HomeRouter.swift in Sources */,
+				60321E992B6D3FFB0011F62B /* FightingConfigurator.swift in Sources */,
 				60321E832B6C1ADA0011F62B /* TeamProtocols.swift in Sources */,
 				60195ED62B6958A600964EBE /* TrainingConfigurator.swift in Sources */,
 				60321E7D2B6C0C780011F62B /* TeamRouter.swift in Sources */,
@@ -585,6 +608,7 @@
 				60E134722927E2880032B292 /* Member.swift in Sources */,
 				60EFAF6828E635C20011E2E8 /* OpponentCell.swift in Sources */,
 				604EC0E528DB72FF00F0D344 /* Boxer.swift in Sources */,
+				60321E932B6D3FD80011F62B /* FightingInteractor.swift in Sources */,
 				60E3AACD290859A400D8D025 /* Player.swift in Sources */,
 				6062CCE428FEF0C90089ED9E /* TeamMemberCell.swift in Sources */,
 				60321E912B6D3A370011F62B /* BoxersRepository.swift in Sources */,

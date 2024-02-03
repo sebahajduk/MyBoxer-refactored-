@@ -15,10 +15,10 @@ final class OpponentsRouter: PresenterOutput {
         opponent: Opponent,
         _ navigationController: UINavigationController
     ) {
-        let fightingViewController = FightingViewController()
+        let configurator = FightingConfigurator()
+        let viewController = configurator.setupViewController(player: player, opponent: opponent)
 
-        fightingViewController.set(player: player, opponent: opponent)
 
-        navigationController.pushViewController(fightingViewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
