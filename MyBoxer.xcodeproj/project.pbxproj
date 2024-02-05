@@ -77,6 +77,8 @@
 		60ADD4A22B58540E001C16DD /* OpponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60ADD4A12B58540E001C16DD /* OpponentsView.swift */; };
 		60B93FBB29351ACC000A50A6 /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B93FBA29351ACC000A50A6 /* RankManager.swift */; };
 		60C21AD92915418100721BD0 /* FightingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C21AD82915418100721BD0 /* FightingViewController.swift */; };
+		60C839C02B715F2600EEF98B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 60C839BF2B715F2600EEF98B /* Realm */; };
+		60C839C22B715F2600EEF98B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 60C839C12B715F2600EEF98B /* RealmSwift */; };
 		60CAC9892B6541800006713E /* OpponentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC9882B6541800006713E /* OpponentsRouter.swift */; };
 		60CAC98B2B65418C0006713E /* OpponentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC98A2B65418C0006713E /* OpponentsInteractor.swift */; };
 		60CAC98D2B6541A00006713E /* OpponentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CAC98C2B6541A00006713E /* OpponentsPresenter.swift */; };
@@ -191,6 +193,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C839C22B715F2600EEF98B /* RealmSwift in Frameworks */,
+				60C839C02B715F2600EEF98B /* Realm in Frameworks */,
 				60F3576A2B60360300C51F94 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +490,8 @@
 			name = MyBoxer;
 			packageProductDependencies = (
 				60F357692B60360300C51F94 /* DesignSystem */,
+				60C839BF2B715F2600EEF98B /* Realm */,
+				60C839C12B715F2600EEF98B /* RealmSwift */,
 			);
 			productName = MyBoxer;
 			productReference = 605BD4EA28DB5F9D0026C185 /* MyBoxer.app */;
@@ -517,6 +523,7 @@
 			mainGroup = 605BD4E128DB5F9D0026C185;
 			packageReferences = (
 				60F357682B60360300C51F94 /* XCLocalSwiftPackageReference "DesignSystem" */,
+				60C839BE2B715F2600EEF98B /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 605BD4EB28DB5F9D0026C185 /* Products */;
 			projectDirPath = "";
@@ -844,7 +851,28 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		60C839BE2B715F2600EEF98B /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		60C839BF2B715F2600EEF98B /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60C839BE2B715F2600EEF98B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		60C839C12B715F2600EEF98B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60C839BE2B715F2600EEF98B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		60F357692B60360300C51F94 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;
