@@ -15,6 +15,6 @@ final class TrainingRouter {
     }
 }
 
-extension TrainingRouter: PresenterToRouterTrainingProtocol {
+extension TrainingRouter: PresenterToRouterTrainingCommunicator {
     
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeRouter: PresenterToRouterHomeModuleProtocol {
+final class HomeRouter: PresenterToRouterHomeModuleCommunicator {
     func presentDetails(_ navigationController: UINavigationController) {
         let detailVC = PlayerDetailsViewController()
 
@@ -26,10 +26,11 @@ final class HomeRouter: PresenterToRouterHomeModuleProtocol {
 
     func pushTraining(
         _ navigationController: UINavigationController,
-        player: Player
+        player: Player,
+        timeHandler: TimeHandler
     ) {
         let configurator = TrainingConfigurator()
-        let viewController = configurator.setupViewController(with: player)
+        let viewController = configurator.setupViewController(for: player, timeHandler: timeHandler)
 
         navigationController.pushViewController(viewController, animated: true)
     }

@@ -1,5 +1,5 @@
 //
-//  HomeProtocol.swift
+//  HomeCommunicator.swift
 //  MyBoxer
 //
 //  Created by Sebastian Hajduk on 27/01/2024.
@@ -7,41 +7,42 @@
 
 import UIKit
 
-protocol ViewToPresenterHomeModuleProtocol {
+typealias BarsPercentage = (health: Float, stamina: Float, experience: Float)
+typealias BarsValues<T: Numeric> = (health: T, stamina: T, experience: T)
+
+protocol ViewToPresenterHomeModuleCommunicator {
+    func viewLoaded()
+    func viewWillAppear()
+
     func rankButtonTapped(_ navigationController: UINavigationController)
     func detailsButtonTapped(_ navigationController: UINavigationController)
-    func trainingButtonTapped(
-        _ navigationController: UINavigationController,
-        player: Player
-    )
-    func opponentsButtonTapped(
-        _ navigationController: UINavigationController,
-        player: Player
-    )
-    func shopButtonTapped(
-        _ navigationController: UINavigationController,
-        player: Player
-    )
-    func teamButtonTapped(
-        _ navigationController: UINavigationController,
-        player: Player
-    )
+    func trainingButtonTapped(_ navigationController: UINavigationController)
+    func opponentsButtonTapped(_ navigationController: UINavigationController)
+    func shopButtonTapped(_ navigationController: UINavigationController)
+    func teamButtonTapped(_ navigationController: UINavigationController)
 }
 
-protocol PresenterToViewHomeModuleProtocol: AnyObject {
+protocol PresenterToViewHomeModuleCommunicator: AnyObject {
     func updateCoinValueTo(_ value: Int)
-    func updateProgressBarsFill(_ fillPercent: (health: Float, stamina: Float, experience: Float))
-    func updateProgressBarsValue<T: Numeric>(_ value: (health: T, stamina: T, experience: T))
+    func updateProgressBarsFill(_ fillPercent: BarsPercentage)
+    func updateProgressBarsValue<T: Numeric>(_ value: BarsValues<T>)
+    func updateTimeLabelAndProgressBar(with value: String, progress: Float)
 }
 
-protocol PresenterToInteractorHomeModuleProtocol { }
+protocol PresenterToInteractorHomeModuleCommunicator { 
+    func setupData()
+    func startTimer()
+    func getPlayerObject() -> Player
+    func getTimeHandler() -> TimeHandler
+}
 
-protocol PresenterToRouterHomeModuleProtocol {
+protocol PresenterToRouterHomeModuleCommunicator {
     func presentDetails(_ navigationController: UINavigationController)
     func pushRank(_ navigationController: UINavigationController)
     func pushTraining(
         _ navigationController: UINavigationController,
-        player: Player
+        player: Player,
+        timeHandler: TimeHandler
     )
     func pushOpponent(
         _ navigationController: UINavigationController,
@@ -57,6 +58,13 @@ protocol PresenterToRouterHomeModuleProtocol {
     )
 }
 
-protocol InteractorToPresenterHomeModuleProtocol: AnyObject { 
-    // TODO: Updating view after backend changes
+struct HomeDependencies {
+    var barsPercentage: BarsPercentage
+    var barsValues: BarsValues<Double>
+    var money: Int
+}
+
+protocol InteractorToPresenterHomeModuleCommunicator: AnyObject { 
+    func playerLoaded(with values: HomeDependencies)
+    func updateTimer(with value: String, barProgress: Float)
 }

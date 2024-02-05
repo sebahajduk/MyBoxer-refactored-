@@ -7,6 +7,6 @@
 
 import Foundation
 
-final class RankRouter: PresenterToRouterRankProtocol {
+final class RankRouter: PresenterToRouterRankCommunicator {
     
 }

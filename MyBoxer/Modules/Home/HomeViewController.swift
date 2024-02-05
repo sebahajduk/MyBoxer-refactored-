@@ -10,13 +10,7 @@ import UIKit
 final class HomeViewController: UIViewController {
     private var homeView = HomeView()
 
-    var presenter: ViewToPresenterHomeModuleProtocol?
-
-    private var player = Player()
-
-    private var isTimerActive = false
-    private var timer: Timer?
-    private var timeLeft: TimeInterval?
+    var presenter: ViewToPresenterHomeModuleCommunicator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,92 +18,11 @@ final class HomeViewController: UIViewController {
         setupView()
         setupButtonTargets()
 
-        setupData()
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [self] in
-            updateUI()
-        }
+        presenter?.viewLoaded()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        startTimer()
-        updateUI()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        saveBoxer()
-    }
-}
-
-private extension HomeViewController {
-    func saveBoxer() {
-        Defaults.shared.myBoxer = player
-    }
-
-    func setupData() {
-        player = Defaults.shared.myBoxer ?? Player()
-        player.homeRegeneration(intervals: TimeManagerLocal.shared.timeIntervals)
-
-        switch player.division {
-        case .lightweight:
-            BoxersRepository.lightweightBoxers.insert(player, at: player.rank)
-        case .middleweight:
-            BoxersRepository.middleweightBoxers.insert(player, at: player.rank)
-        case .heavyweight:
-            BoxersRepository.heavyweightBoxers.insert(player, at: player.rank)
-        }
-    }
-
-    func startTimer() {
-        var timerFiredCounter = 0
-        if !isTimerActive {
-            timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { [self] timer in
-                if TimeManagerLocal.shared.inProgres {
-                    let timeLeft = TimeManagerLocal.shared.getTimeLeft()
-
-                    isTimerActive = true
-                    homeView.timeProgress.setProgress(Float((timeLeft) / Defaults.shared.actionTime), animated: true)
-                    
-                    if let formattedTimeLeft = DateComponentsFormatter().string(from: timeLeft) {
-                        homeView.timeLeftLabel.text = formattedTimeLeft
-                    }
-
-                } else {
-                    if timerFiredCounter == 1500 {
-                        player.homeRegeneration(intervals: 1)
-                        updateUI()
-                        timerFiredCounter = 0
-                    }
-                    timerFiredCounter += 1
-                    homeView.timeLeftLabel.text = ""
-
-                    stopTimer()
-                }
-            }
-        }
-    }
-
-    func stopTimer() {
-        timer?.invalidate()
-        isTimerActive = false
-
-        homeView.timeProgress.setProgress(0, animated: true)
-    }
-
-    func updateUI() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            homeView.updateProgressBarsFill(
-                (
-                    health: Float(player.hp/player.vitality),
-                    stamina: Float(player.stamina/player.fullStamina),
-                    experience: Float(player.experience/player.nextLevel)
-                )
-            )
-            
-            homeView.updateProgressBarsValue((health: player.hp, stamina: player.stamina, experience: player.experience))
-            homeView.updateCoinValueTo(player.money)
-        }
+        presenter?.viewWillAppear()
     }
 }
 
@@ -133,17 +46,46 @@ private extension HomeViewController {
     }
 }
 
-extension HomeViewController: PresenterToViewHomeModuleProtocol {
+extension HomeViewController: PresenterToViewHomeModuleCommunicator {
+    func updateTimeLabelAndProgressBar(with value: String, progress: Float) {
+        homeView.timeLeftLabel.text = value
+        homeView.timeProgress.setProgress(progress, animated: true)
+    }
+    
     func updateCoinValueTo(_ value: Int) {
-
+        homeView.updateCoinValueTo(value)
     }
 
-    func updateProgressBarsFill(_ fillPercent: (health: Float, stamina: Float, experience: Float)) {
-
+    func updateProgressBarsFill(
+        _ fillPercent: (
+            health: Float,
+            stamina: Float,
+            experience: Float
+        )
+    ) {
+        homeView.updateProgressBarsFill(
+            (
+                health: fillPercent.health,
+                stamina: fillPercent.stamina,
+                experience: fillPercent.experience
+            )
+        )
     }
 
-    func updateProgressBarsValue<T>(_ value: (health: T, stamina: T, experience: T)) where T : Numeric {
-
+    func updateProgressBarsValue<T>(
+        _ value: (
+            health: T,
+            stamina: T,
+            experience: T
+        )
+    ) where T : Numeric {
+        homeView.updateProgressBarsValue(
+            (
+                health: value.health,
+                stamina: value.stamina,
+                experience: value.experience
+            )
+        )
     }
 }
 
@@ -164,30 +106,24 @@ extension HomeViewController {
     func trainingButtonTapped() {
         guard let navigationController else { return }
 
-        presenter?.trainingButtonTapped(
-            navigationController,
-            player: player
-        )
+        presenter?.trainingButtonTapped(navigationController)
     }
 
     func opponentsButtonTapped() {
         guard let navigationController else { return }
 
-        presenter?.opponentsButtonTapped(
-            navigationController,
-            player: player
-        )
+        presenter?.opponentsButtonTapped(navigationController)
     }
 
     func shopButtonTapped() {
         guard let navigationController else { return }
 
-        presenter?.shopButtonTapped(navigationController, player: player)
+        presenter?.shopButtonTapped(navigationController)
     }
 
     func teamButtonTapped() {
         guard let navigationController else { return }
 
-        presenter?.teamButtonTapped(navigationController, player: player)
+        presenter?.teamButtonTapped(navigationController)
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class TrainingViewController: UIViewController {
     
-    var presenter: ViewToPresenterTrainingProtocol?
+    var presenter: ViewToPresenterTrainingCommunicator?
 
     private let trainingView = TrainingView()
 
@@ -37,7 +37,7 @@ class TrainingViewController: UIViewController {
     }
 }
 
-extension TrainingViewController: PresenterToViewTrainingProtocol {
+extension TrainingViewController: PresenterToViewTrainingCommunicator {
     func dismissViewController() {
         navigationController?.popViewController(animated: true)
     }

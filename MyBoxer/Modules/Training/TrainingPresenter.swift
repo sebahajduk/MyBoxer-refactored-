@@ -8,12 +8,12 @@
 import Foundation
 
 final class TrainingPresenter {
-    weak var view: PresenterToViewTrainingProtocol?
-    var interactor: PresenterToInteractorTrainingProtocol?
-    var router: PresenterToRouterTrainingProtocol?
+    weak var view: PresenterToViewTrainingCommunicator?
+    var interactor: PresenterToInteractorTrainingCommunicator?
+    var router: PresenterToRouterTrainingCommunicator?
 }
 
-extension TrainingPresenter: ViewToPresenterTrainingProtocol {
+extension TrainingPresenter: ViewToPresenterTrainingCommunicator {
     func didSelectTraining(_ training: Training, player: Player) {
         interactor?.startTraining(training, for: player)
     }
@@ -23,7 +23,7 @@ extension TrainingPresenter: ViewToPresenterTrainingProtocol {
     }
 }
 
-extension TrainingPresenter: InteractorToPresenterTrainingProtocol {
+extension TrainingPresenter: InteractorToPresenterTrainingCommunicator {
     func trainingStarted() {
         view?.dismissViewController()
     }

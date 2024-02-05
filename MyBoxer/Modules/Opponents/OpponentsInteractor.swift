@@ -7,8 +7,8 @@
 
 import Foundation
 
-typealias OpponentsInteractorInput = PresenterToInteractorOpponentsModuleProtocol
-typealias OpponentsInteractorOutput = InteractorToPresenterOpponentsModuleProtocol
+typealias OpponentsInteractorInput = PresenterToInteractorOpponentsModuleCommunicator
+typealias OpponentsInteractorOutput = InteractorToPresenterOpponentsModuleCommunicator
 
 final class OpponentsInteractor {
     weak var presenter: OpponentsInteractorOutput?

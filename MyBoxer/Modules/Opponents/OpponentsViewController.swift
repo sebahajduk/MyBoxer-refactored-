@@ -8,7 +8,7 @@
 import UIKit
 
 final class OpponentsViewController: UIViewController {
-    var presenter: ViewToPresenterOpponentsModuleProtocol?
+    var presenter: ViewToPresenterOpponentsModuleCommunicator?
     
     private var opponentsView = OpponentsView()
     private var player: Player!
@@ -42,7 +42,7 @@ private extension OpponentsViewController {
     }
 }
 
-extension OpponentsViewController: PresenterToViewOpponentsModuleProtocol {
+extension OpponentsViewController: PresenterToViewOpponentsModuleCommunicator {
     func setupOpponentsSucceeded(list: [Opponent]) {
         self.opponents = list
         opponentsView.tableView.reloadData()

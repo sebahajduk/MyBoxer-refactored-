@@ -32,7 +32,7 @@
 		602065C02B59A3AD00E01B88 /* TeamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065BF2B59A3AD00E01B88 /* TeamRepository.swift */; };
 		602065C22B59A49100E01B88 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065C12B59A49100E01B88 /* TeamView.swift */; };
 		602065C52B59A87000E01B88 /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602065C42B59A87000E01B88 /* RankView.swift */; };
-		602B046228EC8A0200BDEB3F /* TimeManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */; };
+		602B046228EC8A0200BDEB3F /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B046128EC8A0200BDEB3F /* TimeHandler.swift */; };
 		60321E7B2B6C0C720011F62B /* TeamInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E7A2B6C0C720011F62B /* TeamInteractor.swift */; };
 		60321E7D2B6C0C780011F62B /* TeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E7C2B6C0C780011F62B /* TeamRouter.swift */; };
 		60321E7F2B6C0C7E0011F62B /* TeamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60321E7E2B6C0C7E0011F62B /* TeamPresenter.swift */; };
@@ -121,7 +121,7 @@
 		602065BF2B59A3AD00E01B88 /* TeamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
 		602065C12B59A49100E01B88 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		602065C42B59A87000E01B88 /* RankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
-		602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManagerLocal.swift; sourceTree = "<group>"; };
+		602B046128EC8A0200BDEB3F /* TimeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
 		60321E7A2B6C0C720011F62B /* TeamInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInteractor.swift; sourceTree = "<group>"; };
 		60321E7C2B6C0C780011F62B /* TeamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRouter.swift; sourceTree = "<group>"; };
 		60321E7E2B6C0C7E0011F62B /* TeamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPresenter.swift; sourceTree = "<group>"; };
@@ -331,7 +331,7 @@
 		604EC0E828DB761C00F0D344 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				602B046128EC8A0200BDEB3F /* TimeManagerLocal.swift */,
+				602B046128EC8A0200BDEB3F /* TimeHandler.swift */,
 				60B93FBA29351ACC000A50A6 /* RankManager.swift */,
 				60321E9C2B6D5C0D0011F62B /* FightHandler.swift */,
 			);
@@ -623,7 +623,7 @@
 				60CAC9932B654FC60006713E /* OpponentsProtocol.swift in Sources */,
 				608FCC6A291E77DB00DB14C9 /* AlertViewController.swift in Sources */,
 				600A7C432B62C0B200D3F1DD /* HomeInteractor.swift in Sources */,
-				602B046228EC8A0200BDEB3F /* TimeManagerLocal.swift in Sources */,
+				602B046228EC8A0200BDEB3F /* TimeHandler.swift in Sources */,
 				60CAC9912B654B690006713E /* HomeProtocol.swift in Sources */,
 				60195EE62B69859100964EBE /* ShopRouter.swift in Sources */,
 				6011F1BE2B5EF0EC004A3FA0 /* AlertView.swift in Sources */,

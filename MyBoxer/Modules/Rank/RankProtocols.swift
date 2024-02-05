@@ -1,5 +1,5 @@
 //
-//  RankProtocols.swift
+//  RankCommunicators.swift
 //  MyBoxer
 //
 //  Created by Sebastian Hajduk on 02/02/2024.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol ViewToPresenterRankProtocol {
+protocol ViewToPresenterRankCommunicator {
     func viewLoaded()
 }
 
-protocol InteractorToPresenterRankProtocol: AnyObject {
+protocol InteractorToPresenterRankCommunicator: AnyObject {
     func didSetupData(
         _ data: (
             lightweight: [Boxer],
@@ -21,7 +21,7 @@ protocol InteractorToPresenterRankProtocol: AnyObject {
     )
 }
 
-protocol PresenterToViewRankProtocol: AnyObject {
+protocol PresenterToViewRankCommunicator: AnyObject {
     func updateViewForReceivedData(
         _ data: (
             lightweight: [Boxer],
@@ -31,10 +31,10 @@ protocol PresenterToViewRankProtocol: AnyObject {
     )
 }
 
-protocol PresenterToInteractorRankProtocol {
+protocol PresenterToInteractorRankCommunicator {
     func setupData()
 }
 
-protocol PresenterToRouterRankProtocol {
+protocol PresenterToRouterRankCommunicator {
 
 }

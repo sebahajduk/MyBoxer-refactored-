@@ -1,5 +1,5 @@
 //
-//  TimeManager.swift
+//  TimeHandler.swift
 //  MyBoxer
 //
 //  Created by Sebastian Hajduk on 04/10/2022.
@@ -7,18 +7,12 @@
 
 import Foundation
 
-class TimeManagerLocal {
-    
-    static let shared = TimeManagerLocal()
+class TimeHandler {
     
     var now = Date.now
     var endedTime: Date!
     var timeLeft: TimeInterval = 0.5
-    var inProgres: Bool = false {
-        didSet {
-            print(inProgres)
-        }
-    }
+    var inProgres: Bool = false
     var trainingTime: Double = 1
     var timeIntervals: Int = 0
     

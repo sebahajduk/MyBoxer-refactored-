@@ -7,6 +7,6 @@
 
 import Foundation
 
-final class TeamRouter: PresenterToRouterTeamProtocol {
+final class TeamRouter: PresenterToRouterTeamCommunicator {
 
 }

@@ -1,5 +1,5 @@
 //
-//  TeamProtocols.swift
+//  TeamCommunicators.swift
 //  MyBoxer
 //
 //  Created by Sebastian Hajduk on 01/02/2024.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol ViewToPresenterTeamProtocol {
+protocol ViewToPresenterTeamCommunicator {
     func categoryButtonTapped(category: MemberType)
     func viewLoaded()
     func didSelect(member: Member, player: Player)
 }
 
-protocol InteractorToPresenterTeamProtocol: AnyObject {
+protocol InteractorToPresenterTeamCommunicator: AnyObject {
     func setupMembers(_ members: [Member])
     func onSucceededNewMembersList(_ members: [Member])
 
@@ -21,18 +21,18 @@ protocol InteractorToPresenterTeamProtocol: AnyObject {
     func onFailureHiring(reason: AlertType)
 }
 
-protocol PresenterToViewTeamProtocol: AnyObject {
+protocol PresenterToViewTeamCommunicator: AnyObject {
     func updateMembersOffer(to members: [Member])
     func showAlert(_ type: AlertType)
     func dismiss()
 }
 
-protocol PresenterToInteractorTeamProtocol {
+protocol PresenterToInteractorTeamCommunicator {
     func membersTypeChanged(to type: MemberType)
     func setupData()
     func hire(member: Member, player: Player)
 }
 
-protocol PresenterToRouterTeamProtocol {
+protocol PresenterToRouterTeamCommunicator {
 
 }
