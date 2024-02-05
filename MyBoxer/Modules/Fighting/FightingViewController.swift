@@ -24,7 +24,7 @@ struct FightingViewUpdateDependencies {
 }
 
 final class FightingViewController: UIViewController {
-    var presenter: ViewToPresenterFightingProtocol?
+    var presenter: ViewToPresenterFightingCommunicator?
     private var fightingView = FightingView()
 
     private var attackHistory: [Attack] = []
@@ -49,7 +49,7 @@ final class FightingViewController: UIViewController {
     }
 }
 
-extension FightingViewController: PresenterToViewFightingProtocol {
+extension FightingViewController: PresenterToViewFightingCommunicator {
     func setupInitialData(names: (player: String, opponent: String)) {
         fightingView.setupNames(player: names.player, opponent: names.opponent)
     }
@@ -80,7 +80,7 @@ extension FightingViewController: PresenterToViewFightingProtocol {
         alert.modalTransitionStyle = .crossDissolve
 
         navigationController?.present(alert, animated: true)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 

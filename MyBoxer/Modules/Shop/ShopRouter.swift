@@ -7,6 +7,6 @@
 
 import Foundation
 
-final class ShopRouter: PresenterToRouterShopProtocol {
+final class ShopRouter: PresenterToRouterShopCommunicator {
     
 }

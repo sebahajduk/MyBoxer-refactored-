@@ -12,7 +12,7 @@ enum WeightDivisions {
 }
 
 final class RankViewController: UIViewController {
-    var presenter: ViewToPresenterRankProtocol?
+    var presenter: ViewToPresenterRankCommunicator?
     private let rankView = RankView()
 
     private var lightweightBoxers = [Boxer]() {
@@ -59,7 +59,7 @@ final class RankViewController: UIViewController {
         rankView.heavyweightCollectionView.reloadData()
     }
 }
-extension RankViewController: PresenterToViewRankProtocol {
+extension RankViewController: PresenterToViewRankCommunicator {
     func updateViewForReceivedData(
         _ data: (
             lightweight: [Boxer],

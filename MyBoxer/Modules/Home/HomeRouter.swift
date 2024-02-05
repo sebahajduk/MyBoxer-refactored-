@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeRouter: PresenterToRouterHomeModuleProtocol {
+final class HomeRouter: PresenterToRouterHomeModuleCommunicator {
     func presentDetails(_ navigationController: UINavigationController) {
         let detailVC = PlayerDetailsViewController()
 

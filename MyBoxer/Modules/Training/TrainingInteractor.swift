@@ -8,10 +8,10 @@
 import Foundation
 
 final class TrainingInteractor {
-    weak var presenter: InteractorToPresenterTrainingProtocol?
+    weak var presenter: InteractorToPresenterTrainingCommunicator?
 }
 
-extension TrainingInteractor: PresenterToInteractorTrainingProtocol {
+extension TrainingInteractor: PresenterToInteractorTrainingCommunicator {
     func startTraining(_ training: Training, for boxer: Player) {
         if TimeManagerLocal.shared.inProgres {
             presenter?.trainingCannotStart(reason: .trainingInProgress)

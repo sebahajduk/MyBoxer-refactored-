@@ -8,10 +8,10 @@
 import Foundation
 
 final class ShopInteractor {
-    weak var presenter: InteractorToPresenterShopProtocol?
+    weak var presenter: InteractorToPresenterShopCommunicator?
 }
 
-extension ShopInteractor: PresenterToInteractorShopProtocol {
+extension ShopInteractor: PresenterToInteractorShopCommunicator {
     func buy(item: Item, player: Player) {
         if player.money < item.cost {
             presenter?.onFailureBuying(reason: .notEnoughMoney)

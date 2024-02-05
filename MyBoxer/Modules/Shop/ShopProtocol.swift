@@ -1,5 +1,5 @@
 //
-//  ShopProtocol.swift
+//  ShopCommunicator.swift
 //  MyBoxer
 //
 //  Created by Sebastian Hajduk on 30/01/2024.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol ViewToPresenterShopProtocol {
+protocol ViewToPresenterShopCommunicator {
     func categoryButtonTapped(category: ItemType)
     func viewLoaded()
     func didSelect(item: Item, player: Player)
 }
 
-protocol InteractorToPresenterShopProtocol: AnyObject {
+protocol InteractorToPresenterShopCommunicator: AnyObject {
     func sendItemsForNewType(_ items: [Item])
     func onSucceededNewShopOffer(_ items: [Item])
 
@@ -21,18 +21,18 @@ protocol InteractorToPresenterShopProtocol: AnyObject {
     func onFailureBuying(reason: AlertType)
 }
 
-protocol PresenterToViewShopProtocol: AnyObject {
+protocol PresenterToViewShopCommunicator: AnyObject {
     func updateShopOffer(with items: [Item])
     func showAlert(_ type: AlertType)
     func dismiss()
 }
 
-protocol PresenterToInteractorShopProtocol {
+protocol PresenterToInteractorShopCommunicator {
     func itemsTypeChanged(to type: ItemType)
     func setupData()
     func buy(item: Item, player: Player)
 }
 
-protocol PresenterToRouterShopProtocol {
+protocol PresenterToRouterShopCommunicator {
 
 }

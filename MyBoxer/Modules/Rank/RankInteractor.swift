@@ -8,10 +8,10 @@
 import Foundation
 
 final class RankInteractor {
-    weak var presenter: InteractorToPresenterRankProtocol?
+    weak var presenter: InteractorToPresenterRankCommunicator?
 }
 
-extension RankInteractor: PresenterToInteractorRankProtocol {
+extension RankInteractor: PresenterToInteractorRankCommunicator {
     func setupData() {
         let lightweight = BoxersRepository.lightweightBoxers
         let middleweight = BoxersRepository.middleweightBoxers

@@ -8,7 +8,7 @@
 import Foundation
 
 final class FightingInteractor {
-    weak var presenter: InteractorToPresenterFightingProtocol?
+    weak var presenter: InteractorToPresenterFightingCommunicator?
     var fightHandler: FightHandler
 
     init(player: Player, opponent: Opponent) {
@@ -17,7 +17,7 @@ final class FightingInteractor {
     }
 }
 
-extension FightingInteractor: PresenterToInteractorFightingProtocol {
+extension FightingInteractor: PresenterToInteractorFightingCommunicator {
     func startFight() {
         fightHandler.startFight()
     }

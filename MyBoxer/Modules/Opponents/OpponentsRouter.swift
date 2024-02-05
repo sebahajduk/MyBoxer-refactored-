@@ -7,7 +7,7 @@
 
 import UIKit
 
-typealias PresenterOutput = PresenterToRouterOpponentsModuleProtocol
+typealias PresenterOutput = PresenterToRouterOpponentsModuleCommunicator
 
 final class OpponentsRouter: PresenterOutput {
     func startFightBetween(

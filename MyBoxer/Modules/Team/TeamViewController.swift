@@ -8,7 +8,7 @@
 import UIKit
 
 final class TeamViewController: UIViewController {
-    var presenter: ViewToPresenterTeamProtocol?
+    var presenter: ViewToPresenterTeamCommunicator?
 
     private var teamView = TeamView()
 
@@ -61,7 +61,7 @@ private extension TeamViewController {
     }
 }
 
-extension TeamViewController: PresenterToViewTeamProtocol {
+extension TeamViewController: PresenterToViewTeamCommunicator {
     func updateMembersOffer(to members: [Member]) {
         membersList = members
     }

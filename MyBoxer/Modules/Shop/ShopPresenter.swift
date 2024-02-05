@@ -8,12 +8,12 @@
 import Foundation
 
 final class ShopPresenter {
-    weak var view: PresenterToViewShopProtocol?
-    var interactor: PresenterToInteractorShopProtocol?
-    var router: PresenterToRouterShopProtocol?
+    weak var view: PresenterToViewShopCommunicator?
+    var interactor: PresenterToInteractorShopCommunicator?
+    var router: PresenterToRouterShopCommunicator?
 }
 
-extension ShopPresenter: ViewToPresenterShopProtocol {
+extension ShopPresenter: ViewToPresenterShopCommunicator {
     func didSelect(item: Item, player: Player) {
         interactor?.buy(item: item, player: player)
     }
@@ -27,7 +27,7 @@ extension ShopPresenter: ViewToPresenterShopProtocol {
     }
 }
 
-extension ShopPresenter: InteractorToPresenterShopProtocol {
+extension ShopPresenter: InteractorToPresenterShopCommunicator {
     func onSucceededBuying() {
         view?.dismiss()
     }

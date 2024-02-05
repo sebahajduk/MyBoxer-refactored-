@@ -10,7 +10,7 @@ import DesignSystem
 
 final class ShopViewController: UIViewController {
     typealias shopMenuButtonType = ItemType
-    var presenter: ViewToPresenterShopProtocol?
+    var presenter: ViewToPresenterShopCommunicator?
 
     private var shopView = ShopView()
 
@@ -64,7 +64,7 @@ private extension ShopViewController {
     }
 }
 
-extension ShopViewController: PresenterToViewShopProtocol {
+extension ShopViewController: PresenterToViewShopCommunicator {
     func dismiss() {
         navigationController?.popViewController(animated: true)
     }

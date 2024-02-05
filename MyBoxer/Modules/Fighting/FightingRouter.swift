@@ -11,6 +11,6 @@ final class FightingRouter {
     
 }
 
-extension FightingRouter: PresenterToRouterFightingProtocol {
+extension FightingRouter: PresenterToRouterFightingCommunicator {
     
 }

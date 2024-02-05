@@ -8,12 +8,12 @@
 import Foundation
 
 final class TeamPresenter {
-    weak var view: PresenterToViewTeamProtocol?
-    var interactor: PresenterToInteractorTeamProtocol?
-    var router: PresenterToRouterTeamProtocol?
+    weak var view: PresenterToViewTeamCommunicator?
+    var interactor: PresenterToInteractorTeamCommunicator?
+    var router: PresenterToRouterTeamCommunicator?
 }
 
-extension TeamPresenter: ViewToPresenterTeamProtocol {
+extension TeamPresenter: ViewToPresenterTeamCommunicator {
     func categoryButtonTapped(category: MemberType) {
         interactor?.membersTypeChanged(to: category)
     }
@@ -27,7 +27,7 @@ extension TeamPresenter: ViewToPresenterTeamProtocol {
     }
 }
 
-extension TeamPresenter: InteractorToPresenterTeamProtocol {
+extension TeamPresenter: InteractorToPresenterTeamCommunicator {
     func setupMembers(_ members: [Member]) {
         view?.updateMembersOffer(to: members)
     }

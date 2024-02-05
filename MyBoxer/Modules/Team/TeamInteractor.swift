@@ -8,10 +8,10 @@
 import Foundation
 
 final class TeamInteractor {
-    weak var presenter: InteractorToPresenterTeamProtocol?
+    weak var presenter: InteractorToPresenterTeamCommunicator?
 }
 
-extension TeamInteractor: PresenterToInteractorTeamProtocol {
+extension TeamInteractor: PresenterToInteractorTeamCommunicator {
     func membersTypeChanged(to type: MemberType) {
         var members = [Member]()
 

@@ -8,12 +8,12 @@
 import UIKit
 
 final class OpponentsPresenter {
-    weak var view: PresenterToViewOpponentsModuleProtocol?
-    var interactor: PresenterToInteractorOpponentsModuleProtocol?
-    var router: PresenterToRouterOpponentsModuleProtocol?
+    weak var view: PresenterToViewOpponentsModuleCommunicator?
+    var interactor: PresenterToInteractorOpponentsModuleCommunicator?
+    var router: PresenterToRouterOpponentsModuleCommunicator?
 }
 
-extension OpponentsPresenter: ViewToPresenterOpponentsModuleProtocol {
+extension OpponentsPresenter: ViewToPresenterOpponentsModuleCommunicator {
     func setupOpponents(for player: Player) {
         interactor?.setupOpponents(for: player)
     }
@@ -36,7 +36,7 @@ extension OpponentsPresenter: ViewToPresenterOpponentsModuleProtocol {
     }
 }
 
-extension OpponentsPresenter: InteractorToPresenterOpponentsModuleProtocol {
+extension OpponentsPresenter: InteractorToPresenterOpponentsModuleCommunicator {
     func setOpponentsList(_ opponents: [Opponent]) {
         view?.setupOpponentsSucceeded(list: opponents)
     }

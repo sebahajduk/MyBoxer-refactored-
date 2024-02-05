@@ -10,7 +10,7 @@ import UIKit
 final class HomeViewController: UIViewController {
     private var homeView = HomeView()
 
-    var presenter: ViewToPresenterHomeModuleProtocol?
+    var presenter: ViewToPresenterHomeModuleCommunicator?
 
     private var player = Player()
 
@@ -133,7 +133,7 @@ private extension HomeViewController {
     }
 }
 
-extension HomeViewController: PresenterToViewHomeModuleProtocol {
+extension HomeViewController: PresenterToViewHomeModuleCommunicator {
     func updateCoinValueTo(_ value: Int) {
 
     }

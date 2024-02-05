@@ -8,18 +8,18 @@
 import Foundation
 
 final class RankPresenter {
-    weak var view: PresenterToViewRankProtocol?
-    var interactor: PresenterToInteractorRankProtocol?
-    var router: PresenterToRouterRankProtocol?
+    weak var view: PresenterToViewRankCommunicator?
+    var interactor: PresenterToInteractorRankCommunicator?
+    var router: PresenterToRouterRankCommunicator?
 }
 
-extension RankPresenter: ViewToPresenterRankProtocol {
+extension RankPresenter: ViewToPresenterRankCommunicator {
     func viewLoaded() {
         interactor?.setupData()
     }
 }
 
-extension RankPresenter: InteractorToPresenterRankProtocol {
+extension RankPresenter: InteractorToPresenterRankCommunicator {
     func didSetupData(
         _ data: (
             lightweight: [Boxer],

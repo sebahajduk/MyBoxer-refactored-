@@ -1,5 +1,5 @@
 //
-//  FightingProtocols.swift
+//  FightingCommunicators.swift
 //  MyBoxer
 //
 //  Created by Sebastian Hajduk on 02/02/2024.
@@ -7,18 +7,18 @@
 
 import Foundation
 
-protocol ViewToPresenterFightingProtocol {
+protocol ViewToPresenterFightingCommunicator {
     func viewLoaded()
     func viewAppeared()
 }
 
-protocol InteractorToPresenterFightingProtocol: AnyObject {
+protocol InteractorToPresenterFightingCommunicator: AnyObject {
     func updateData(_ data: FightingViewUpdateDependencies)
     func fightFinished(with result: FightResults)
     func setupNames(_ names: (player: String, opponent: String))
 }
 
-protocol PresenterToViewFightingProtocol: AnyObject {
+protocol PresenterToViewFightingCommunicator: AnyObject {
     func setupInitialData(
         names: (
             player: String,
@@ -33,11 +33,11 @@ protocol PresenterToViewFightingProtocol: AnyObject {
     )
 }
 
-protocol PresenterToInteractorFightingProtocol {
+protocol PresenterToInteractorFightingCommunicator {
     func setupData()
     func startFight()
 }
 
-protocol PresenterToRouterFightingProtocol {
+protocol PresenterToRouterFightingCommunicator {
 
 }

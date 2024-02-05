@@ -8,12 +8,12 @@
 import UIKit
 
 final class HomePresenter {
-    weak var view: PresenterToViewHomeModuleProtocol?
-    var interactor: PresenterToInteractorHomeModuleProtocol?
-    var router: PresenterToRouterHomeModuleProtocol?
+    weak var view: PresenterToViewHomeModuleCommunicator?
+    var interactor: PresenterToInteractorHomeModuleCommunicator?
+    var router: PresenterToRouterHomeModuleCommunicator?
 }
 
-extension HomePresenter: ViewToPresenterHomeModuleProtocol {
+extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
     func rankButtonTapped(_ navigationController: UINavigationController) {
         router?.pushRank(navigationController)
     }
@@ -45,4 +45,4 @@ extension HomePresenter: ViewToPresenterHomeModuleProtocol {
     }
 }
 
-extension HomePresenter: InteractorToPresenterHomeModuleProtocol { }
+extension HomePresenter: InteractorToPresenterHomeModuleCommunicator { }

@@ -8,12 +8,12 @@
 import Foundation
 
 final class FightingPresenter {
-    weak var view: PresenterToViewFightingProtocol?
-    var interactor: PresenterToInteractorFightingProtocol?
-    var router: PresenterToRouterFightingProtocol?
+    weak var view: PresenterToViewFightingCommunicator?
+    var interactor: PresenterToInteractorFightingCommunicator?
+    var router: PresenterToRouterFightingCommunicator?
 }
 
-extension FightingPresenter: ViewToPresenterFightingProtocol {
+extension FightingPresenter: ViewToPresenterFightingCommunicator {
     func viewAppeared() {
         interactor?.startFight()
     }
@@ -23,7 +23,7 @@ extension FightingPresenter: ViewToPresenterFightingProtocol {
     }
 }
 
-extension FightingPresenter: InteractorToPresenterFightingProtocol {
+extension FightingPresenter: InteractorToPresenterFightingCommunicator {
     func updateData(_ data: FightingViewUpdateDependencies) {
         view?.updateUI(for: data)
     }

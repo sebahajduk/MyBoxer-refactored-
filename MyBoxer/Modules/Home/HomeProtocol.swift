@@ -1,5 +1,5 @@
 //
-//  HomeProtocol.swift
+//  HomeCommunicator.swift
 //  MyBoxer
 //
 //  Created by Sebastian Hajduk on 27/01/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ViewToPresenterHomeModuleProtocol {
+protocol ViewToPresenterHomeModuleCommunicator {
     func rankButtonTapped(_ navigationController: UINavigationController)
     func detailsButtonTapped(_ navigationController: UINavigationController)
     func trainingButtonTapped(
@@ -28,15 +28,15 @@ protocol ViewToPresenterHomeModuleProtocol {
     )
 }
 
-protocol PresenterToViewHomeModuleProtocol: AnyObject {
+protocol PresenterToViewHomeModuleCommunicator: AnyObject {
     func updateCoinValueTo(_ value: Int)
     func updateProgressBarsFill(_ fillPercent: (health: Float, stamina: Float, experience: Float))
     func updateProgressBarsValue<T: Numeric>(_ value: (health: T, stamina: T, experience: T))
 }
 
-protocol PresenterToInteractorHomeModuleProtocol { }
+protocol PresenterToInteractorHomeModuleCommunicator { }
 
-protocol PresenterToRouterHomeModuleProtocol {
+protocol PresenterToRouterHomeModuleCommunicator {
     func presentDetails(_ navigationController: UINavigationController)
     func pushRank(_ navigationController: UINavigationController)
     func pushTraining(
@@ -57,6 +57,6 @@ protocol PresenterToRouterHomeModuleProtocol {
     )
 }
 
-protocol InteractorToPresenterHomeModuleProtocol: AnyObject { 
+protocol InteractorToPresenterHomeModuleCommunicator: AnyObject { 
     // TODO: Updating view after backend changes
 }
