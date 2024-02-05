@@ -26,10 +26,11 @@ final class HomeRouter: PresenterToRouterHomeModuleCommunicator {
 
     func pushTraining(
         _ navigationController: UINavigationController,
-        player: Player
+        player: Player,
+        timeHandler: TimeHandler
     ) {
         let configurator = TrainingConfigurator()
-        let viewController = configurator.setupViewController(with: player)
+        let viewController = configurator.setupViewController(for: player, timeHandler: timeHandler)
 
         navigationController.pushViewController(viewController, animated: true)
     }

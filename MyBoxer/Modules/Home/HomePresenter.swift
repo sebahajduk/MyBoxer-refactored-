@@ -14,6 +14,14 @@ final class HomePresenter {
 }
 
 extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
+    func viewLoaded() {
+        interactor?.setupData()
+    }
+
+    func viewWillAppear() {
+        interactor?.startTimer()
+    }
+
     func rankButtonTapped(_ navigationController: UINavigationController) {
         router?.pushRank(navigationController)
     }
@@ -22,27 +30,43 @@ extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
         router?.presentDetails(navigationController)
     }
 
-    func trainingButtonTapped(
-        _ navigationController: UINavigationController,
-        player: Player
-    ) {
-        router?.pushTraining(navigationController, player: player)
+    func trainingButtonTapped(_ navigationController: UINavigationController) {
+        guard
+            let player = interactor?.getPlayerObject(),
+            let timeHandler = interactor?.getTimeHandler()
+        else { return }
+
+        router?.pushTraining(navigationController, player: player, timeHandler: timeHandler)
     }
 
-    func opponentsButtonTapped(_ navigationController: UINavigationController, player: Player) {
+    func opponentsButtonTapped(_ navigationController: UINavigationController) {
+        guard let player = interactor?.getPlayerObject() else { return }
+
         router?.pushOpponent(navigationController, player: player)
     }
 
-    func shopButtonTapped(_ navigationController: UINavigationController, player: Player) {
+    func shopButtonTapped(_ navigationController: UINavigationController) {
+        guard let player = interactor?.getPlayerObject() else { return }
+
         router?.pushShop(navigationController, player: player)
     }
 
-    func teamButtonTapped(
-        _ navigationController: UINavigationController,
-        player: Player
-    ) {
+    func teamButtonTapped(_ navigationController: UINavigationController) {
+        guard let player = interactor?.getPlayerObject() else { return }
+
         router?.pushTeam(navigationController, player: player)
     }
 }
 
-extension HomePresenter: InteractorToPresenterHomeModuleCommunicator { }
+extension HomePresenter: InteractorToPresenterHomeModuleCommunicator {
+    func updateTimer(with value: String, barProgress: Float) {
+        view?.updateTimeLabelAndProgressBar(with: value, progress: barProgress)
+    }
+    
+    func playerLoaded(with values: HomeDependencies) {
+        view?.updateCoinValueTo(values.money)
+
+        view?.updateProgressBarsFill(values.barsPercentage)
+        view?.updateProgressBarsValue(values.barsValues)
+    }
+}

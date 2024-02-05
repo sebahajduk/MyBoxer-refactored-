@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias Names = (player: String, opponent: String)
+
 protocol Fightable: AnyObject {
     func updateData(_ data: FightingViewUpdateDependencies)
     func fightFinished(with result: FightResults)
@@ -36,7 +38,7 @@ extension FightHandler {
         }
     }
 
-    func getBoxersNames() -> (player: String, opponent: String) {
+    func getBoxersNames() -> Names {
         (player: player.name, opponent: opponent.name)
     }
 }

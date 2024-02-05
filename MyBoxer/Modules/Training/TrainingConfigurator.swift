@@ -8,10 +8,13 @@
 import Foundation
 
 final class TrainingConfigurator {
-    func setupViewController(with player: Player) -> TrainingViewController {
+    func setupViewController(
+        for player: Player,
+        timeHandler: TimeHandler
+    ) -> TrainingViewController {
         let viewController = TrainingViewController(player: player)
         let presenter = TrainingPresenter()
-        let interactor = TrainingInteractor()
+        let interactor = TrainingInteractor(timeHandler: timeHandler)
         let router = TrainingRouter(navigationController: viewController.navigationController)
 
         viewController.presenter = presenter
