@@ -18,7 +18,6 @@ final class HomeInteractor {
 
 extension HomeInteractor: PresenterToInteractorHomeModuleCommunicator {
     func setupData() {
-        player = Defaults.shared.myBoxer ?? Player()
         player.homeRegeneration(intervals: timeHandler.timeIntervals)
 
         switch player.division {

@@ -6,25 +6,26 @@
 //
 
 import UIKit
+import RealmSwift
 
 enum punchTypes: CaseIterable {
     case jab, hook, uppercut
 }
 
-class Boxer: Codable {
-    var vitality: Double = 100.0
-    var punchPower: Double = 10
-    var punchSpeed: Double = 10
-    var footwork: Double = 10
-    var movement: Double = 10
-    var defence: Double = 10
-    var endurance: Double = 10
-    
-    var hp: Double = 100
-    var stamina: Double = 100
-    var fullStamina: Double = 100
-    var name: String!
-    
+class Boxer: Object {
+    @Persisted var vitality: Double = 100.0
+    @Persisted var punchPower: Double = 10
+    @Persisted var punchSpeed: Double = 10
+    @Persisted var footwork: Double = 10
+    @Persisted var movement: Double = 10
+    @Persisted var defence: Double = 10
+    @Persisted var endurance: Double = 10
+
+    @Persisted var hp: Double = 100
+    @Persisted var stamina: Double = 100
+    @Persisted var fullStamina: Double = 100
+    @Persisted var name: String!
+
     var record: [String: Int] = ["Wins": 0, "Draws": 0, "Losses": 0]
     
     func punch(opponent: Boxer) -> Double {

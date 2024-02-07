@@ -33,31 +33,4 @@ class Defaults {
             return defaults.double(forKey: keyActionTime)
         }
     }
-    
-    var myBoxer: Player? {
-        set {
-            do {
-                let encoder = JSONEncoder()
-                let data = try encoder.encode(newValue)
-                defaults.setValue(data, forKey: keyMyBoxer)
-            } catch {
-                print("There was an error saving boxer. Please try again later")
-            }
-        }
-        get {
-            if let data = defaults.data(forKey: keyMyBoxer) {
-                do {
-                    let decoder = JSONDecoder()
-                    let player = try decoder.decode(Player.self, from: data)
-                    
-                    return player
-                } catch {
-                    return nil
-                }
-            } else {
-                return nil
-            }
-    
-        }
-    }
 }
