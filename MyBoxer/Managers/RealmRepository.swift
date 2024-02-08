@@ -10,7 +10,7 @@ import RealmSwift
 
 protocol RealmRepositorable {
     func getPlayer() -> Player
-    func savePlayer()
+    func savePlayer(completion: () -> ())
 }
 
 final class RealmRepository {
@@ -35,11 +35,11 @@ extension RealmRepository: RealmRepositorable {
         return player ?? Player()
     }
 
-    func savePlayer() {
+    func savePlayer(completion: () -> ()) {
         if let player {
             do {
                 try realm.write {
-                    realm.add(player)
+                    completion()
                 }
             } catch {
                 // TODO: Error handling

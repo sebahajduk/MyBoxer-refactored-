@@ -8,13 +8,13 @@
 import Foundation
 
 final class TrainingConfigurator {
-    func setupViewController(
-        for player: Player,
+    static func setupViewController(
+        with realm: RealmRepositorable,
         timeHandler: TimeHandler
     ) -> TrainingViewController {
-        let viewController = TrainingViewController(player: player)
+        let viewController = TrainingViewController()
         let presenter = TrainingPresenter()
-        let interactor = TrainingInteractor(timeHandler: timeHandler)
+        let interactor = TrainingInteractor(database: realm, timeHandler: timeHandler)
         let router = TrainingRouter(navigationController: viewController.navigationController)
 
         viewController.presenter = presenter

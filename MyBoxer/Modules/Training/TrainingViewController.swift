@@ -12,8 +12,6 @@ class TrainingViewController: UIViewController {
     var presenter: ViewToPresenterTrainingCommunicator?
 
     private let trainingView = TrainingView()
-
-    private var player: Player!
     private var trainings = [Training]()
 
     override func viewDidLoad() {
@@ -22,13 +20,7 @@ class TrainingViewController: UIViewController {
         presenter?.setupData()
         configureTableView()
     }
-    
-    convenience init(player: Player) {
-        self.init()
 
-        self.player = player
-    }
-    
     private func configureTableView() {
         view = trainingView
 
@@ -83,7 +75,7 @@ extension TrainingViewController: UITableViewDataSource, UITableViewDelegate {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        presenter?.didSelectTraining(trainings[indexPath.row], player: player)
+        presenter?.didSelectTraining(trainings[indexPath.row])
         
         tableView.deselectRow(at: indexPath, animated: true)
     }

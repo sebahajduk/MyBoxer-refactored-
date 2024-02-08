@@ -34,6 +34,7 @@ protocol PresenterToInteractorHomeModuleCommunicator {
     func startTimer()
     func getPlayerObject() -> Player
     func getTimeHandler() -> TimeHandler
+    func getDatabaseDependency() -> RealmRepositorable
 }
 
 protocol PresenterToRouterHomeModuleCommunicator {
@@ -41,7 +42,7 @@ protocol PresenterToRouterHomeModuleCommunicator {
     func pushRank(_ navigationController: UINavigationController)
     func pushTraining(
         _ navigationController: UINavigationController,
-        player: Player,
+        database realm: RealmRepositorable,
         timeHandler: TimeHandler
     )
     func pushOpponent(

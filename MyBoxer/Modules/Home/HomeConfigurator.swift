@@ -8,11 +8,11 @@
 import Foundation
 
 final class HomeConfigurator {
-    func setupHomeModule() -> HomeViewController {
+    static func setupHomeModule(with realm: RealmRepositorable) -> HomeViewController {
         let viewController = HomeViewController()
         let presenter = HomePresenter()
         let router = HomeRouter()
-        let interactor = HomeInteractor()
+        let interactor = HomeInteractor(database: realm)
 
         viewController.presenter = presenter
 

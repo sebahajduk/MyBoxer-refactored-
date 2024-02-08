@@ -14,8 +14,8 @@ final class TrainingPresenter {
 }
 
 extension TrainingPresenter: ViewToPresenterTrainingCommunicator {
-    func didSelectTraining(_ training: Training, player: Player) {
-        interactor?.startTraining(training, for: player)
+    func didSelectTraining(_ training: Training) {
+        interactor?.startTraining(training)
     }
     
     func setupData() {

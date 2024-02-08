@@ -6,19 +6,41 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class HomeInteractor {
     weak var presenter: InteractorToPresenterHomeModuleCommunicator?
-    private var player = Player()
+    
+    private var realm: RealmRepositorable
+    private var notificationToken: NotificationToken?
+    private var player: Player
+    
     private var timeHandler = TimeHandler()
     private var isTimerActive = false
     private var timer: Timer?
     private var timeLeft: TimeInterval?
+
+    init(database: RealmRepositorable) {
+        realm = database
+        player = realm.getPlayer()
+
+        notificationToken = player.observe { changes in
+            switch changes {
+            case .error:
+                print("Error")
+            case .change:
+                print("Change")
+            case .deleted:
+                print("Deleted")
+            }
+        }
+    }
 }
 
 extension HomeInteractor: PresenterToInteractorHomeModuleCommunicator {
     func setupData() {
-        player.homeRegeneration(intervals: timeHandler.timeIntervals)
+            player.homeRegeneration(intervals: timeHandler.timeIntervals)
+
 
         switch player.division {
         case .lightweight:
@@ -32,6 +54,10 @@ extension HomeInteractor: PresenterToInteractorHomeModuleCommunicator {
         let homeDependencies = setupHomeDependencies()
 
         presenter?.playerLoaded(with: homeDependencies)
+    }
+
+    func getDatabaseDependency() -> RealmRepositorable {
+        realm
     }
 
     func getPlayerObject() -> Player {

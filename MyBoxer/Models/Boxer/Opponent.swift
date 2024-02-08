@@ -9,8 +9,9 @@ import Foundation
 
 class Opponent: Boxer {
     
-    init(forLevel: Int, name: String, wins: Int, draws: Int, losses: Int) {
-        super.init()
+    convenience init(forLevel: Int, name: String, wins: Int, draws: Int, losses: Int) {
+        self.init()
+        
         vitality = Double(forLevel) * 150
         hp = vitality
         self.name = name
@@ -22,9 +23,4 @@ class Opponent: Boxer {
         endurance = Double(forLevel * 5)
         record = ["Wins": wins, "Draws": draws, "Losses": losses]
     }
-    
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
-    }
-    
 }

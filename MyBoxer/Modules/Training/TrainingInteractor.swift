@@ -9,20 +9,33 @@ import Foundation
 
 final class TrainingInteractor {
     weak var presenter: InteractorToPresenterTrainingCommunicator?
-    var timeHandler: TimeHandler
+    
+    private var timeHandler: TimeHandler
+    private var database: RealmRepositorable
+    private var player: Player
 
-    init(timeHandler: TimeHandler) {
+    init(
+        database: RealmRepositorable,
+        timeHandler: TimeHandler
+    ) {
+        self.database = database
         self.timeHandler = timeHandler
+
+        player = database.getPlayer()
     }
 }
 
 extension TrainingInteractor: PresenterToInteractorTrainingCommunicator {
-    func startTraining(_ training: Training, for boxer: Player) {
+    func startTraining(_ training: Training) {
         if timeHandler.inProgres {
             presenter?.trainingCannotStart(reason: .trainingInProgress)
         } else {
             timeHandler.train(for: 10)
-            boxer.training(training.type)
+
+            #warning("Check if works")
+            database.savePlayer {
+                player.training(training.type)
+            }
 
             presenter?.trainingStarted()
         }

@@ -32,11 +32,15 @@ extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
 
     func trainingButtonTapped(_ navigationController: UINavigationController) {
         guard
-            let player = interactor?.getPlayerObject(),
+            let database = interactor?.getDatabaseDependency(),
             let timeHandler = interactor?.getTimeHandler()
         else { return }
 
-        router?.pushTraining(navigationController, player: player, timeHandler: timeHandler)
+        router?.pushTraining(
+            navigationController,
+            database: database,
+            timeHandler: timeHandler
+        )
     }
 
     func opponentsButtonTapped(_ navigationController: UINavigationController) {
