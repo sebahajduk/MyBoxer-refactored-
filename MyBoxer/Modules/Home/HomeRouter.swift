@@ -36,10 +36,9 @@ final class HomeRouter: PresenterToRouterHomeModuleCommunicator {
     
     func pushOpponent(
         _ navigationController: UINavigationController,
-        player: Player
+        database realm: RealmRepositorable
     ) {
-        let configurator = OpponentsConfigurator()
-        let viewController = configurator.setupViewController(with:player)
+        let viewController = OpponentsConfigurator.setupViewController(with: realm)
 
         navigationController.pushViewController(viewController, animated: true)
     }

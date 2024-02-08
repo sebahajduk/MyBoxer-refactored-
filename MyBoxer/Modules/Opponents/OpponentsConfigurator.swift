@@ -8,10 +8,10 @@
 import Foundation
 
 final class OpponentsConfigurator {
-    func setupViewController(with player: Player) -> OpponentsViewController {
-        let viewController = OpponentsViewController(player: player)
+    static func setupViewController(with realm: RealmRepositorable) -> OpponentsViewController {
+        let viewController = OpponentsViewController()
         let presenter = OpponentsPresenter()
-        let interactor = OpponentsInteractor()
+        let interactor = OpponentsInteractor(database: realm)
         let router = OpponentsRouter()
 
         viewController.presenter = presenter

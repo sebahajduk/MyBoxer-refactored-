@@ -39,8 +39,9 @@ final class HomeInteractor {
 
 extension HomeInteractor: PresenterToInteractorHomeModuleCommunicator {
     func setupData() {
+        realm.savePlayer {
             player.homeRegeneration(intervals: timeHandler.timeIntervals)
-
+        }
 
         switch player.division {
         case .lightweight:

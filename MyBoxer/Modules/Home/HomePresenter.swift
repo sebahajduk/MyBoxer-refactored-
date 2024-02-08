@@ -44,9 +44,11 @@ extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
     }
 
     func opponentsButtonTapped(_ navigationController: UINavigationController) {
-        guard let player = interactor?.getPlayerObject() else { return }
+        guard 
+            let realm = interactor?.getDatabaseDependency()
+        else { return }
 
-        router?.pushOpponent(navigationController, player: player)
+        router?.pushOpponent(navigationController, database: realm)
     }
 
     func shopButtonTapped(_ navigationController: UINavigationController) {

@@ -11,19 +11,13 @@ final class OpponentsViewController: UIViewController {
     var presenter: ViewToPresenterOpponentsModuleCommunicator?
     
     private var opponentsView = OpponentsView()
-    private var player: Player!
-    private var opponents: [Opponent] = []
-
-    convenience init(player: Player) {
-        self.init()
-        
-        self.player = player
-    }
+    private var defeatedOpponents = [Opponent]()
+    private var opponents = [Opponent]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        presenter?.setupOpponents(for: player)
+        presenter?.viewLoaded()
         setupView()
     }
 
@@ -40,12 +34,27 @@ private extension OpponentsViewController {
         opponentsView.tableView.delegate = self
         opponentsView.tableView.dataSource = self
     }
+
+    func reloadTableData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.opponentsView.tableView.reloadData()
+        }
+    }
 }
 
 extension OpponentsViewController: PresenterToViewOpponentsModuleCommunicator {
-    func setupOpponentsSucceeded(list: [Opponent]) {
+    func presentAlert(reason: AlertType) {
+        let alert = AlertViewController(alertType: reason)
+
+        alert.modalPresentationStyle = .overFullScreen
+        alert.modalTransitionStyle = .crossDissolve
+
+        navigationController?.present(alert, animated: true)
+    }
+    
+    func setupOpponentsSucceeded(list: [Opponent], defeatedList: [Opponent]) {
         self.opponents = list
-        opponentsView.tableView.reloadData()
+        self.defeatedOpponents = defeatedList
     }
 }
 
@@ -60,7 +69,7 @@ extension OpponentsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.set(for: opponents[indexPath.row], index: indexPath.row)
         let opponentName = opponents[indexPath.row].name
 
-        if player.defeatedOpponents.contains(where: { $0 == opponentName}) {
+        if defeatedOpponents.contains(where: { $0.name == opponentName}) {
             cell.backgroundColor = .systemGreen.withAlphaComponent(0.2)
         }
 
@@ -72,14 +81,13 @@ extension OpponentsViewController: UITableViewDelegate, UITableViewDataSource {
 
         let opponentName = opponents[indexPath.row].name
 
-        if player.defeatedOpponents.contains(where: {$0 == opponentName}) {
+        if defeatedOpponents.contains(where: { $0.name == opponentName }) {
             return
         }
 
         guard let navigationController else { return }
         presenter?.didSelect(
             opponent: opponents[indexPath.row],
-            vs: player,
             navigationController
         )
     }

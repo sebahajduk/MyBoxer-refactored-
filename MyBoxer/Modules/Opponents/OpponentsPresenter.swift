@@ -14,30 +14,26 @@ final class OpponentsPresenter {
 }
 
 extension OpponentsPresenter: ViewToPresenterOpponentsModuleCommunicator {
-    func setupOpponents(for player: Player) {
-        interactor?.setupOpponents(for: player)
+    func viewLoaded() {
+        interactor?.setupOpponents()
     }
 
     func didSelect(
         opponent: Opponent,
-        vs player: Player,
         _ navigationController: UINavigationController
     ) {
+        guard let player = interactor?.getPlayer() else { return }
+        
         if player.hp > 50 {
             router?.startFightBetween(player: player, opponent: opponent, navigationController)
         } else {
-            let alert = AlertViewController(alertType: .youExhausted)
-
-            alert.modalPresentationStyle = .overFullScreen
-            alert.modalTransitionStyle = .crossDissolve
-
-            navigationController.present(alert, animated: true)
+            view?.presentAlert(reason: .youExhausted)
         }
     }
 }
 
 extension OpponentsPresenter: InteractorToPresenterOpponentsModuleCommunicator {
-    func setOpponentsList(_ opponents: [Opponent]) {
-        view?.setupOpponentsSucceeded(list: opponents)
+    func setOpponentsList(_ opponents: [Opponent], defeatedList: [Opponent]) {
+        view?.setupOpponentsSucceeded(list: opponents, defeatedList: defeatedList)
     }
 }
