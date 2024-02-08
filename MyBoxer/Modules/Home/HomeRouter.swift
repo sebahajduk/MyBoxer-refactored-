@@ -45,11 +45,9 @@ final class HomeRouter: PresenterToRouterHomeModuleCommunicator {
     
     func pushShop(
         _ navigationController: UINavigationController,
-        player: Player
+        database realm: RealmRepositorable
     ) {
-        let configurator = ShopConfigurator()
-        let viewController = configurator.setupViewController(with: player)
-
+        let viewController = ShopConfigurator.setupViewController(with: realm)
 
         navigationController.pushViewController(viewController, animated: true)
     }

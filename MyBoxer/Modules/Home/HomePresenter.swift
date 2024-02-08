@@ -32,13 +32,13 @@ extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
 
     func trainingButtonTapped(_ navigationController: UINavigationController) {
         guard
-            let database = interactor?.getDatabaseDependency(),
+            let realm = interactor?.getDatabaseDependency(),
             let timeHandler = interactor?.getTimeHandler()
         else { return }
 
         router?.pushTraining(
             navigationController,
-            database: database,
+            database: realm,
             timeHandler: timeHandler
         )
     }
@@ -52,9 +52,9 @@ extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
     }
 
     func shopButtonTapped(_ navigationController: UINavigationController) {
-        guard let player = interactor?.getPlayerObject() else { return }
+        guard let realm = interactor?.getDatabaseDependency() else { return }
 
-        router?.pushShop(navigationController, player: player)
+        router?.pushShop(navigationController, database: realm)
     }
 
     func teamButtonTapped(_ navigationController: UINavigationController) {

@@ -51,7 +51,7 @@ protocol PresenterToRouterHomeModuleCommunicator {
     )
     func pushShop(
         _ navigationController: UINavigationController,
-        player: Player
+        database realm: RealmRepositorable
     )
     func pushTeam(
         _ navigationController: UINavigationController,
