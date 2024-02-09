@@ -54,10 +54,9 @@ final class HomeRouter: PresenterToRouterHomeModuleCommunicator {
     
     func pushTeam(
         _ navigationController: UINavigationController,
-        player: Player
+        database realm: RealmRepositorable
     ) {
-        let configurator = TeamConfigurator()
-        let viewController = configurator.setupViewController(player: player)
+        let viewController = TeamConfigurator.setupViewController(with: realm)
 
         navigationController.pushViewController(viewController, animated: true)
     }

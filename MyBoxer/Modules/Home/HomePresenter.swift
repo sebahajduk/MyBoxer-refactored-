@@ -52,15 +52,19 @@ extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
     }
 
     func shopButtonTapped(_ navigationController: UINavigationController) {
-        guard let realm = interactor?.getDatabaseDependency() else { return }
+        guard
+            let realm = interactor?.getDatabaseDependency()
+        else { return }
 
         router?.pushShop(navigationController, database: realm)
     }
 
     func teamButtonTapped(_ navigationController: UINavigationController) {
-        guard let player = interactor?.getPlayerObject() else { return }
+        guard
+            let realm = interactor?.getDatabaseDependency()
+        else { return }
 
-        router?.pushTeam(navigationController, player: player)
+        router?.pushTeam(navigationController, database: realm)
     }
 }
 

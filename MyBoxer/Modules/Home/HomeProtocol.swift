@@ -55,7 +55,7 @@ protocol PresenterToRouterHomeModuleCommunicator {
     )
     func pushTeam(
         _ navigationController: UINavigationController,
-        player: Player
+        database realm: RealmRepositorable
     )
 }
 

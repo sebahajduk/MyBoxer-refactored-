@@ -22,18 +22,18 @@ extension TeamPresenter: ViewToPresenterTeamCommunicator {
         interactor?.setupData()
     }
     
-    func didSelect(member: Member, player: Player) {
-        interactor?.hire(member: member, player: player)
+    func didSelect(member: Member) {
+        interactor?.hire(member: member)
     }
 }
 
 extension TeamPresenter: InteractorToPresenterTeamCommunicator {
-    func setupMembers(_ members: [Member]) {
-        view?.updateMembersOffer(to: members)
+    func setupMembers(_ members: [Member], hiredMembers: [String]) {
+        view?.updateMembersOffer(to: members, hiredMembers: hiredMembers)
     }
     
-    func onSucceededNewMembersList(_ members: [Member]) {
-        view?.updateMembersOffer(to: members)
+    func onSucceededNewMembersList(_ members: [Member], hiredMembers: [String]) {
+        view?.updateMembersOffer(to: members, hiredMembers: hiredMembers)
     }
     
     func onSucceededHiring() {

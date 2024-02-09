@@ -8,10 +8,10 @@
 import Foundation
 
 final class TeamConfigurator {
-    func setupViewController(player: Player) -> TeamViewController {
-        let view = TeamViewController(player: player)
+    static func setupViewController(with realm: RealmRepositorable) -> TeamViewController {
+        let view = TeamViewController()
         let presenter = TeamPresenter()
-        let interactor = TeamInteractor()
+        let interactor = TeamInteractor(database: realm)
         let router = TeamRouter()
 
         view.presenter = presenter
