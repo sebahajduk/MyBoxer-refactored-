@@ -26,42 +26,37 @@ final class HomeRouter: PresenterToRouterHomeModuleCommunicator {
 
     func pushTraining(
         _ navigationController: UINavigationController,
-        player: Player,
+        database realm: RealmRepositorable,
         timeHandler: TimeHandler
     ) {
-        let configurator = TrainingConfigurator()
-        let viewController = configurator.setupViewController(for: player, timeHandler: timeHandler)
+        let viewController = TrainingConfigurator.setupViewController(with: realm, timeHandler: timeHandler)
 
         navigationController.pushViewController(viewController, animated: true)
     }
     
     func pushOpponent(
         _ navigationController: UINavigationController,
-        player: Player
+        database realm: RealmRepositorable
     ) {
-        let configurator = OpponentsConfigurator()
-        let viewController = configurator.setupViewController(with:player)
+        let viewController = OpponentsConfigurator.setupViewController(with: realm)
 
         navigationController.pushViewController(viewController, animated: true)
     }
     
     func pushShop(
         _ navigationController: UINavigationController,
-        player: Player
+        database realm: RealmRepositorable
     ) {
-        let configurator = ShopConfigurator()
-        let viewController = configurator.setupViewController(with: player)
-
+        let viewController = ShopConfigurator.setupViewController(with: realm)
 
         navigationController.pushViewController(viewController, animated: true)
     }
     
     func pushTeam(
         _ navigationController: UINavigationController,
-        player: Player
+        database realm: RealmRepositorable
     ) {
-        let configurator = TeamConfigurator()
-        let viewController = configurator.setupViewController(player: player)
+        let viewController = TeamConfigurator.setupViewController(with: realm)
 
         navigationController.pushViewController(viewController, animated: true)
     }

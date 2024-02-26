@@ -9,7 +9,7 @@ import UIKit
 
 protocol ViewToPresenterTrainingCommunicator {
     func setupData()
-    func didSelectTraining(_ training: Training, player: Player)
+    func didSelectTraining(_ training: Training)
 }
 
 protocol InteractorToPresenterTrainingCommunicator: AnyObject {
@@ -25,7 +25,7 @@ protocol PresenterToViewTrainingCommunicator: AnyObject {
 }
 
 protocol PresenterToInteractorTrainingCommunicator {
-    func startTraining(_ training: Training, for boxer: Player)
+    func startTraining(_ training: Training)
     func setupTrainingsList()
 }
 

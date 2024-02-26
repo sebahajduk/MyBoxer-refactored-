@@ -14,8 +14,8 @@ final class ShopPresenter {
 }
 
 extension ShopPresenter: ViewToPresenterShopCommunicator {
-    func didSelect(item: Item, player: Player) {
-        interactor?.buy(item: item, player: player)
+    func didSelect(item: Item) {
+        interactor?.buy(item: item)
     }
     
     func viewLoaded() {
@@ -36,11 +36,11 @@ extension ShopPresenter: InteractorToPresenterShopCommunicator {
         view?.showAlert(reason)
     }
     
-    func onSucceededNewShopOffer(_ items: [Item]) {
-        view?.updateShopOffer(with: items)
+    func onSucceededNewShopOffer(_ items: [Item], ownedItemsID: [Int]) {
+        view?.updateShopOffer(with: items, ownedItemsID: ownedItemsID)
     }
     
-    func sendItemsForNewType(_ items: [Item]) {
-        view?.updateShopOffer(with: items)
+    func sendItemsForNewType(_ items: [Item], ownedItemsID: [Int]) {
+        view?.updateShopOffer(with: items, ownedItemsID: ownedItemsID)
     }
 }

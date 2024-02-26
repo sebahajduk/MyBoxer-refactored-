@@ -8,20 +8,22 @@
 import UIKit
 
 protocol ViewToPresenterOpponentsModuleCommunicator {
-    func setupOpponents(for player: Player)
-    func didSelect(opponent: Opponent, vs player: Player, _ navigationController: UINavigationController)
+    func viewLoaded()
+    func didSelect(opponent: Opponent, _ navigationController: UINavigationController)
 }
 
 protocol InteractorToPresenterOpponentsModuleCommunicator: AnyObject {
-    func setOpponentsList(_ opponents: [Opponent])
+    func setOpponentsList(_ opponents: [Opponent], defeatedList: [Opponent])
 }
 
 protocol PresenterToViewOpponentsModuleCommunicator: AnyObject {
-    func setupOpponentsSucceeded(list: [Opponent])
+    func setupOpponentsSucceeded(list: [Opponent], defeatedList: [Opponent])
+    func presentAlert(reason: AlertType)
 }
 
 protocol PresenterToInteractorOpponentsModuleCommunicator {
-    func setupOpponents(for player: Player)
+    func setupOpponents()
+    func getPlayer() -> Player
 }
 
 protocol PresenterToRouterOpponentsModuleCommunicator {

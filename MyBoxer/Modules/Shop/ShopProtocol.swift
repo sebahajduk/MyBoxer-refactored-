@@ -10,19 +10,19 @@ import Foundation
 protocol ViewToPresenterShopCommunicator {
     func categoryButtonTapped(category: ItemType)
     func viewLoaded()
-    func didSelect(item: Item, player: Player)
+    func didSelect(item: Item)
 }
 
 protocol InteractorToPresenterShopCommunicator: AnyObject {
-    func sendItemsForNewType(_ items: [Item])
-    func onSucceededNewShopOffer(_ items: [Item])
+    func sendItemsForNewType(_ items: [Item], ownedItemsID: [Int])
+    func onSucceededNewShopOffer(_ items: [Item], ownedItemsID: [Int])
 
     func onSucceededBuying()
     func onFailureBuying(reason: AlertType)
 }
 
 protocol PresenterToViewShopCommunicator: AnyObject {
-    func updateShopOffer(with items: [Item])
+    func updateShopOffer(with items: [Item], ownedItemsID: [Int])
     func showAlert(_ type: AlertType)
     func dismiss()
 }
@@ -30,7 +30,7 @@ protocol PresenterToViewShopCommunicator: AnyObject {
 protocol PresenterToInteractorShopCommunicator {
     func itemsTypeChanged(to type: ItemType)
     func setupData()
-    func buy(item: Item, player: Player)
+    func buy(item: Item)
 }
 
 protocol PresenterToRouterShopCommunicator {

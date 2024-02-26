@@ -9,11 +9,20 @@ import Foundation
 
 final class TeamInteractor {
     weak var presenter: InteractorToPresenterTeamCommunicator?
+
+    private var player: Player
+    private var database: RealmRepositorable
+
+    init(database: RealmRepositorable) {
+        self.database = database
+        player = database.getPlayer()
+    }
 }
 
 extension TeamInteractor: PresenterToInteractorTeamCommunicator {
     func membersTypeChanged(to type: MemberType) {
         var members = [Member]()
+        var hiredMembers = [String]()
 
         switch type {
         case .manager:
@@ -26,22 +35,30 @@ extension TeamInteractor: PresenterToInteractorTeamCommunicator {
             members = TeamRepository.physios
         }
 
-        presenter?.onSucceededNewMembersList(members)
+        player.team.forEach { hiredMembers.append($0) }
+
+        presenter?.onSucceededNewMembersList(members, hiredMembers: hiredMembers)
     }
     
     func setupData() {
         let members = TeamRepository.managers
+        var hiredMembers = [String]()
 
-        presenter?.setupMembers(members)
+        player.team.forEach { hiredMembers.append($0) }
+
+        presenter?.setupMembers(members, hiredMembers: hiredMembers)
     }
     
-    func hire(member: Member, player: Player) {
+    func hire(member: Member) {
         if player.money < member.price {
             presenter?.onFailureHiring(reason: .notEnoughMoney)
         } else if player.team.contains(where: { $0 == member.name }) {
             presenter?.onFailureHiring(reason: .alreadyBought)
         } else {
-            player.hire(member: member)
+            database.savePlayer {
+                player.hire(member: member)
+            }
+
             presenter?.onSucceededHiring()
         }
     }

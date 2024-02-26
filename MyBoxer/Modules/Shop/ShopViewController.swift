@@ -14,20 +14,20 @@ final class ShopViewController: UIViewController {
 
     private var shopView = ShopView()
 
-    private var player: Player!
     private var type: ItemType = .gloves
+
+    private var ownedItemsID = [Int]() {
+        didSet {
+            reloadTableView()
+        }
+    }
+
     private var shopOffer = [Item]() {
         didSet {
             reloadTableView()
         }
     }
 
-    convenience init(player: Player) {
-        self.init()
-        
-        self.player = player
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,7 +60,9 @@ private extension ShopViewController {
     }
 
     func reloadTableView() {
-        shopView.tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.shopView.tableView.reloadData()
+        }
     }
 }
 
@@ -79,9 +81,11 @@ extension ShopViewController: PresenterToViewShopCommunicator {
     }
     
     func updateShopOffer(
-        with items: [Item]
+        with items: [Item],
+        ownedItemsID: [Int]
     ) {
         self.shopOffer = items
+        self.ownedItemsID = ownedItemsID
     }
 }
 
@@ -99,7 +103,7 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.set(item: item)
         
-        if player.equipment.contains(where: { $0 == item.id }) {
+        if ownedItemsID.contains(where: { $0 == item.id }) {
             cell.backgroundColor = .systemGreen.withAlphaComponent(0.2)
         }
         
@@ -111,7 +115,7 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
 
         tableView.deselectRow(at: indexPath, animated: true)
 
-        presenter?.didSelect(item: item, player: player)
+        presenter?.didSelect(item: item)
 
         reloadTableView()
     }

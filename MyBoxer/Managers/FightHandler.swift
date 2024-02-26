@@ -128,6 +128,5 @@ private extension FightHandler {
 
     func finishFight() {
         timer?.invalidate()
-        Defaults.shared.myBoxer = player
     }
 }

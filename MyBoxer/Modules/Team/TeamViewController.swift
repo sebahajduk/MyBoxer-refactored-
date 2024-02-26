@@ -12,20 +12,20 @@ final class TeamViewController: UIViewController {
 
     private var teamView = TeamView()
 
-    var player: Player!
     private var memberType: MemberType = .manager
+    
+    private var hiredMembersNames = [String]() {
+        didSet {
+            reloadMembersList()
+        }
+    }
+
     private var membersList = [Member]() {
         didSet {
             reloadMembersList()
         }
     }
 
-    convenience init(player: Player) {
-        self.init()
-        
-        self.player = player
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,8 +62,9 @@ private extension TeamViewController {
 }
 
 extension TeamViewController: PresenterToViewTeamCommunicator {
-    func updateMembersOffer(to members: [Member]) {
+    func updateMembersOffer(to members: [Member], hiredMembers: [String]) {
         membersList = members
+        self.hiredMembersNames = hiredMembers
     }
     
     func showAlert(_ type: AlertType) {
@@ -101,6 +102,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         let member = membersList[indexPath.row]
 
         tableView.deselectRow(at: indexPath, animated: true)
-        player.hire(member: member)
+
+        presenter?.didSelect(member: member)
     }
 }

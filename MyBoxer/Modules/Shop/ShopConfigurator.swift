@@ -8,10 +8,10 @@
 import Foundation
 
 final class ShopConfigurator {
-    func setupViewController(with player: Player) -> ShopViewController {
-        let view = ShopViewController(player: player)
+    static func setupViewController(with realm: RealmRepositorable) -> ShopViewController {
+        let view = ShopViewController()
         let presenter = ShopPresenter()
-        let interactor = ShopInteractor()
+        let interactor = ShopInteractor(database: realm)
         let router = ShopRouter()
 
         view.presenter = presenter
