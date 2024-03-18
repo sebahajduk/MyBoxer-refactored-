@@ -27,7 +27,10 @@ extension HomePresenter: ViewToPresenterHomeModuleCommunicator {
     }
 
     func detailsButtonTapped(_ navigationController: UINavigationController) {
-        router?.presentDetails(navigationController)
+        guard 
+            let player = interactor?.getPlayerObject()
+        else { return }
+        router?.presentDetails(navigationController, player: player)
     }
 
     func trainingButtonTapped(_ navigationController: UINavigationController) {

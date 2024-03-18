@@ -8,11 +8,16 @@
 import UIKit
 
 final class HomeRouter: PresenterToRouterHomeModuleCommunicator {
-    func presentDetails(_ navigationController: UINavigationController) {
+    func presentDetails(
+        _ navigationController: UINavigationController,
+        player: Player
+    ) {
         let detailVC = PlayerDetailsViewController()
 
         detailVC.modalPresentationStyle = .overFullScreen
         detailVC.modalTransitionStyle = .crossDissolve
+
+        detailVC.player = player
 
         navigationController.present(detailVC, animated: true)
     }
