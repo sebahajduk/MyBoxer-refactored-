@@ -38,7 +38,10 @@ protocol PresenterToInteractorHomeModuleCommunicator {
 }
 
 protocol PresenterToRouterHomeModuleCommunicator {
-    func presentDetails(_ navigationController: UINavigationController)
+    func presentDetails(
+        _ navigationController: UINavigationController,
+        player: Player
+    )
     func pushRank(_ navigationController: UINavigationController)
     func pushTraining(
         _ navigationController: UINavigationController,

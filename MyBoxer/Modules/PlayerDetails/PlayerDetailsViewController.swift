@@ -16,6 +16,7 @@ class PlayerDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        setupPlayerDetails()
     }
 
     private func setupView() {
@@ -26,8 +27,8 @@ class PlayerDetailsViewController: UIViewController {
         setupButtons()
     }
 
-    func setupPlayer(_ player: Player) {
-        self.player = player
+    func setupPlayerDetails() {
+
         playerDetailsView.statView.set(boxer: player)
 
         let playerWins = player.record["Wins"] ?? 0
