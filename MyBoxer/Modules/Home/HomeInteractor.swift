@@ -24,13 +24,13 @@ final class HomeInteractor {
         realm = database
         player = realm.getPlayer()
 
-        notificationToken = player.observe { [weak self] changes in
+notificationToken = player.observe { [weak self] changes in
             guard let self else { return }
-            
             switch changes {
             case .error:
                 print("Error")
             case .change:
+
                 let playerChangeDependencies = getHomeDependencies()
 
                 presenter?.playerLoaded(with: playerChangeDependencies)
